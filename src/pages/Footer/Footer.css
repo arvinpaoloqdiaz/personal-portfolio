@@ -1,0 +1,11 @@
+.footer span{
+	display: flex;
+	justify-content: center;
+	gap:1rem;
+}
+.footer__container{
+	background:var(--main-black);
+	color:var(--main-white);
+	position: sticky;
+	top:100%;
+}

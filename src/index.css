@@ -1,0 +1,38 @@
+/*Google Font*/
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&family=Merriweather:wght@400;700;900&family=Montserrat:wght@400;500;700;900&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&family=Varela+Round&display=swap');
+
+/*CSS Reset*/
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+html{
+  scroll-behavior: smooth;
+}
+:root{
+  --main-white:#ebebeb;
+  --light-green:#B2FF66;
+  --dark-green:#28a745;
+  --light-purple:#b366ff;
+  --dark-purple:#701a5a;
+  --main-black:#232323;
+  --secondary-black:#565656;
+  --border-radius:20px;
+  --title-font:"Merriweather", sans-serif;
+  --text-font:"Varela Round", sans-serif;
+}
+body{
+  background-color: var(--main-white) !important;  
+}
+h1{
+	font-family: var(--title-font);
+}
+section{
+  min-height: 100vh;
+  display:grid;
+  place-content: center;
+}
+.text-accent{
+  color:var(--main-white);
+}

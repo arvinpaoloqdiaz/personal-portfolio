@@ -1,0 +1,59 @@
+span a {
+	text-decoration: none;
+	font-size: 2rem;
+	position: relative;
+}
+span a div:nth-child(1):hover{
+	transform: scale(1.2) translateY(-10px);
+}
+span:nth-child(odd) a div:nth-child(2) {
+	display: block;
+	color:var(--main-white);
+	font-size: 1rem;
+	position: absolute;
+	display: none;	
+	top:48px;
+	right:-25px;
+	
+}
+span:nth-child(even) a div:nth-child(2){
+	display: block;
+	color:var(--main-white);
+	font-size: 1rem;
+	position: absolute;
+	display: none;	
+	top:48px;
+	right:-10px;
+}
+span a div:nth-child(1):hover + div{
+	display: block;
+	top:27px;
+}
+.socials-bar{
+	background-color:var(--main-black);
+	padding-block:0.25rem;
+	margin-block:1rem;
+	
+	justify-content:space-evenly;
+}
+.linkedin{
+	color: #0077B5;
+}
+.google{
+	color: #db4a39;;
+}
+.codepen{
+	color: #fff;
+}
+.github{
+	color: rgb(64, 120, 192);
+}
+.socials__home{
+	display: flex;
+	justify-content: center;
+}
+.socials__border{
+	border-radius: 20px;
+	border:2px dotted var(--light-green);
+	width:75%;
+}

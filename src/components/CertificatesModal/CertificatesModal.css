@@ -1,0 +1,31 @@
+.modal-90w .modal-content{
+	width:100%;
+}
+.modal__title{
+	color:var(--light-purple) !important;
+}
+.cert__item a{
+	text-decoration: none;
+	color:var(--dark-green);
+	font-size: 1.1rem;
+}
+.cert__item a:hover{
+	text-decoration: underline;
+
+}
+.cert__item div{
+	color:var(--secondary-black);
+}
+.cert__item div span{
+	color:var(--main-black);
+}
+
+.modal__button{
+	all:unset! important;
+	color:var(--secondary-black) !important;
+}
+.modal__button:hover,.modal__button:active{
+	text-decoration: underline !important;
+	text-decoration-color: var(--light-green) !important;
+	color:var(--main-black) !important;
+}

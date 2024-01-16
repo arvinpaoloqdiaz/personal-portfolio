@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>HTML Attributes and Links</title>
+	</head>
+	<body>
+
+		<h2>HTML Attributes</h2>
+		<p align="center"><em>Modifiers of element behaviors</em></p>
+
+		<h2>HTML Images</h2>
+
+		<p align="right">
+			<em>
+				An image can be shown using &lt;img&gt; tag along with its <strong>src</strong> attribute.
+			</em>
+		</p>
+
+		<!-- adds image using absolute linking -->
+		<!-- made an image into a hyperlink -->
+		<a href="https://placekitten.com">
+			<img src="https://placekitten.com/300/300">
+		</a>
+
+		<p>
+			<code>
+				&lt;img src="https://placekitten.com/300/300"&gt;
+			</code>
+		</p>
+
+		<!-- adds an image using relative linking -->
+		<!-- made an image into a hyperlink -->
+		<a href="https://zuitt.co" target="_blank">
+			<img src="./images/zuittlogo.png">
+		</a>
+
+		<p>
+			<code>
+				&lt;img src="./images/zuittlogo.png"&gt;
+			</code>
+		</p>
+
+		<p>Valid image extensions are the following: </p>
+
+		<ol type="I" reversed>
+			<li>png</li>
+			<li>jpg</li>
+			<li>gif</li>
+			<li>svg</li>
+			<li>webp</li>
+		</ol>
+
+		<p>Take a look at w3school attribute references <a href="https://www.w3schools.com/tags/ref_attributes.asp" target="_blank">here</a>.</p>
+
+		<h2>HTML Links</h2>
+
+		<h4>Absolute Link</h4>
+
+		<!-- creates a hyperlink element that redirects to a different page -->
+
+		<a href="http://zuitt.co">I'm a hyperlink!</a>
+
+		<h4>Relative Link</h4>
+
+		<!-- Redirects to the link.html file -->
+
+		<p>Go to <a href="./link.html">link.html</a> page.</p>
+
+		<!-- Redirects to the HTML element with the top id attribute -->
+
+		<p>Go to <a href="#top">top</a></p>
+		
+	</body>
+</html>

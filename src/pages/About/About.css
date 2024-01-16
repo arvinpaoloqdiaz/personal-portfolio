@@ -1,0 +1,55 @@
+#About{
+	min-height: 100vh;
+	padding-top:5rem;
+}
+.custom-quote{
+	color:rgba(0,0,0,0.5);
+	border-right:25px solid rgba(0,0,0,0.1) !important;
+}
+
+.grad-img{
+	border: 5px solid var(--dark-green);
+	border-radius:50%;
+}
+.qualifications__tab span button {
+	border: none;
+	background: transparent;
+	padding:0.5rem 1rem;
+	transition: 0.5s;
+
+}
+.qualifications__tab{
+	display: flex;
+	justify-content: center;
+	gap:1rem;
+	text-align: center;
+	margin-block:3rem;
+}
+
+.qualifications__tab span{
+	width: 150px;
+
+}
+.qualifications__tab button {
+	color: var(--secondary-black);
+}
+
+.qualifications__tab button:hover{
+	color:var(--main-black);
+}
+
+.qualifications__icon{
+	opacity: 0;
+}
+.qualifications__active button .qualifications__icon{
+	opacity:1;
+	transition: opacity 1s;
+}
+.qualifications__active button{
+	color:var(--main-black);
+/*	border: 1px solid var(--secondary-black) !important;*/
+	border-radius: 20px;
+	box-shadow: inset 6px 6px 15px 0 rgba(0, 0, 0, 0.2),
+	   inset -6px -6px 10px 0 var(--main-white);
+	transition: 0.5s;
+}
