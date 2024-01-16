@@ -3,8 +3,8 @@ import {Container, Row, Col} from "react-bootstrap";
 import Socials from "../../components/Socials/Socials.js";
 export default function Footer(){
 	return(
-		<div className="footer__page">
-		<Container className="footer__container mt-5 pt-4 pb-1 px-5" fluid>
+		<div className="footer__page" id="Footer">
+		<Container className="footer__container mt-5 pt-4 pb-1 px-5" fluid >
 		<Row>
 		<Col>
 			<h4>About Me</h4>

@@ -8,4 +8,8 @@
 	color:var(--main-white);
 	position: sticky;
 	top:100%;
+
+}
+.footer__page{
+	min-height: 100vh;
 }

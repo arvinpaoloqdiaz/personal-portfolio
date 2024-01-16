@@ -26,10 +26,6 @@ const components = [
   {
     pageId:"Resources",
     component:<Resources/>
-  },
-  {
-    pageId:"Footer",
-    component:<Footer/>
   }
   ];
 
@@ -54,6 +50,7 @@ function App() {
     <Navbar/>
     <main>
       {Pages}
+      <Footer/>
     </main>
     </>
   );
