@@ -20,7 +20,7 @@ export default function Education(){
 				<div></div>
 				<div key={index} className={"qualifications__width " + (isOdd(index) ? "qualifications__left" : "qualifications__right")} myValue={`${index+1}`}>
 					<div className={"qualifications__container "+(isOdd(index)? "container__left":"container__right")}>
-					<p>{entry.title}</p>
+					<p className="fw-bold">{entry.title}</p>
 					<p>{entry.subtitle}</p>
 					<p><FontAwesomeIcon icon={faCalendar} /> {entry.date}</p>
 					</div>

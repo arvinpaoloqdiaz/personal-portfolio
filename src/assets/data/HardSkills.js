@@ -16,7 +16,8 @@ const HardSkills = [
 		"Bootstrap",
 		"Wireframes",
 		"Prototyping",
-		"Mockups"
+		"Mockups",
+		"PHP"
 		]
 	},
 	{
@@ -37,7 +38,8 @@ const HardSkills = [
 		"HTML DOM",
 		"API w/ Fetch",
 		"SDLC",
-		"Trello"
+		"Trello",
+		"Laravel"
 		]
 	},
 	{

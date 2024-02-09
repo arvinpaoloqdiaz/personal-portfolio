@@ -10,6 +10,9 @@
 .grad-img{
 	border: 5px solid var(--dark-green);
 	border-radius:50%;
+	background: white;
+	box-shadow: inset 3px 2px 5px rgba(0,0,0,0.4);
+
 }
 .qualifications__tab span button {
 	border: none;

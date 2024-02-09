@@ -33,6 +33,27 @@ const CertificatesList = [
 		date:"Dec 2023",
 		credential_id:"DPC-0383-0008",
 		link:"https://share.zertify.zuitt.co/certificate/875d385b-8b93-4641-9a74-2aa80690fdc2/"
+	},
+	{
+		title:"Certificate of Completion - Introduction to MySQL",
+		from:"Zuitt Coding Bootcamp",
+		date:"Jan 2024",
+		credential_id:"DPC-0374-0008",
+		link:"http://share.zertify.zuitt.co/certificate/4c664a8c-bcd3-4c02-a628-b1db39013689"
+	},
+	{
+		title:"Certificate of Completion - Introduction to PHP",
+		from:"Zuitt Coding Bootcamp",
+		date:"Jan 2024",
+		credential_id:"DPC-0375-0008",
+		link:"https://share.zertify.zuitt.co/certificate/402ad474-16c2-49eb-a701-94b7740e1d99/"
+	},
+	{
+		title:"Certificate of Completion - Introduction to Laravel",
+		from:"Zuitt Coding Bootcamp",
+		date:"Jan 2024",
+		credential_id:"DPC-0376-0008",
+		link:"https://share.zertify.zuitt.co/certificate/a44b9fe6-b790-4b69-b71c-a80bc5c90458/"
 	}
 
 ]

@@ -13,6 +13,26 @@ const EducationList = [
 		title:"Zuitt Bootcamp",
 		subtitle:"Unit Testing",
 		date:"Dec 11, 2023 - Dec 14, 2023"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to MySQL",
+		date:"Jan 08, 2024 - Jan 12, 2024"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to PHP",
+		date:"Jan 15, 2024 - Jan 19, 2024"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to Laravel",
+		date:"Jan 22, 2024 - Jan 26, 2024"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to JS OOP",
+		date:"Feb 5, 2024 - Feb 8, 2024"
 	}
 ]
 

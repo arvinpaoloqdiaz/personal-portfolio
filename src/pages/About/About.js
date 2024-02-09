@@ -49,12 +49,12 @@ export default function About(){
 						    Rick Sanchez <cite title="Series Title">in Rick & Morty</cite>
 						  </figcaption>
 					</Row>
-					<Row xs={{order:3,span:12}} className="mt-4">
+					<Row xs={{order:3,span:12}} className="mt-4 d-flex justify-content-center justify-content-md-start">
 						<a href={cv} download="Arvin Paolo Diaz - Resume" className="btn btn-accent mx-3 w-50">My Resume <FontAwesomeIcon icon={faDownload}/></a>
 					</Row>
 				</Col>
 				<Col xs={{order:1,span:12}} md={{order:2,span:6}}>
-					<img src={grad} className=" grad-img img-fluid"/>
+					<img src={grad} className=" grad-img img-fluid img-animate"/>
 				</Col>
 			</Row>
 			<Row className="mt-5">

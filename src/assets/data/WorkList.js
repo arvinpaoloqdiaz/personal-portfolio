@@ -7,7 +7,7 @@ const WorkList = [
 	{
 		company:"Zuitt Coding Bootcamp",
 		position:"Student",
-		date:"Oct 2023- Dec 2023"
+		date:"Oct 2023- Jan 2024"
 	}
 ]
 

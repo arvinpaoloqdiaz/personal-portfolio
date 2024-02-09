@@ -9,7 +9,7 @@ import Resources from "./pages/Resources/Resources.js";
 import Footer from "./pages/Footer/Footer.js";
 import Page from "./components/Page/Page.js";
 
-import {useState, useEffect} from "react";
+import {useState, useEffect, useCallback, useRef} from "react";
 const components = [
   {
     pageId:"Home",
@@ -30,26 +30,37 @@ const components = [
   ];
 
 function App() {
-
-  const [Pages,setPages] =useState("");
-
-  useEffect(()=>{
-   
-    let pageArr = components.map((component, index) => {
-      return (
-        <Page pageId={component.pageId} component={component.component} key={index}/>
-      )
-    } )
-    setPages(pageArr);
-
-    
-  },[])
-
+   const sectionsRef = useRef([]);
+    const [visibleSection, setVisibleSection] = useState("Home");
+     useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        setVisibleSection(entry.target.getAttribute("id"));
+      }
+    });
+    });
+    // const targetSections = document.querySelectorAll("section");
+    sectionsRef.current.forEach((section) => {
+      observer.observe(section);
+    });
+  }, []);
+   const refCallback = useCallback((element) => {
+      if (element) {
+        sectionsRef.current.push(element);
+        console.log(visibleSection)
+      }
+    }, [visibleSection]);
+  
   return (
     <>
-    <Navbar/>
+    <Navbar activeSection={visibleSection} />
     <main>
-      {Pages}
+      {components.map((component, index) => {
+      return (
+        <Page pageId={component.pageId} component={component.component} key={index} refCallback={refCallback}/>
+      )
+      } )}
       <Footer/>
     </main>
     </>

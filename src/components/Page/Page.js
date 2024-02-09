@@ -1,8 +1,8 @@
 import "./Page.css";
 
-export default function Page({pageId, component}){
+export default function Page({pageId, component, refCallback}){
 	return(
-		<section id={pageId}>
+		<section id={pageId} ref={refCallback}>
 			{component}
 		</section>
 	)

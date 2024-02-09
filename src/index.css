@@ -34,3 +34,21 @@ section{
 .text-accent{
   color:var(--main-white);
 }
+
+@keyframes blob {
+  0% ,100% {
+    border-radius: 30% 80% 40% 70% / 60% 40% 70% 30%;
+  }
+  25% {
+    border-radius: 70% 40% 60% 30% / 40% 60% 30% 70%;
+  }
+  50% {
+    border-radius: 40% 60% 30% 80% / 70% 30% 60% 50%;
+  }
+  75% {
+    border-radius: 60% 50% 70% 40% / 30% 50% 40% 80%;
+  }
+}
+.img-animate{
+  animation: blob 10s ease-in-out infinite;
+}

@@ -20,7 +20,7 @@ export default function Work(){
 				<div></div>
 				<div key={index} className={"qualifications__width " + (isOdd(index) ? "qualifications__left" : "qualifications__right")} myValue={`${index+1}`}>
 					<div className={"qualifications__container "+(isOdd(index)? "container__left":"container__right")}>
-					<p>{entry.company}</p>
+					<p className="fw-bold">{entry.company}</p>
 					<p>{entry.position}</p>
 					<p><FontAwesomeIcon icon={faCalendar} /> {entry.date}</p>
 					</div>
