@@ -54,7 +54,28 @@ const CertificatesList = [
 		date:"Jan 2024",
 		credential_id:"DPC-0376-0008",
 		link:"https://share.zertify.zuitt.co/certificate/a44b9fe6-b790-4b69-b71c-a80bc5c90458/"
-	}
+	},
+	{
+		title:"Certificate of Completion - Introduction to JS OOP",
+		from:"Zuitt Coding Bootcamp",
+		date:"Feb 2024",
+		credential_id:"DPC-0395-0002",
+		link:"https://share.zertify.zuitt.co/certificate/696bebdc-4ec6-4552-80fb-f02f7c9ce76a/"
+	},
+	{
+		title:"Certificate of Completion - Advanced JS OOP",
+		from:"Zuitt Coding Bootcamp",
+		date:"Feb 2024",
+		credential_id:"DPC-0396-0002",
+		link:"https://share.zertify.zuitt.co/certificate/7429530e-2f97-4c9c-99f0-a5557ea99d6d/"
+	},
+	{
+		title:"Certificate of Completion - Intro to Java",
+		from:"Zuitt Coding Bootcamp",
+		date:"Feb 2024",
+		credential_id:"DPC-0405-0007",
+		link:"https://share.zertify.zuitt.co/certificate/53a5dd2b-a835-449f-b7d8-33170285bb4f/"
+	},
 
 ]
 

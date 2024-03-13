@@ -33,7 +33,22 @@ const EducationList = [
 		title:"Zuitt Bootcamp",
 		subtitle:"Intro to JS OOP",
 		date:"Feb 5, 2024 - Feb 8, 2024"
-	}
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Advanced JS OOP",
+		date:"Feb 12, 2024 - Feb 16, 2024"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to Java",
+		date:"Feb 26, 2024 - Mar 1, 2024"
+	},
+	{
+		title:"Zuitt Bootcamp",
+		subtitle:"Intro to Springboot",
+		date:"Mar 4, 2024 - Mar 8, 2024"
+	},
 ]
 
 export default EducationList;
