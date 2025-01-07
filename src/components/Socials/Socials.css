@@ -5,6 +5,10 @@ span a {
 }
 span a div:nth-child(1):hover{
 	transform: scale(1.2) translateY(-10px);
+	transition: 0.5s;
+}
+span a div:nth-child(1){
+	transition: 0.5s;
 }
 span:nth-child(odd) a div:nth-child(2) {
 	display: block;
@@ -28,6 +32,7 @@ span:nth-child(even) a div:nth-child(2){
 span a div:nth-child(1):hover + div{
 	display: block;
 	top:27px;
+	transition:1s;
 }
 .socials-bar{
 	background-color:var(--main-black);

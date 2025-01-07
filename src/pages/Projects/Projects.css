@@ -7,13 +7,18 @@
 .projects__card:hover{
 	transform: scale(1.05);
 	filter:drop-shadow(10px 10px 5px rgba(0,0,0,0.2));
+	transition: 1s;
 }
 .projects__image__container .projects__description{
+	opacity: 0;
+	visibility: hidden;
 	display:none;
 	top:0;
 	text-align: justify;
 }
 .projects__image__container:hover .projects__description{
+	opacity: 1;
+	visibility: visible;
 	display:flex;
 	position: absolute;
 	top:17%;
@@ -22,7 +27,7 @@
 	background-color: rgba(0,0,0,0.5);
 	color:var(--main-white);
 	min-height:200px ;
-	transition: 1s;
+	transition: 1s !important;
 }
 .projects__image{
 	min-height:200px;

@@ -22,10 +22,6 @@ const components = [
   {
     pageId:"Projects",
     component:<Projects/>
-  },
-  {
-    pageId:"Resources",
-    component:<Resources/>
   }
   ];
 

@@ -16,8 +16,8 @@ export default function Navbar({activeSection}){
 		      <li ><a href="#Home" className={(isActive === "Home")?"active":""}><span className="nav__item">Home</span><FontAwesomeIcon icon={faHouse} className="nav__icon"/></a></li>
 		      <li ><a href="#About" className={(isActive === "About")?"active":""}><span className="nav__item">About</span><FontAwesomeIcon icon={faUser} className="nav__icon"/></a></li>
 		      <li ><a href="#Projects" className={(isActive === "Projects")?"active":""}><span className="nav__item">Projects</span><FontAwesomeIcon icon={faClipboard} className="nav__icon"/></a></li>
-		      <li ><a href="#Resources" className={(isActive === "Resources")?"active":""}><span className="nav__item">Resources</span><FontAwesomeIcon icon={faScrewdriverWrench} className="nav__icon"/></a></li>
-		      <li ><a href="#Footer" ><span className="nav__item">Contacts</span><FontAwesomeIcon icon={faAddressBook} className="nav__icon"/></a></li>
+		      {/*<li ><a href="#Resources" className={(isActive === "Resources")?"active":""}><span className="nav__item">Resources</span><FontAwesomeIcon icon={faScrewdriverWrench} className="nav__icon"/></a></li>*/}
+		      {/*<li ><a href="#Footer" ><span className="nav__item">Contacts</span><FontAwesomeIcon icon={faAddressBook} className="nav__icon"/></a></li>*/}
 		    </ul>
 		</nav>
 	)

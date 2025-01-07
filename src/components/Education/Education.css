@@ -97,9 +97,10 @@
   }
   .qualifications__left::before{
   	content: attr(myValue);
-  	font-size: 7rem;
+  	font-size: 4rem;
   	position: absolute;
   	top:0;
+  	transform: translateY(25%);
   	right:3%;
   	font-family: "Impact",sans-serif;
   	color:var(--main-white);
@@ -111,9 +112,10 @@
   }
   .qualifications__right::before{
   	content: attr(myValue);
-  	font-size: 7rem;
+  	font-size: 4rem;
   	position: absolute;
   	top:0;
+  	transform: translateY(25%);
   	left:3%;
   	font-family: "Impact",sans-serif;
   	color:var(--main-white);

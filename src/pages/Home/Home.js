@@ -14,7 +14,7 @@ export default function Home(){
 	let dateNow = new Date();
 	let elapsedMonth = dateNow.getMonth() - dateStarted.getMonth();
 	if(elapsedMonth <= 0){
-		elapsedMonth= 12 + elapsedMonth;
+		elapsedMonth= 24 + elapsedMonth;
 	}
 	return(
 		<Container>
@@ -60,10 +60,10 @@ export default function Home(){
 					</div>
 				</Col>
 				<Col xs={12} lg={6} className="align-self-center">
-					<p className="h4">Hello! I'm <strong className="text-main">Arvin</strong>. I'm a Web Developer based in the Philippines. I'm very <em>passionate</em> and <em>driven</em> when it comes to my work.</p>
+					<p className="h4">Hello! I'm <strong className="text-main">Arvin</strong>. I'm a Web Developer based in the <strong>Philippines</strong>. I'm very <em>passionate</em> and <em>driven</em> when it comes to my work.</p>
 					<Row className="mt-3">
 						<Col xs={12} md={4}>
-							<SmallCard title={"Experience"} icon={faStar} quantity={`~${elapsedMonth}`} subtitle={"months"}/>
+							<SmallCard title={"Experience"} icon={faStar} quantity={`~${Math.floor(elapsedMonth/12)} year ${elapsedMonth%12} months`}/>
 						</Col>
 						<Col xs={12} md={4}>
 							<SmallCard title={<a href="#Projects" className="home__link">Projects</a>} icon={faDiagramProject} quantity={ProjectList.length} subtitle={"deployed"}/>

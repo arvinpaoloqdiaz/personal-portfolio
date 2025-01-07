@@ -21,6 +21,8 @@ html{
   --border-radius:20px;
   --title-font:"Merriweather", sans-serif;
   --text-font:"Varela Round", sans-serif;
+  --carousel-item-width:100px;
+  --carousel-item-height:100px;
 }
 body{
   background-color: var(--main-white) !important;  
