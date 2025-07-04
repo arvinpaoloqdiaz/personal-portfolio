@@ -1,5 +1,5 @@
 import "./Home.css";
-import me from "../../assets/images/no-background.png";
+import me from "../../assets/images/Arvin-updated.png";
 import Socials from "../../components/Socials/Socials.js";
 import SmallCard from "../../components/SmallCard/SmallCard.js";
 import {Row, Col, Container} from "react-bootstrap";
