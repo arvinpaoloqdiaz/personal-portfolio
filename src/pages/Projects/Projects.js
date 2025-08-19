@@ -23,8 +23,8 @@ export default function Projects(){
 					<p className="projects__description">{entry.description}</p>
 					</div>
 					<div className="projects__btn">
-					<a href={entry.button_link} target="_blank" className="projects__btn__project">Project</a>
-					<a href={entry.repo_link} target="_blank" className="projects__btn__repo">Repository</a>
+					<a href={entry.button_link} target="_blank" className="projects__btn__project" rel="noreferrer">Project</a>
+					<a href={entry.repo_link} target="_blank" className="projects__btn__repo" rel="noreferrer">Repository</a>
 					</div>
 					</div>
 				</Col>

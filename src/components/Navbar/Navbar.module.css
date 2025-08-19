@@ -1,0 +1,185 @@
+/* Global text */
+* {
+  font-family: var(--text-font);
+}
+
+/* Default navbar (at top) */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  padding: 0.5rem 1.75rem;
+  backdrop-filter: blur(10px);
+  background: transparent;
+
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+/* Pill state when scrolled */
+.navbar.pill {
+  position: fixed !important;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  overflow: hidden; /* keeps pill shape */
+  gap: 0;
+  padding: 0;
+}
+
+/* Logo inside pill */
+.navbar .nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  background: linear-gradient(
+    135deg,
+    #000000 20%,
+    #1a1a1a 40%,
+    rgba(49, 49, 49, 0.623) 50%, /* bright highlight */
+    #1a1a1a 60%,
+    #000000 80%
+  );
+  background-size: 200% 200%;
+  animation: shine 6s ease infinite;
+  border-radius:999px;
+}
+.navbar.pill .nav-logo{
+    border-radius:999px 0 0 999px;
+}
+@keyframes shine {
+  0% { background-position: 200% 50%; }
+  100% { background-position: -200% 50%; }
+}
+
+.navbar .nav-logo a {
+  text-decoration: none;
+  color: var(--main-white);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.navbar .nav-logo a span:nth-child(2) {
+  color: var(--light-green);
+  margin-left: 2px;
+}
+
+/* Nav list */
+.nav-list {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  filter: drop-shadow(0px 0px 1px var(--main-white));
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  position: relative;
+}
+
+/* Links styled like before */
+.navbar ul li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1.2rem;
+  text-decoration: none;
+  color: var(--main-black);
+  font-weight: bold;
+  font-family: "Montserrat", sans-serif;
+  transition: background 0.2s ease;
+}
+
+/* Remove hover underline completely */
+.navbar ul li:after {
+  display: none;
+}
+
+/* Active underline */
+.active:after {
+  content: "";
+  transform: scaleX(1);
+  transform-origin: bottom left;
+  position: absolute;
+  width: 100%;
+  height: 1.5px;
+  bottom: 4px;
+  left: 0;
+  background-color: var(--main-black);
+  transition: transform 0.25s ease-out;
+}
+
+/* Round out the last item */
+.navbar.pill .nav-list li:last-child a {
+  border-radius: 0 999px 999px 0;
+}
+
+/* Icons */
+.nav__icon {
+  display: none;
+}
+
+/* Responsive (mobile top nav as pill) */
+@media screen and (max-width: 767px) {
+  .navbar,
+  .navbar.pill {
+    position: fixed !important;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    padding: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    justify-content: center;
+  }
+
+  .nav__icon {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 2px;
+    padding:0 0.5rem;
+  }
+    .navbar .nav-logo{
+        border-radius:999px 0 0 999px;
+    }
+  .navbar ul {
+    gap: 1.5rem;
+  }
+
+  .navbar ul li a {
+    flex-direction: column; /* stack icon and text */
+    padding: 0.4rem 0.6rem;
+    font-size: 12px; /* smaller labels */
+    font-weight: 600;
+  }
+
+  .nav__item {
+    display: none;
+  }
+
+  /* Logo stays inline with other items */
+  .nav-logo {
+    position: static;
+    transform: none;
+    border-radius: 999px;
+    margin: 0;
+    background: linear-gradient(135deg, #000000, #1a1a1a, #000000, #2a2a2a, #000000);
+    background-size: 200% 200%;
+    animation: shine 6s ease infinite;
+  }
+}

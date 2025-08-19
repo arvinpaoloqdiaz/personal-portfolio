@@ -13,13 +13,7 @@ const WorkList = [
     company:
       "Department of Science and Technology - Philippine Textile Research Institute",
     position: "Project Technical Assistant IV",
-    date: "Oct 2024- Dec 2024",
-  },
-  {
-    company:
-      "Department of Science and Technology - Philippine Textile Research Institute",
-    position: "Project Technical Assistant IV",
-    date: "Jan 2025- Jun 2025",
+    date: "Oct 2024- Jun 2025",
   },
   {
     company: "Searix",

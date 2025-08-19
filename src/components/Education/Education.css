@@ -43,13 +43,15 @@
 .children:nth-last-child(1) .qualifications__width {
   border: none;
 }
+
 .container__right,
 .container__left {
   border: 2px dashed var(--main-black);
   border-radius: 10px;
   position: relative;
-  width: fit-content;
+  width: 60%;
   padding: 1rem;
+  
 }
 .container__right:hover,
 .container__left:hover {
