@@ -1,50 +1,73 @@
-import "./CertificatesModal.css";
-import {Modal, Button} from "react-bootstrap";
-import {useState, useEffect} from "react";
-import CertificatesList from "../../assets/data/CertificatesList.js";
-export default function CertificatesModal(){
-	const [show,setShow] = useState(false);
-	const [certs,setCerts] = useState("");
+import styles from "./CertificatesModal.module.css";
+import { Modal, Button, Row, Col, Card } from "react-bootstrap";
+import { useState } from "react";
 
-	function getCerts(){
-		let certsArr = CertificatesList.map((entries,index) => {
-			return(
-				<li key={`cert-${index}`} className="cert__item">
-				<a href={entries.link} target="_blank">{entries.title}</a>
-				<div>Issued by <span>{entries.from}</span></div>
-				<div>Issued on <span>{entries.date}</span></div>
-				<div>Credential ID: <span>{entries.credential_id}</span></div>
-				</li>
-			)
-		})
-		setCerts(certsArr);
-	}
-	useEffect(() => {
-		getCerts();
-	},[])
-	return(
-		<>
-			<Button onClick={() => setShow(true)} className="modal__button">
-			Certifications
-			</Button>
+export default function CertificatesModal({certificates}) {
+  const [show, setShow] = useState(false);
 
-			<Modal
-			show={show}
-			onHide={() => setShow(false)}
-			dialogClassName="modal-90w"
-			aria-labelledby="modal-styling-title"
-			>
-			<Modal.Header closeButton>
-			<Modal.Title id="modal-styling-title" className="modal__title">
-			Certifications
-			</Modal.Title>
-			</Modal.Header>
-			<Modal.Body>
-			<ol>
-			{certs}
-			</ol>
-			</Modal.Body>
-			</Modal>
-		</>
-	)
+  return (
+    <>
+      {/* Button to open the modal */}
+      <Button
+        variant="link"
+        onClick={() => setShow(true)}
+        className="btn-text-link-brand"
+      >
+        Certifications
+      </Button>
+
+      {/* Fullscreen Modal */}
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        fullscreen
+        aria-labelledby="modal-styling-title"
+        contentClassName={styles.modalContent}
+      >
+        <Modal.Header
+          closeButton
+          className={`border-bottom-0 text-white ${styles.btnClose}`}
+        />
+
+        <Modal.Body className="p-4">
+          <Row className={`g-3 ${styles.certsGrid}`}>
+            {certificates.length > 0 ? (
+              certificates.map((cert, index) => (
+                <Col key={index} xs={12} sm={6} md={4} lg={3}>
+                  <Card className={`h-100 text-start ${styles.certCard}`}>
+                    <Card.Body>
+                      <Card.Title className="fw-bold">{cert.title}</Card.Title>
+                      <Card.Subtitle className="mb-2 text-muted">
+                        {cert.from}
+                      </Card.Subtitle>
+                      <div>
+                        Issued on: <strong>{cert.date}</strong>
+                      </div>
+                      {cert.credential_id && (
+                        <div>
+                          Credential ID: <strong>{cert.credential_id}</strong>
+                        </div>
+                      )}
+                      {cert.link && (
+                        <a
+                          href={cert.link}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-link-brand"
+                        >
+                          View Credential
+                        </a>
+                      )}
+                    </Card.Body>
+                  </Card>
+                </Col>
+              ))
+            ) : (
+              <p className="text-center">Loading certificates...</p>
+            )}
+          </Row>
+        </Modal.Body>
+      </Modal>
+    </>
+  );
 }

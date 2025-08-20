@@ -2,10 +2,6 @@
 	min-height: 100vh;
 	padding-top:5rem;
 }
-.custom-quote{
-	color:rgba(0,0,0,0.5);
-	border-right:25px solid rgba(0,0,0,0.1) !important;
-}
 
 .grad-img{
 	border: 5px solid var(--dark-green);
@@ -16,8 +12,8 @@
 
 }
 .container-primary{
-	max-width: 800px ;
-	}
+	max-width: 1000px ;
+}
 .qualifications__tab span button {
 	border: none;
 	background: transparent;
@@ -59,29 +55,4 @@
 	box-shadow: inset 6px 6px 15px 0 rgba(0, 0, 0, 0.2),
 	   inset -6px -6px 10px 0 var(--main-white);
 	transition: 0.5s;
-}
-.loading-container{
-	position:absolute;
-	background: var(--main-white);
-	z-index: 101;
-	display: flex;
-	justify-content: center;
-	height:100%;
-	/*opacity: 0.5;
-	border: 1px solid red;*/
-}
-.loading-carousel{
-	position:absolute;
-	background: var(--main-white);
-	z-index: 101;
-	display: flex;
-	justify-content: center;
-	
-}
-.loading-carousel{
-	top:50% !important;
-	transform: translateY(-15%);
-}
-.carousel-container {
-	position:relative;
 }

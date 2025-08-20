@@ -1,11 +1,8 @@
-import './App.css';
-
 // Import Components
 import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
 import Projects from "./pages/Projects/Projects.js";
-import Resources from "./pages/Resources/Resources.js";
 import Footer from "./pages/Footer/Footer.js";
 import Page from "./components/Page/Page.js";
 

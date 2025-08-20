@@ -19,7 +19,7 @@ export default function Footer(){
 			<p>arvinpaoloq.diaz@gmail.com</p>
 			</Row>
 			<Row>
-				<Socials socialsClass={["d-flex justify-content-center justify-content-md-end","gap-4"]}/>
+				<Socials isFooter={true}/>
 			</Row>
 		</Col>
 		</Row>
@@ -27,7 +27,7 @@ export default function Footer(){
 			<span>
 			<span className="d-none d-md-inline">Arvin Paolo Diaz</span>
 			<span className="d-none d-md-inline">|</span>
-			<span>Copyright &copy; 2024</span>
+			<span>Copyright &copy; 2025</span>
 			<span className="d-none d-md-inline">|</span>
 			<span className="d-none d-md-inline">Web Developer</span>
 			</span>

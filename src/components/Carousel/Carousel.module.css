@@ -1,0 +1,104 @@
+
+/* Slider container */
+.slider {
+  width: 100%;
+  height: 135px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* The list of items (flex container) */
+.list {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* space between logos */
+  animation: slide 14s linear infinite;
+}
+
+/* Reverse direction animation */
+.reverse .list {
+  animation: slideReverse 14s linear infinite;
+}
+
+/* Each item in the carousel */
+.item {
+  flex: 0 0 var(--carousel-item-width);
+  height: var(--carousel-item-height);
+  position: relative;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+/* Image inside the item */
+.item img {
+  width: 100%;
+  height: 100%;
+  transform: scale(0.8);
+  transition: transform 0.5s, filter 0.5s;
+  filter: none; /* all colored by default */
+}
+
+/* Hover effect: scale up and drop shadow */
+.item:hover img {
+  transform: scale(1);
+  filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.6));
+  z-index: 10;
+}
+
+/* Pause animation on hover and grayscale others */
+.list:hover {
+  animation-play-state: paused !important;
+}
+
+.list:hover .item:not(:hover) img {
+  filter: grayscale(100%);
+  transform: scale(0.8);
+}
+
+/* Logo title */
+.logoTitle {
+  position: absolute;
+  bottom: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--secondary-black);
+  color: white;
+  font-size: 0.75rem;
+  border-radius: 10px;
+  width: 80px;
+  text-align: center;
+  padding: 2px 5px;
+}
+
+/* Keyframe for forward slide */
+@keyframes slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* adjust based on number of items */
+}
+
+/* Keyframe for reverse slide */
+@keyframes slideReverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+/* Gradient overlay for smooth edges */
+.slider::before,
+.slider::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px; /* width of fade effect */
+  height: 100%;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.slider::before {
+  left: 0;
+  background: linear-gradient(to right, var(--carousel-item-height) 0%, rgba(255, 255, 255, 0) 100%);
+  background: linear-gradient(to right, var(--main-white) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+.slider::after {
+  right: 0;
+  background: linear-gradient(to left, var(--main-white) 0%, rgba(255, 255, 255, 0) 100%);
+}

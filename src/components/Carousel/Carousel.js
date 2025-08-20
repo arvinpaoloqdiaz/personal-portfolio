@@ -1,37 +1,27 @@
 import { useState, useEffect } from "react";
 import { Row } from "react-bootstrap";
-import "./carousel.css";
+import styles from "./Carousel.module.css"; // CSS module import
 
 export default function Carousel({ CarouselData, reverse }) {
   const [entries, setEntries] = useState([]);
-  const [entriesNum, setEntriesNum] = useState(0); // Default to 0 instead of empty string
-  const [isSecond, setIsSecond] = useState(reverse); // Control reverse direction
+  const [entriesNum, setEntriesNum] = useState(0);
 
-  // Function to generate the entries dynamically based on CarouselData
+  // Generate carousel items
   function getEntries() {
     const entriesList = CarouselData.map((entry, index) => {
-      // Dynamically import the image based on the filename
+      // Dynamically import the image
       const imagePath = require(`../../assets/images/logos/${entry.filename}`);
 
-      // Calculate animation delay dynamically based on the index
-      const delay = (14 / CarouselData.length) * index; // Adjust timing as needed
-
       return (
-        <div
-          key={index}
-          className="item"
-          style={{
-            animationDelay: `${delay}s`, // Delay for staggered effect
-          }}
-        >
-         
+        <div key={index} className={styles.item}>
           <img src={imagePath} alt={entry.title} />
-          <div className="logo-title">{entry.title}</div>
+          <div className={styles.logoTitle}>{entry.title}</div>
         </div>
       );
     });
+
     setEntries(entriesList);
-    setEntriesNum(CarouselData.length); // Set the number of entries
+    setEntriesNum(CarouselData.length);
   }
 
   useEffect(() => {
@@ -39,15 +29,16 @@ export default function Carousel({ CarouselData, reverse }) {
   }, [CarouselData]);
 
   return (
-    <Row>
-      <div className={`slider ${isSecond ? 'reverse' : ''}`}> {/* Conditionally apply 'reverse' class */}
+    <Row className="m-0 p-0">
+      <div className={`${styles.slider} ${reverse ? styles.reverse : ""} m-0 p-0`}>
         <div
-          className="list"
+          className={styles.list}
           style={{
-            minWidth: `calc(var(--carousel-item-width) * ${entriesNum})`, // Set the width dynamically based on entriesNum
+            minWidth: `calc(var(--carousel-item-width) * ${entriesNum * 2} + 20px * ${entriesNum * 2})`, // duplicate width for seamless scroll
           }}
         >
           {entries}
+          {entries} {/* Duplicate items for infinite loop */}
         </div>
       </div>
     </Row>

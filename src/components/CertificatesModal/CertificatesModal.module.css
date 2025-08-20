@@ -1,0 +1,55 @@
+/* CertificatesModal.module.css */
+.modalContent {
+  background: transparent !important;
+  box-shadow: none;
+  border: none;
+}
+
+
+/* Close button white */
+.btnClose {
+  filter: invert(1); /* Invert color to white */
+  opacity: 1;        /* Ensure it's fully visible */
+}
+
+.btnClose:hover {
+  filter: invert(1) brightness(1.2); /* Slightly brighter on hover */
+}
+
+/* Individual card */
+.certCard {
+  background-color: var(--main-white); /* or any brand color you like */
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease !important;
+}
+
+/* Hover-focus + blur effect */
+.certsGrid:has(.certCard:hover) .certCard {
+  filter: blur(3px); /* blur all cards initially */
+  transform: scale(1); /* reset scale for all cards */
+}
+
+.certsGrid .certCard:hover {
+  transform: scale(1.05) !important; /* enlarge hovered card */
+  filter: blur(0) !important;         /* remove blur from hovered card */
+  z-index: 2 !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15) !important;
+}
+
+/* Links inside card */
+.certCard a {
+  color: var(--green-main);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.certCard a:hover {
+  text-decoration: underline;
+}
+
+/* Info inside card */
+.certCard div {
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}

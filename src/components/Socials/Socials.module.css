@@ -1,0 +1,95 @@
+/* span a {
+	text-decoration: none;
+	font-size: 2rem;
+	position: relative;
+}
+span a div:nth-child(1):hover{
+	transform: scale(1.2) translateY(-10px);
+	transition: 0.5s;
+}
+span a div:nth-child(1){
+	transition: 0.5s;
+}
+span:nth-child(odd) a div:nth-child(2) {
+	display: block;
+	color:var(--main-white);
+	font-size: 1rem;
+	position: absolute;
+	display: none;	
+	top:48px;
+	right:-25px;
+	
+}
+span:nth-child(even) a div:nth-child(2){
+	display: block;
+	color:var(--main-white);
+	font-size: 1rem;
+	position: absolute;
+	display: none;	
+	top:48px;
+	right:-10px;
+}
+span a div:nth-child(1):hover + div{
+	display: block;
+	top:27px;
+	transition:1s;
+} */
+ .socialsLogoContainer:hover .logoLabel{
+    visibility: visible;
+    opacity: 100;
+    font-weight:bold;
+ }
+ .socialsLogoContainer:hover .linkedin,
+  .socialsLogoContainer:hover .google,
+   .socialsLogoContainer:hover .codepen,
+    .socialsLogoContainer:hover .github
+ {
+    transform: translateY(-10px);
+ }
+ .logoLabel{
+    text-decoration: none;
+    transition: opacity 0.5s;
+    visibility: hidden;
+    opacity: 0;    
+    text-align: center;
+ }
+.socials__bar{
+	/* background-color:rgba(var(--green-main-rgb),0.3); */
+	padding-block:0.25rem;
+	margin-block:1rem;
+	
+	justify-content:space-evenly;
+}
+.linkedin,.google,.codepen,.github{
+    transition: 0.5s;
+    aspect-ratio: 1/1;
+    text-decoration: none;
+    /* filter: drop-shadow(0px 0px 2px var(--green-main)); */
+	font-size: 2rem;
+    background-color:rgba(var(--green-main-rgb),0.2);
+    padding:1rem;
+    border-radius: 100%;
+    border:3px solid var(--green-main);
+}
+.linkedin{
+	color: #0077B5;
+}
+.google{
+    
+	color: #db4a39;;
+}
+.codepen{
+	color: #fff;
+}
+.github{
+	color: rgb(64, 120, 192);
+}
+.socials__home{
+	display: flex;
+	justify-content:space-evenly;
+}
+.socials__border{
+	border-radius: 20px;
+	width:75%;
+    padding-block:1rem;
+}

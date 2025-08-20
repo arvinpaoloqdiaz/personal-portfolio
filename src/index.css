@@ -11,23 +11,51 @@ html{
   scroll-behavior: smooth;
 }
 :root{
-  --main-white:#ebebeb;
-  --light-green:#B2FF66;
-  --dark-green:#28a745;
-  --light-purple:#b366ff;
-  --dark-purple:#701a5a;
-  --main-black:#232323;
-  --secondary-black:#565656;
+  
+  --light-green: #a6ff8f;       /* slightly more pastel, less neon */
+  --dark-green: #218838;        /* richer, deeper green for contrast */
+  --light-purple: #c18fff;      /* softer, warmer purple */
+  --dark-purple: #6a1b9a;       /* deeper, elegant purple */
+    --main-white: #f3fdf2;        
+    --main-black: #1e1e1e;        
+    --secondary-black: #4a4a4a;  
+
+  /* Green palette */
+  --green-hover: #218838;
+  --green-light: #a6ff8f;
+  --green-subtle: #89cca4;
+  --green-main: #32b450;
+  --green-active: #196e2d;
+  --green-disabled: #64b478;
+
+  /* RGB raw for alpha usage */
+  --green-main-rgb: 33, 136, 56;
+  --green-light-rgb: 166, 255, 143;
+  --green-subtle-rgb: 50, 100, 70;
+  --green-hover-rgb: 50, 180, 80;
+  --green-active-rgb: 25, 110, 45;
+  --green-disabled-rgb: 100, 180, 120;/* medium gray, pairs well with main-black */
+
   --border-radius:20px;
   --title-font:"Merriweather", sans-serif;
-  --text-font:"Varela Round", sans-serif;
+  --text-font:"Poppins", sans-serif;
   --carousel-item-width:100px;
   --carousel-item-height:100px;
 }
 body{
   background-color: var(--main-white) !important;  
+  
 }
-h1{
+*{
+    font-family: var(--text-font);
+}
+#Home{
+
+	min-height: 100vh;
+	padding-top:5rem;
+	
+}
+h1,h2,h3,h4,h5,h6{
 	font-family: var(--title-font);
 }
 section{
@@ -53,4 +81,146 @@ section{
 }
 .img-animate{
   animation: blob 10s ease-in-out infinite;
+}
+/* -------------------------------
+   Brand Colors Utilities
+---------------------------------*/
+/* Buttons */
+.btn.btn-brand {
+  background-color: var(--green-main);
+  color: var(--main-white) !important;
+  border: 1px solid var(--green-main);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn.btn-brand:hover {
+  background-color: var(--green-hover);
+  border-color: var(--green-hover);
+}
+
+.btn.btn-brand:active {
+  background-color: var(--green-active);
+  border-color: var(--green-active);
+}
+
+.btn.btn-brand:disabled {
+  background-color: var(--green-disabled);
+  border-color: var(--green-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+/* Text */
+.text-brand {
+  color: var(--green-main);
+}
+
+.text-brand-hover:hover {
+  color: var(--green-hover);
+}
+
+.text-brand-active:active {
+  color: var(--green-active);
+}
+
+/* Borders */
+.border-brand {
+  border: 1px solid var(--green-main);
+  border-radius: 4px;
+}
+
+.border-brand-hover:hover {
+  border-color: var(--green-hover);
+}
+
+/* Links */
+.text-link-brand {
+  color: var(--green-main);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-underline-offset: 6px;
+}
+
+.text-link-brand:hover {
+  color: var(--green-hover);
+  text-decoration: underline;
+}
+
+.text-link-brand:active {
+  color: var(--green-active);
+}
+.text-brand-light {
+  color: var(--green-light);
+}
+.btn.btn-link.btn-text-link-brand {
+  color: var(--green-main);
+  text-decoration: none;
+  text-underline-offset: 6px;
+  padding: 0;
+  font: inherit;
+  background: none;
+  border: none;
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+.btn.btn-link.btn-text-link-brand:hover {
+  color: var(--green-hover);
+  text-decoration: underline;
+}
+
+.btn.btn-link.btn-text-link-brand:active {
+  color: var(--green-active);
+}
+
+.btn.btn-link.btn-text-link-brand:disabled {
+  color: var(--green-disabled);
+  cursor: not-allowed;
+  text-decoration: none;
+}
+
+
+/* Main brand background */
+.bg-brand {
+  background-color: var(--green-main);
+  color: var(--main-white); /* ensure text is readable */
+}
+
+/* Lighter version for hover/focus effects */
+.bg-brand-light {
+  background-color: var(--green-light);
+  color: var(--main-black);
+}
+
+/* Subtle / muted version for secondary elements */
+.bg-brand-subtle {
+  background-color: rgba(var(--green-rgb), 0.1); /* very light tint */
+  color: var(--green-main);
+}
+
+/* Hover state for interactive elements */
+.bg-brand-hover:hover {
+  background-color: var(--green-hover);
+}
+
+/* Active state */
+.bg-brand-active:active {
+  background-color: var(--green-active);
+}
+
+/* Disabled state */
+.bg-brand-disabled {
+  background-color: var(--green-disabled);
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+}
+.text-justify{
+    text-align: justify;
+}
+strong{
+    color:var(--green-hover);
+}
+em{
+    color:var(--green-main);
 }
