@@ -93,3 +93,18 @@ span a div:nth-child(1):hover + div{
 	width:75%;
     padding-block:1rem;
 }
+
+/* Smaller size variant for About page */
+.socials__about .linkedin,
+.socials__about .google,
+.socials__about .codepen,
+.socials__about .github {
+    font-size: 1.5rem;
+    padding: 0.75rem;
+    border: 2px solid var(--green-main);
+}
+
+.socials__about .socials__bar {
+    padding-block: 0.15rem;
+    margin-block: 0.5rem;
+}

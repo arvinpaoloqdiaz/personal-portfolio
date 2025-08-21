@@ -1,0 +1,72 @@
+.gradImg{
+	border: 5px solid var(--dark-green);
+	border-radius:50%;
+	background: white;
+	box-shadow: inset 3px 2px 5px rgba(0,0,0,0.4);
+}
+
+.containerPrimary{
+	max-width: 1000px ;
+}
+
+.qualificationsTab span button {
+	border: none;
+	background: transparent;
+	padding:0.5rem 1rem;
+	transition: 0.5s;
+}
+
+.qualificationsTab{
+	display: flex;
+	justify-content: center;
+	gap:1rem;
+	text-align: center;
+	margin-block:3rem;
+}
+
+.qualificationsTab span{
+	width: 150px;
+}
+
+.qualificationsTab button {
+	color: var(--secondary-black);
+}
+
+.qualificationsTab button:hover{
+	color:var(--main-black);
+}
+
+.qualificationsIcon{
+	opacity: 0;
+}
+
+.qualificationsActive button .qualificationsIcon{
+	opacity:1;
+	transition: opacity 1s;
+}
+
+.qualificationsActive button{
+	color:var(--main-black);
+	border-radius: 20px;
+	box-shadow: inset 6px 6px 15px 0 rgba(0, 0, 0, 0.2),
+	   inset -6px -6px 10px 0 var(--main-white);
+	transition: 0.5s;
+}
+
+/* Styling for abbr tag to match portfolio design */
+abbr {
+	font-weight: 600;
+	color: var(--green-main);
+	text-decoration: none !important;
+	border-bottom: 2px dotted var(--dark-green);
+	cursor: help;
+	transition: all 0.3s ease;
+}
+
+abbr:hover {
+	border-bottom-color: var(--main-green);
+	color: var(--green-hover);
+	background-color: rgba(40, 167, 69, 0.1);
+	padding: 2px 4px;
+	border-radius: 4px;
+}

@@ -33,7 +33,7 @@ export default function CertificatesModal({certificates}) {
           <Row className={`g-3 ${styles.certsGrid}`}>
             {certificates.length > 0 ? (
               certificates.map((cert, index) => (
-                <Col key={index} xs={12} sm={6} md={4} lg={3}>
+                <Col key={index} xs={12} sm={6} md={4}>
                   <Card className={`h-100 text-start ${styles.certCard}`}>
                     <Card.Body>
                       <Card.Title className="fw-bold">{cert.title}</Card.Title>

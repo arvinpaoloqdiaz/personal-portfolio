@@ -1,0 +1,148 @@
+.contactContainer {
+  
+  padding-top: 6rem;
+  padding-bottom: 3rem;
+}
+
+.contactTitle {
+  color: var(--main-black);
+  font-family: var(--title-font);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.contactSubtitle {
+  color: var(--secondary-black);
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Contact Form Section */
+.contactFormContainer {
+  background: var(--main-white);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(var(--green-main-rgb), 0.1);
+  box-shadow: 0 4px 20px rgba(var(--green-main-rgb), 0.08);
+}
+
+.contactFormContainer h4 {
+  color: var(--green-main);
+  font-family: var(--title-font);
+  font-weight: 600;
+}
+
+/* Floating Form Labels Styling */
+.formFloating > .form-control,
+.formFloating > .form-control-plaintext {
+  border: 2px solid rgba(var(--green-main-rgb), 0.2);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  background-color: rgba(var(--green-main-rgb), 0.02);
+}
+
+.formFloating > .form-control:focus,
+.formFloating > .form-control-plaintext:focus {
+  border-color: var(--green-main);
+  box-shadow: 0 0 0 0.2rem rgba(var(--green-main-rgb), 0.25);
+  background-color: var(--main-white);
+}
+
+.formFloating > .form-control:focus ~ label,
+.formFloating > .form-control:not(:placeholder-shown) ~ label {
+  color: var(--green-main);
+  font-weight: 500;
+}
+
+.formFloating > label {
+  color: var(--secondary-black);
+  font-weight: 400;
+  padding: 1rem 0.75rem;
+}
+
+/* Textarea specific styling */
+.formFloating > .form-control[style*="height: 120px"] {
+  resize: none;
+}
+
+/* Button Styling */
+.btnBrand {
+  background: linear-gradient(135deg, var(--green-main) 0%, var(--green-hover) 100%);
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(var(--green-main-rgb), 0.3);
+}
+
+.btnBrand:hover {
+  background: linear-gradient(135deg, var(--green-hover) 0%, var(--green-active) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(var(--green-main-rgb), 0.4);
+}
+
+.btnBrand:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 15px rgba(var(--green-main-rgb), 0.3);
+}
+
+.btnBrand:disabled {
+  background: var(--green-disabled);
+  transform: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Alert Styling */
+.alertSuccess {
+  background-color: rgba(var(--green-main-rgb), 0.1);
+  border-color: var(--green-main);
+  color: var(--green-active);
+  border-radius: 12px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .contactContainer {
+    padding-top: 5rem;
+  }
+  
+  .contactFormContainer {
+    padding: 1.5rem;
+  }
+}
+
+/* Animation for form elements */
+.formFloating > .form-control {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover effects for form container */
+.contactFormContainer:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(var(--green-main-rgb), 0.12);
+  transition: all 0.3s ease;
+}
+.charCounter {
+    position: absolute;
+    bottom: 6px;
+    right: 12px;
+    font-size: 0.8rem;
+    color: var(--secondary-black);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  

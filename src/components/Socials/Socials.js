@@ -2,10 +2,10 @@ import styles from "./Socials.module.css";
   import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
   import {faLinkedin, faGoogle, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons';
 
-export default function Socials({isFooter = false}){
+export default function Socials({isFooter = false,isAbout = false}){
 	return(
-		<div className={isFooter?"d-flex justify-content-center justify-content-md-end":styles.socials__home}>
-		<div className={`${styles.socials__bar} d-flex ${isFooter ? "gap-4" : styles.socials__border}`}>
+		<div className={isFooter ? "d-flex justify-content-center justify-content-md-end" : isAbout ? "d-flex justify-content-center justify-content-center" : styles.socials__home}>
+		<div className={`${styles.socials__bar} d-flex ${isFooter || isAbout ? "gap-4" : styles.socials__border}`}>
 		<span className={styles.socialsLogoContainer}>
             <a href="https://www.linkedin.com/in/arvin-paolo-diaz/" target="_blank" rel="noreferrer" className="text-link-brand">
                 <div><FontAwesomeIcon icon={faLinkedin} className={styles.linkedin}/></div>

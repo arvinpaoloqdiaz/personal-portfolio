@@ -23,8 +23,16 @@ export default function Home(){
       .then((data) => setCertificates(data.CertificatesList || []))
       .catch((err) => console.error("Error fetching certificates:", err));
   }, []);
+
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: "smooth" });
+        }
+    };
+
 	return(
-		<Container>
+		<Container className="mt-5">
 			<Row>
 				<Col className="text-center">
 					<h1>Arvin Paolo Diaz</h1>
@@ -62,7 +70,7 @@ export default function Home(){
 			<Row>
 				<Col xs={12} lg={6} className="text-center">
 					<div>
-						<img src={me} className={`${styles.imgShadow} img-fluid rounded-circle`}alt="latest-pic"/>
+						<img src={me} className={`${styles.imgShadow} img-fluid img-animate`}alt="latest-pic"/>
 						
 					</div>
 				</Col>
@@ -108,7 +116,16 @@ export default function Home(){
 
                         {/* CTA */}
                         <Col xs={12} className="text-center mt-5 order-last order-md-3">
-                        <a className="btn btn-brand w-75 py-2 fs-4" href="#About">Get Started</a>
+                            <a 
+                                className="btn btn-brand w-75 py-2 fs-4" 
+                                href="#About"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToSection("About");
+                                }}
+                            >
+                                Get Started
+                            </a>
                         </Col>
                     </Row>
                 </Col>

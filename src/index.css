@@ -49,10 +49,11 @@ body{
 *{
     font-family: var(--text-font);
 }
-#Home{
+
+#Home,#About{
 
 	min-height: 100vh;
-	padding-top:5rem;
+	padding-top:6rem;
 	
 }
 h1,h2,h3,h4,h5,h6{
@@ -223,4 +224,93 @@ strong{
 }
 em{
     color:var(--green-main);
+}
+/* Outline Brand Button */
+.btn.btn-outline-brand {
+  background-color: transparent;
+  color: var(--green-main) !important;
+  border: 2px solid var(--green-main);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border-radius: var(--border-radius);
+  padding: 0.5rem 1.5rem;
+  font-weight: 500;
+}
+
+.btn.btn-outline-brand:hover {
+  background-color: var(--green-main);
+  color: var(--main-white) !important;
+  border-color: var(--green-main);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(var(--green-main-rgb), 0.3);
+}
+
+.btn.btn-outline-brand:active {
+  background-color: var(--green-active);
+  border-color: var(--green-active);
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(var(--green-main-rgb), 0.2);
+}
+
+.btn.btn-outline-brand:disabled {
+  background-color: transparent;
+  color: var(--green-disabled) !important;
+  border-color: var(--green-disabled);
+  cursor: not-allowed;
+  opacity: 0.7;
+  transform: none;
+  box-shadow: none;
+}
+/* ===============================
+   Form Controls - Brand Override
+   =============================== */
+
+/* ===============================
+   Form Controls - Brand Override
+   =============================== */
+
+/* Inputs + Selects */
+.form-control,
+.form-select {
+  /* border: 1px solid var(--secondary-black) !important; */
+  /* border-radius: var(--border-radius) !important; */
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Focus State */
+.form-control:focus,
+.form-select:focus,
+textarea.form-control:focus {
+  border-color: var(--green-main) !important;
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(var(--green-main-rgb), 0.4) !important;
+}
+
+/* Valid State */
+.form-control.is-valid,
+.form-select.is-valid {
+  border-color: var(--green-hover) !important;
+  box-shadow: 0 0 0 0.25rem rgba(var(--green-hover-rgb), 0.35) !important;
+}
+
+/* Invalid State */
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Floating Label Focus */
+.form-floating > .form-control:focus ~ label,
+.form-floating > .form-select:focus ~ label {
+  color: var(--green-main) !important;
+}
+
+/* Button Focus Override */
+.btn:focus,
+.btn:active:focus {
+  box-shadow: 0 0 0 0.25rem rgba(var(--green-main-rgb), 0.4) !important;
+}
+textarea{
+  resize:none !important;
 }
