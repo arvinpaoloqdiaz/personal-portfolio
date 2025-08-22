@@ -7,15 +7,28 @@ import {faDownload, faSchool, faBriefcase } from '@fortawesome/free-solid-svg-ic
 import Carousel from "../../components/Carousel/Carousel.js";
 import Education from "../../components/Education/Education.js";
 import Work from "../../components/Work/Work.js";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function About(){
 	const [carouselData, setCarouselData] = useState({ Carousel1: [], Carousel2: [] });
+	const [workList, setWorkList] = useState([]);
+	const [educationList, setEducationList] = useState([]);
 	const[isEducation, setIsEducation] = useState(false);
 	
 	useEffect(() => {
 		fetch("https://raw.githubusercontent.com/arvinpaoloqdiaz/files/json/CarouselData.json")
         .then((res) => res.json())
         .then((data) => setCarouselData(data))
+        .catch((err) => console.error("Error fetching carousel data:", err));
+
+		fetch("https://raw.githubusercontent.com/arvinpaoloqdiaz/files/json/WorkList.json")
+        .then((res) => res.json())
+        .then((data) => setWorkList(data))
+        .catch((err) => console.error("Error fetching carousel data:", err));
+
+		fetch("https://raw.githubusercontent.com/arvinpaoloqdiaz/files/json/EducationList.json")
+        .then((res) => res.json())
+        .then((data) => setEducationList(data))
         .catch((err) => console.error("Error fetching carousel data:", err));
 	},[])
 	return(
@@ -100,24 +113,70 @@ export default function About(){
 			<Col className="text-center">
 				<hr className="w-25 mx-auto" style={{borderColor: 'var(--green-main)', opacity: 0.3}} />
 			</Col>
-			<Row className={styles.qualificationsTab}>
-				<span className={isEducation ? `h3 ${styles.qualificationsActive}` : "h3"}><button onClick={e => {e.preventDefault(); setIsEducation(true)}}><div className={styles.qualificationsIcon}><FontAwesomeIcon icon={faSchool}/></div><div>Education</div></button></span>
-				<span className={!isEducation ? `h3 ${styles.qualificationsActive}` : "h3"}><button onClick={e => {e.preventDefault(); setIsEducation(false)}}><div className={styles.qualificationsIcon}><FontAwesomeIcon icon={faBriefcase}/></div><div>Work</div></button></span>
+			<Row className="justify-content-center my-4">
+				<div style={{ display: 'flex', alignItems: 'center', gap: '1rem', justifyContent:'center', flexDirection:'column'}}>
+					<div
+						role="button"
+						tabIndex={0}
+						aria-pressed={!isEducation}
+						onClick={() => setIsEducation(!isEducation)}
+						onKeyPress={e => { if (e.key === 'Enter' || e.key === ' ') setIsEducation(!isEducation); }}
+						style={{
+							cursor: 'pointer',
+							width: '7rem',
+							height: '3.5rem',
+							borderRadius: '6rem',
+							background: isEducation ? 'var(--green-hover)':'var(--green-main)' ,
+							position: 'relative',
+							transition: 'background 0.3s',
+							display: 'flex',
+							alignItems: 'center',
+							padding: '4px',
+						}}
+					>
+						<div
+							style={{
+								position: 'absolute',
+								left: isEducation ? '0.25rem' : '3.75rem',
+								transition: 'left 0.3s',
+								width: '3rem',
+								height: '3rem',
+								borderRadius: '50%',
+								background: 'white',
+								display: 'flex',
+								alignItems: 'center',
+								justifyContent: 'center',
+								boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
+								zIndex: 2,
+								fontSize: '1.5rem',
+							}}
+						>
+							<FontAwesomeIcon icon={isEducation ? faSchool : faBriefcase} style={{ color: isEducation ? 'var(--green-hover)':'var(--green-main)' }} />
+						</div>
+					</div>
+					<div className="h4 mb-0 fw-bold text-brand">{isEducation ? 'My Education': 'My Work'}</div>
+				</div>
 			</Row>
-			{
-				(isEducation)?
+			
 			<Row>
 				<Col>
-					<Education/>
+					<AnimatePresence mode="wait">
+						<motion.div
+							key={isEducation ? 'education' : 'work'}
+							style={{ transformOrigin: 'top center' }}
+							initial={{ opacity: 0, scaleY: 0.9 }}
+							animate={{ opacity: 1, scaleY: 1 }}
+							exit={{ opacity: 0, scaleY: 0.95 }}
+							transition={{ duration: 0.35, ease: 'easeOut' }}
+						>
+							<div className="experience-container">
+							{isEducation ? <Education educationList={educationList.EducationList}/> : <Work workList={workList.WorkList}/>}
+							</div>
+						</motion.div>
+					</AnimatePresence>
 				</Col>
 			</Row>
-			:
-			<Row className="mt-5">
-				<Col>
-					<Work/>
-				</Col>
-			</Row>
-			}
+			
 		</Container>
 	)
 }
