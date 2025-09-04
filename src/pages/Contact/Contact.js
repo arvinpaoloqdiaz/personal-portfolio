@@ -181,7 +181,7 @@ export default function Contact() {
                 </Form.Floating>
 
                 {/* ✅ reCAPTCHA goes here */}
-                <div className="mb-3 d-flex justify-content-center">
+                <div className="mb-3 d-flex justify-content-center recaptcha-container">
                   <ReCAPTCHA
                     ref={recaptchaRef}
                     sitekey={process.env.REACT_APP_RECAPTCHA_SITE_KEY}
