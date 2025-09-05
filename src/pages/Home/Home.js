@@ -99,7 +99,13 @@ export default function Home(){
                         </Col>
                         <Col xs={12} md={4} className="order-4 order-md-2">
                         <SmallCard
-                            title={<a href="#Projects" className="text-link-brand">Projects</a>}
+                            title={<a 
+                                href="#Projects" 
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    scrollToSection("Projects");
+                                }}
+                                className="text-link-brand">Projects</a>}
                             icon={faDiagramProject}
                             quantity={ProjectList.length}
                             subtitle={"deployed"}

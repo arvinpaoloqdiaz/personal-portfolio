@@ -16,6 +16,8 @@ import Page from "./components/Page/Page.js";
 // Context
 import { ProjectProvider } from "./contexts/ProjectContext";
 
+import useAnalytics from "./hooks/useAnalytics";
+
 const components = [
   { pageId: "Home", component: <Home /> },
   { pageId: "About", component: <About /> },
@@ -61,6 +63,7 @@ function Sections() {
 // Animate route transitions
 function AnimatedRoutes() {
   const location = useLocation();
+  useAnalytics();
 
   useEffect(() => {
     window.scrollTo(0, 0); // reset scroll each route change
