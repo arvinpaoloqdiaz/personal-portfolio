@@ -1,0 +1,68 @@
+.projectCard {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid var(--green-main) !important;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.projectCard:hover .cardImage {
+  transform: scale(1.05);
+}
+
+/* Ensure consistent card heights */
+.projectCard .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectCard .card-text {
+  flex-grow: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* Badge styling */
+.projectCard .badge {
+  font-size: 0.75rem;
+  padding: 0.35em 0.65em;
+}
+
+/* Button spacing */
+.projectCard .btn {
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.projectCard .btn:hover {
+  transform: translateY(-1px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .imageContainer {
+    height: 180px;
+  }
+  
+  .projectCard {
+    margin-bottom: 1.5rem;
+  }
+}

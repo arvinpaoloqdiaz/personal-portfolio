@@ -314,3 +314,98 @@ textarea.form-control:focus {
 textarea{
   resize:none !important;
 }
+/* Brand dropdown overrides */
+.form-select,
+select {
+  border: 2px solid var(--green-main);
+  border-radius: var(--border-radius);
+  background-color: var(--main-white);
+  color: var(--main-black);
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.form-select:focus,
+select:focus {
+  border-color: var(--green-hover);
+  box-shadow: 0 0 0 0.25rem rgba(var(--green-main-rgb), 0.3);
+  outline: none;
+}
+
+.form-select option,
+select option {
+  color: var(--main-black);
+  background-color: var(--main-white);
+}
+/* Override bootstrap dropdown active */
+.dropdown-item.active,
+.dropdown-item:active {
+  background-color: var(--green-main) !important;
+  color: #fff !important;
+}
+
+.btn-brand-gradient {
+  position: relative;
+  display: inline-block;
+  padding: 0.25rem 0rem;
+  font-size: 1rem;
+  color: #fff; /* text stays white */
+  border: none;
+  border-radius: 9999px; /* pill-shaped */
+  cursor: pointer;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--green-light),
+    var(--green-main),
+    var(--green-main),
+    var(--green-active)
+  );
+  background-size: 200% 200%;
+  transition: box-shadow 0.2s ease;
+}
+
+.btn-brand-gradient:hover {
+  box-shadow: 0 0 20px rgba(50, 180, 80, 0.2);
+  color: #fff;
+}
+
+/* Shining animation overlay */
+.btn-brand-gradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.6) 50%,
+    rgba(255, 255, 255, 0.2) 100%
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0; /* hidden by default */
+}
+
+/* Animate shine only on hover */
+.btn-brand-gradient:hover::before {
+  animation: shine-btn 1.5s forwards;
+  opacity: 1;
+}
+
+/* Keyframes for shine-btn */
+@keyframes shine-btn {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
+
+.height-spacer{
+  height:53vh;
+}

@@ -1,71 +1,83 @@
-import "./Projects.css";
-import ProjectList from "../../assets/data/ProjectList.js";
-import {useState, useEffect} from "react";
-import {Row, Col, Container} from "react-bootstrap";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
+import styles from "./Projects.module.css";
+import { Row, Col, Container } from "react-bootstrap";
+import { useProjects } from "../../contexts/ProjectContext";
+import { Link } from "react-router-dom";
 
-export default function Projects(){
-	const [projectsList, setProjectsList] = useState("");
-	const [selectedValue, setSelectedValue] = useState("all");
-	function getProjects(){
-		let projectsArr = ProjectList.map((entry,index) => {
-			if(!entry.tags.includes(selectedValue)){
-				return null
-			}
-			return(
+export default function Projects() {
+  const { projects, loading, error, getAllGroups } = useProjects();
 
-				<Col xs={12} md={6} lg={3} key={`project-${index}`} className="my-3">
-					<div className="h-100 projects__card">
-					<p className="text-center m-3 h5">{entry.title}</p>
-					<div className="projects__image__container">
-					<img src={entry.image_link} className="img-fluid projects__image"/>
-					<p className="projects__description">{entry.description}</p>
-					</div>
-					<div className="projects__btn">
-					<a href={entry.button_link} target="_blank" className="projects__btn__project" rel="noreferrer">Project</a>
-					<a href={entry.repo_link} target="_blank" className="projects__btn__repo" rel="noreferrer">Repository</a>
-					</div>
-					</div>
-				</Col>
-			)
-		})
-		setProjectsList(projectsArr);
-	}
-	useEffect(() => {
-		getProjects()
-	},[selectedValue])
-	return(
-	
-		<Container className="pt-5">
-		<Row>
-			<h1 className="text-center my-5">Projects</h1>
-		</Row>
-		<Row>
-			<Col className="dropdown__container">
-			<select
-			value={selectedValue}
-			onChange ={e=> setSelectedValue(e.target.value)}
-			className="projects__select"
-			>
-				<option value="all">All</option>
-				<option value="frontend">Frontend</option>
-				<option value="backend">Backend</option>
-				<option value="full-stack">Full-stack</option>
-				<option value="capstone">Capstone</option>
-				<option value="personal">Personal</option>
-			</select>
-			<FontAwesomeIcon icon={faChevronDown} className="projects__dropdown__icon down"/>
-			<FontAwesomeIcon icon={faChevronUp} className="projects__dropdown__icon up"/>
-			</Col>
-			<Col className="projects__subtitle">
-			<p>Projects</p>
-			</Col>
-		</Row>
-		<Row>
-		{projectsList}
-		</Row>
-		</Container>
-		
-	)
+  if (loading) {
+    return (
+      <Container className="pt-5 text-center">
+        <p>Loading projects...</p>
+      </Container>
+    );
+  }
+
+  if (error) {
+    return (
+      <Container className="pt-5 text-center">
+        <p className="text-danger">
+          Failed to load projects. Please try again later.
+        </p>
+      </Container>
+    );
+  }
+
+  const groups = getAllGroups();
+  const allGroups = [...groups, { name: "All Projects", slug: "all" }];
+
+  return (
+    <Container className="pt-5">
+      <Row>
+        <h1 className="text-center my-5">Projects</h1>
+      </Row>
+
+      <Row>
+        {allGroups.map((group, index) => {
+          const projectCount =
+            group.slug === "all"
+              ? projects.length
+              : projects.filter((p) => p.group_slug === group.slug).length;
+
+          let browseText;
+
+          if (group.slug === "all") {
+            browseText = (
+              <>
+                <p className={styles.highlightAll}>all</p> projects
+              </>
+            );
+          } else {
+            browseText = (
+              <>
+                <p className={styles.highlightNumber}>{projectCount}</p>{" "}
+                project{projectCount === 1 ? "" : "s"}
+              </>
+            );
+          }
+
+          return (
+            <Col xs={12} md={6} lg={4} key={`group-${index}`} className="my-3">
+              <Link
+                to={group.slug === "all" ? "/projects" : `/projects/${group.slug}`}
+                className="text-decoration-none"
+              >
+                <div
+                  className={`h-100 text-center d-flex flex-column justify-content-center bg-white ${styles.groupCard}`}
+                >
+                  <p className="m-3 h5 text-brand fw-bold h1">{group.name}</p>
+                  <div
+                    className={`d-flex align-items-center justify-content-center ${styles.groupBody}`}
+                  >
+                    <p className={styles.groupText}>{browseText}</p>
+                  </div>
+                </div>
+              </Link>
+            </Col>
+          );
+        })}
+      </Row>
+    </Container>
+  );
 }

@@ -7,9 +7,14 @@ import Navbar from "./components/Navbar/Navbar.js";
 import Home from "./pages/Home/Home.js";
 import About from "./pages/About/About.js";
 import Projects from "./pages/Projects/Projects.js";
+import ProjectsPage from "./pages/Projects/ProjectsPage.js";
+import ProjectDetail from "./pages/ProjectDetail/ProjectDetail.js";
 import Contact from "./pages/Contact/Contact.js";
 import Footer from "./pages/Footer/Footer.js";
 import Page from "./components/Page/Page.js";
+
+// Context
+import { ProjectProvider } from "./contexts/ProjectContext";
 
 const components = [
   { pageId: "Home", component: <Home /> },
@@ -96,6 +101,60 @@ function AnimatedRoutes() {
             </motion.div>
           }
         />
+        <Route
+          path="/projects"
+          element={
+            <motion.div
+              key="projects"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <Navbar />
+              <main>
+                <ProjectsPage />
+              </main>
+              <Footer />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/projects/:group_slug"
+          element={
+            <motion.div
+              key="projects-group"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <Navbar />
+              <main>
+                <ProjectsPage />
+              </main>
+              <Footer />
+            </motion.div>
+          }
+        />
+        <Route
+          path="/project/:slug"
+          element={
+            <motion.div
+              key="project-detail"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -40 }}
+              transition={{ duration: 0.4, ease: "easeInOut" }}
+            >
+              <Navbar />
+              <main>
+                <ProjectDetail />
+              </main>
+              <Footer />
+            </motion.div>
+          }
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -103,9 +162,11 @@ function AnimatedRoutes() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AnimatedRoutes />
-    </BrowserRouter>
+    <ProjectProvider>
+      <BrowserRouter>
+        <AnimatedRoutes />
+      </BrowserRouter>
+    </ProjectProvider>
   );
 }
 

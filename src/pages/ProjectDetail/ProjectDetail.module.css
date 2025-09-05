@@ -1,0 +1,76 @@
+.imageContainer {
+ 
+}
+
+.projectImage {
+  position: relative;
+  border-radius: 15px;
+  border: 2px solid var(--main-black);
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  background: #f8f9fa;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center; 
+  width:100%;
+}
+
+.detailsContainer {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  font-size: 0.75rem;
+  padding: 0rem 0rem;
+  font-weight: lighter;
+}
+.technology{
+  font-size: 0.9rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.actionButtons {
+  padding-top: 1.5rem;
+  border-top: 1px solid #e9ecef;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .imageContainer {
+    min-height: 250px;
+  }
+  
+  .detailsContainer {
+    padding: 1.5rem;
+  }
+  
+  .projectImage {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 576px) {
+  .detailsContainer {
+    padding: 1rem;
+  }
+  
+  .actionButtons .d-flex {
+    flex-direction: column;
+  }
+  
+  .actionButtons .btn {
+    width: 100%;
+  }
+}

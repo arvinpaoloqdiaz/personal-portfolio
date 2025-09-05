@@ -1,0 +1,59 @@
+.groupCard {
+	min-height: 220px;
+	border: 2px solid var(--green-main);
+	border-radius: var(--border-radius);
+	transition: all 0.3s ease;
+	color: var(--main-black);
+  }
+  
+  .groupCard:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 16px rgba(var(--green-main-rgb), 0.25);
+	border-color: var(--green-hover);
+  }
+  
+  .groupBody {
+	flex: 1;
+	padding: 1rem;
+  }
+  
+  .groupText {
+	font-size: 1.2rem;
+	font-weight: 500;
+	color: var(--green-main);
+	margin: 0;
+  }
+  
+  @keyframes gradientFlow {
+	0% {
+	  background-position: 0% 50%;
+	}
+	50% {
+	  background-position: 100% 50%;
+	}
+	100% {
+	  background-position: 0% 50%;
+	}
+  }
+  
+  .highlightNumber {
+	font-size: 6rem;   /* big and bold */
+	font-weight: 900;
+	background: linear-gradient(90deg, var(--green-light), var(--green-main), var(--green-active));
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientFlow 6s ease-in-out infinite;
+  }
+  
+  .highlightAll {
+	font-size: 4rem;   /* big and bold */
+	font-weight: 900;
+	background: linear-gradient(90deg, var(--green-hover), var(--green-main), var(--green-subtle));
+	background-size: 200% 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	animation: gradientFlow 8s ease-in-out infinite;
+  }
+  
+  

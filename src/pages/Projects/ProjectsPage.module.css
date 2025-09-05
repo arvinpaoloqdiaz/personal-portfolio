@@ -1,0 +1,32 @@
+/* Additional custom styles for ProjectsPage if needed */
+.projectsGrid {
+  min-height: 400px;
+}
+
+.groupFilter {
+  margin-bottom: 2rem;
+}
+
+.noProjectsContainer {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure consistent spacing */
+.container {
+  padding-bottom: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+.dropdownItemActive {
+  background-color: var(--green-main) !important; /* your brand color */
+  color: #fff !important; /* white text for contrast */
+}
