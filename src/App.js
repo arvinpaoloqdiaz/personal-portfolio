@@ -12,6 +12,7 @@ import ProjectDetail from "./pages/ProjectDetail/ProjectDetail.js";
 import Contact from "./pages/Contact/Contact.js";
 import Footer from "./pages/Footer/Footer.js";
 import Page from "./components/Page/Page.js";
+import Seo from "./components/Seo/Seo.js";
 
 // Context
 import { ProjectProvider } from "./contexts/ProjectContext";
@@ -45,6 +46,14 @@ function Sections() {
 
   return (
     <>
+    {/* ✅ Place SEO once for entire Home page */}
+    <Seo
+      title="Home"
+      description="Welcome to my portfolio. Explore my web development projects, skills, and experience."
+      keywords={["portfolio", "web developer", "React", "projects"]}
+      canonical="https://apqdiaz.site/"
+    />
+
       <Navbar />
       <main>
         {components.map((component, index) => (

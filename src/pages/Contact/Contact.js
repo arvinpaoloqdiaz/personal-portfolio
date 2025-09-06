@@ -6,12 +6,12 @@ import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import ReCAPTCHA from "react-google-recaptcha"; // ✅ reCAPTCHA import
 import styles from "./Contact.module.css";
+import Seo from "../../components/Seo/Seo"; // adjust path
 
 export default function Contact() {
   const form = useRef();
   const recaptchaRef = useRef(null);
 
-  // ✅ match EmailJS template vars: name, email, subject, message
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -72,13 +72,17 @@ export default function Contact() {
       exit={{ opacity: 0, y: -20 }}
       transition={{ duration: 0.4 }}
     >
+       <Seo
+      title="Contact"
+      description="Get in touch with Arvin for web development projects, collaborations, or inquiries."
+      keywords={["contact", "web developer", "portfolio", "Arvin Diaz"]}
+    />
       <Container className={styles.contactContainer} id="Contact">
         <Row className="mb-5">
           <Col className="text-center">
             <h1 className={styles.contactTitle}>Get In Touch</h1>
             <p className={styles.contactSubtitle}>
-              I'm always open to discussing new opportunities, collaborations,
-              or just chatting about tech.
+              I'm always open to discussing new opportunities, collaborations, or just chatting about tech.
             </p>
           </Col>
         </Row>
@@ -89,21 +93,16 @@ export default function Contact() {
               <h4 className="mb-4">Send Me a Message</h4>
 
               {submitStatus === "success" && (
-                <Alert
-                  variant="success"
-                  className={`mb-4 ${styles.alertSuccess}`}
-                >
+                <Alert variant="success" className={`mb-4 ${styles.alertSuccess}`}>
                   <FontAwesomeIcon icon={faPaperPlane} className="me-2" />
-                  Thank you! Your message has been sent successfully. I'll get
-                  back to you soon!
+                  Thank you! Your message has been sent successfully. I'll get back to you soon!
                 </Alert>
               )}
 
               {submitStatus === "error" && (
                 <Alert variant="danger" className="mb-4">
                   <FontAwesomeIcon icon={faPaperPlane} className="me-2" />
-                  Sorry! There was an error sending your message. Please try
-                  again.
+                  Sorry! There was an error sending your message. Please try again.
                 </Alert>
               )}
 
@@ -119,7 +118,7 @@ export default function Contact() {
                     <Form.Floating className={`mb-3 ${styles.formFloating}`}>
                       <Form.Control
                         id="name"
-                        name="name" // ✅ matches EmailJS var
+                        name="name"
                         type="text"
                         placeholder="Name"
                         value={formData.name}
@@ -133,7 +132,7 @@ export default function Contact() {
                     <Form.Floating className={`mb-3 ${styles.formFloating}`}>
                       <Form.Control
                         id="email"
-                        name="email" // ✅ matches EmailJS var
+                        name="email"
                         type="email"
                         placeholder="Email"
                         value={formData.email}
@@ -148,7 +147,7 @@ export default function Contact() {
                 <Form.Floating className={`mb-3 ${styles.formFloating}`}>
                   <Form.Control
                     id="subject"
-                    name="subject" // ✅ matches EmailJS var
+                    name="subject"
                     type="text"
                     placeholder="Subject"
                     value={formData.subject}
@@ -158,29 +157,25 @@ export default function Contact() {
                   <Form.Label htmlFor="subject">Subject</Form.Label>
                 </Form.Floating>
 
-                <Form.Floating
-                  className={`mb-4 ${styles.formFloating} position-relative`}
-                >
+                <Form.Floating className={`mb-4 ${styles.formFloating} position-relative`}>
                   <Form.Control
                     id="message"
-                    name="message" // ✅ matches EmailJS var
+                    name="message"
                     as="textarea"
                     placeholder="Your Message"
                     style={{ height: "120px" }}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    maxLength={500} // ✅ enforce 500 chars
+                    maxLength={500}
                   />
                   <Form.Label htmlFor="message">Your Message</Form.Label>
 
-                  {/* ✅ Character counter */}
                   <div className={`${styles.charCounter}`}>
                     {formData.message.length}/500
                   </div>
                 </Form.Floating>
 
-                {/* ✅ reCAPTCHA goes here */}
                 <div className="mb-3 d-flex justify-content-center recaptcha-container">
                   <ReCAPTCHA
                     ref={recaptchaRef}

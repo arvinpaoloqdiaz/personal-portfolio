@@ -6,6 +6,7 @@ import ProjectCard from '../../components/ProjectCard/ProjectCard';
 import styles from './ProjectsPage.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import Seo from '../../components/Seo/Seo'; // import SEO component
 
 const ProjectsPage = () => {
   const { group_slug } = useParams();
@@ -21,7 +22,6 @@ const ProjectsPage = () => {
       const groupProjects = getProjectsByGroup(group_slug);
       setFilteredProjects(groupProjects);
       
-      // Find the current group name
       const groups = getAllGroups();
       const group = groups.find(g => g.slug === group_slug);
       setCurrentGroup(group);
@@ -32,11 +32,8 @@ const ProjectsPage = () => {
   }, [projects, loading, error, group_slug, getProjectsByGroup, getAllGroups]);
 
   const handleGroupFilter = (groupSlug) => {
-    if (groupSlug) {
-      navigate(`/projects/${groupSlug}`);
-    } else {
-      navigate('/projects');
-    }
+    if (groupSlug) navigate(`/projects/${groupSlug}`);
+    else navigate('/projects');
   };
 
   if (loading) {
@@ -60,10 +57,7 @@ const ProjectsPage = () => {
             <Alert variant="danger">
               <Alert.Heading>Error Loading Projects</Alert.Heading>
               <p>{error}</p>
-              <Button 
-                variant="outline-danger" 
-                onClick={() => window.location.reload()}
-              >
+              <Button variant="outline-danger" onClick={() => window.location.reload()}>
                 Try Again
               </Button>
             </Alert>
@@ -75,115 +69,114 @@ const ProjectsPage = () => {
 
   const groups = getAllGroups();
 
+  // SEO meta info
+  const pageTitle = currentGroup ? `${currentGroup.name}` : 'All Projects';
+  const pageDescription = currentGroup
+    ? `Explore my portfolio of projects in the ${currentGroup.name} category.`
+    : 'Explore my portfolio of web development projects.';
+  const canonicalUrl = currentGroup
+    ? `https://apqdiaz.site/projects/${currentGroup.slug}`
+    : 'https://apqdiaz.site/projects';
+
   return (
-    <Container className="mt-5">
-      {/* Header */}
-      <Row className="mb-4">
-        <Col className="text-center">
-          <h1 className="mb-3">
-            {currentGroup ? currentGroup.name : 'All Projects'}
-          </h1>
-          <p className="text-secondary">
-            {currentGroup 
-              ? `Projects in ${currentGroup.name} category`
-              : 'Explore my portfolio of web development projects'
-            }
-          </p>
-        </Col>
-      </Row>
+    <>
+      {/* SEO for Projects Page */}
+      <Seo
+        title={pageTitle}
+        description={pageDescription}
+        keywords={currentGroup ? [currentGroup.name] : ['projects', 'portfolio', 'web development']}
+        canonical={canonicalUrl}
+      />
 
-      {/* Group Filter */}
-      <Row className="mb-4">
-        <Col className="text-center">
-          <Dropdown className="d-inline-block">
-            <Dropdown.Toggle variant="outline-brand" id="group-filter">
-              {currentGroup ? currentGroup.name : 'All Categories'}
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-  <Dropdown.Item 
-    onClick={() => handleGroupFilter(null)}
-    active={!currentGroup}
-    className={!currentGroup ? styles.dropdownItemActive : ""}
-  >
-    All Categories
-  </Dropdown.Item>
-  {groups.map((group) => (
-    <Dropdown.Item 
-      key={group.slug}
-      onClick={() => handleGroupFilter(group.slug)}
-      active={currentGroup?.slug === group.slug}
-      className={currentGroup?.slug === group.slug ? styles.dropdownItemActive : ""}
-    >
-      {group.name}
-    </Dropdown.Item>
-  ))}
-</Dropdown.Menu>
 
-          </Dropdown>
-        </Col>
-      </Row>
-
-      {/* Projects Grid */}
-      {filteredProjects.length > 0 ? (
-        <Row className="g-4">
-          {filteredProjects.map((project) => (
-            <Col key={project.slug} xs={12} md={6} lg={4}>
-              <ProjectCard
-                title={project.title}
-                image_link={project.image_link}
-                description={project.description}
-                slug={project.slug}
-                button_link={project.button_link}
-                repo_link={project.repo_link}
-                tags={project.tags}
-                technologies={project.technologies}
-              />
-            </Col>
-          ))}
-        </Row>
-      ) : (
-        <Row className="justify-content-center">
-          <Col md={8} className="text-center">
-            <Alert variant="info">
-              <Alert.Heading>No Projects Found</Alert.Heading>
-              <p>
-                {currentGroup 
-                  ? `No projects found in the ${currentGroup.name} category.`
-                  : 'No projects available at the moment.'
-                }
-              </p>
-              {currentGroup && (
-                <Button 
-                  variant="outline-info" 
-                  onClick={() => navigate('/projects')}
-                >
-                  View All Projects
-                </Button>
-              )}
-            </Alert>
+      <Container className="mt-5">
+        {/* Header */}
+        <Row className="mb-4">
+          <Col className="text-center">
+            <h1 className="mb-3">{currentGroup ? currentGroup.name : 'All Projects'}</h1>
+            <p className="text-secondary">
+              {currentGroup 
+                ? `Projects in ${currentGroup.name} category`
+                : 'Explore my portfolio of web development projects'}
+            </p>
           </Col>
         </Row>
-      )}
 
-      {/* Back to Home */}
-      <Row className="mt-5">
-        <Col className="text-center">
-          <Button 
-            variant="outline-brand" 
-            onClick={() => navigate('/')}
-            className="me-3"
-          >
-            ← Back to Home
-          </Button>
-          <Button 
-            variant="outline-dark rounded-pill py-2 px-3 border-2" 
-            onClick={() => navigate('/contact')}
-          >
-           <FontAwesomeIcon icon={faPhone} /> Get in Touch
-          </Button>
-        </Col>
-      </Row>
-    </Container>
+        {/* Group Filter */}
+        <Row className="mb-4">
+          <Col className="text-center">
+            <Dropdown className="d-inline-block">
+              <Dropdown.Toggle variant="outline-brand" id="group-filter">
+                {currentGroup ? currentGroup.name : 'All Categories'}
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item 
+                  onClick={() => handleGroupFilter(null)}
+                  active={!currentGroup}
+                  className={!currentGroup ? styles.dropdownItemActive : ""}
+                >
+                  All Categories
+                </Dropdown.Item>
+                {groups.map((group) => (
+                  <Dropdown.Item 
+                    key={group.slug}
+                    onClick={() => handleGroupFilter(group.slug)}
+                    active={currentGroup?.slug === group.slug}
+                    className={currentGroup?.slug === group.slug ? styles.dropdownItemActive : ""}
+                  >
+                    {group.name}
+                  </Dropdown.Item>
+                ))}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Col>
+        </Row>
+
+        {/* Projects Grid */}
+        {filteredProjects.length > 0 ? (
+          <Row className="g-4">
+            {filteredProjects.map((project) => (
+              <Col key={project.slug} xs={12} md={6} lg={4}>
+                <ProjectCard {...project} />
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <Row className="justify-content-center">
+            <Col md={8} className="text-center">
+              <Alert variant="info">
+                <Alert.Heading>No Projects Found</Alert.Heading>
+                <p>
+                  {currentGroup 
+                    ? `No projects found in the ${currentGroup.name} category.`
+                    : 'No projects available at the moment.'}
+                </p>
+                {currentGroup && (
+                  <Button variant="outline-info" onClick={() => navigate('/projects')}>
+                    View All Projects
+                  </Button>
+                )}
+              </Alert>
+            </Col>
+          </Row>
+        )}
+
+        {/* Back to Home */}
+        <Row className="mt-5">
+          <Col className="text-center">
+            <Button variant="outline-brand" onClick={() => navigate('/')} className="me-3">
+              ← Back to Home
+            </Button>
+            <Button 
+              variant="outline-dark rounded-pill py-2 px-3 border-2" 
+              onClick={() => navigate('/contact')}
+            >
+              <FontAwesomeIcon icon={faPhone} /> Get in Touch
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </>
   );
 };
 
