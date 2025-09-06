@@ -87,7 +87,7 @@ const ProjectDetail = () => {
         canonical={`https://apqdiaz.site/project/${project.slug}`}
       />
 
-      <Container className="mt-5">
+      <Container className="mt-5 pt-5 pt-lg-0">
         {/* Back Navigation */}
         <Row className="mb-4">
           <Col>

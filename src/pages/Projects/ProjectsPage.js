@@ -89,7 +89,7 @@ const ProjectsPage = () => {
       />
 
 
-      <Container className="mt-5">
+      <Container className="mt-5 pt-5 pt-lg-0">
         {/* Header */}
         <Row className="mb-4">
           <Col className="text-center">
