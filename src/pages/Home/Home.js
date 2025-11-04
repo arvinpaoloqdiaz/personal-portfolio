@@ -12,11 +12,15 @@ import CertificatesModal from "../../components/CertificatesModal/CertificatesMo
 export default function Home(){
     const [certificates, setCertificates] = useState([]);
 	const dateStarted = new Date("October 1, 2023");
-	let dateNow = new Date();
-	let elapsedMonth = dateNow.getMonth() - dateStarted.getMonth();
-	if(elapsedMonth <= 0){
-		elapsedMonth= 24 + elapsedMonth;
-	}
+    const dateNow = new Date();
+
+    // Total months difference (including years)
+    let elapsedMonth =
+    (dateNow.getFullYear() - dateStarted.getFullYear()) * 12 +
+    (dateNow.getMonth() - dateStarted.getMonth());
+
+    if (elapsedMonth < 0) elapsedMonth = 0; // in case start date is in future
+
     useEffect(() => {
     fetch("https://raw.githubusercontent.com/arvinpaoloqdiaz/files/json/CertificatesList.json")
       .then((res) => res.json())
