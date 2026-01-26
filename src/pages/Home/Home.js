@@ -5,11 +5,12 @@ import SmallCard from "../../components/SmallCard/SmallCard.js";
 import {Row, Col, Container} from "react-bootstrap";
 import { TypeAnimation} from "react-type-animation";
 import {faStar, faDiagramProject, faMedal } from '@fortawesome/free-solid-svg-icons';
-import ProjectList from "../../assets/data/ProjectList.js";
 import { useState, useEffect } from "react";
 import CertificatesModal from "../../components/CertificatesModal/CertificatesModal.js";
+import { useProjects } from "../../contexts/ProjectContext";
 
 export default function Home(){
+    const { projects } = useProjects();
     const [certificates, setCertificates] = useState([]);
 	const dateStarted = new Date("October 1, 2023");
     const dateNow = new Date();
@@ -111,7 +112,7 @@ export default function Home(){
                                 }}
                                 className="text-link-brand">Projects</a>}
                             icon={faDiagramProject}
-                            quantity={ProjectList.length}
+                            quantity={projects.length}
                             subtitle={"deployed"}
                         />
                         </Col>
