@@ -11,7 +11,7 @@ const ProjectDetail = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
   const { getProjectBySlug, loading, error } = useProjects();
-  
+
   const project = getProjectBySlug(slug);
 
   if (loading) {
@@ -35,8 +35,8 @@ const ProjectDetail = () => {
             <Alert variant="danger">
               <Alert.Heading>Error Loading Project</Alert.Heading>
               <p>{error}</p>
-              <Button 
-                variant="outline-danger" 
+              <Button
+                variant="outline-danger"
                 onClick={() => window.location.reload()}
               >
                 Try Again
@@ -57,14 +57,14 @@ const ProjectDetail = () => {
               <Alert.Heading>Project Not Found</Alert.Heading>
               <p>The project you're looking for <span className='text-danger fw-bold'>doesn't exist</span> or has been <span className='text-danger fw-bold'>removed</span>.</p>
               <div className="d-flex gap-2 justify-content-center">
-                <Button 
-                  variant="outline-brand" 
+                <Button
+                  variant="outline-brand"
                   onClick={() => navigate('/projects')}
                 >
-                 <FontAwesomeIcon icon={faFolderTree} /> View All Projects
+                  <FontAwesomeIcon icon={faFolderTree} /> View All Projects
                 </Button>
-                <Button 
-                  variant="outline-dark rounded-pill border-2" 
+                <Button
+                  variant="outline-dark rounded-pill border-2"
                   onClick={() => navigate('/')}
                 >
                   <FontAwesomeIcon icon={faHouse} /> Back to Home
@@ -84,22 +84,22 @@ const ProjectDetail = () => {
         title={project.title}
         description={project.description.slice(0, 160)}
         keywords={project.tags}
-        canonical={`https://apqdiaz.site/project/${project.slug}`}
+        canonical={`https://apqdiaz.online/project/${project.slug}`}
       />
 
       <Container className="mt-5 pt-5 pt-lg-0">
         {/* Back Navigation */}
         <Row className="mb-4">
           <Col>
-            <Button 
-              variant="outline-secondary border-0 rounded-pill" 
+            <Button
+              variant="outline-secondary border-0 rounded-pill"
               onClick={() => navigate(-1)}
               className="me-2"
             >
               ← Back
             </Button>
-            <Link 
-              to="/projects" 
+            <Link
+              to="/projects"
               className="btn btn-outline-brand"
             >
               All Projects
@@ -121,8 +121,8 @@ const ProjectDetail = () => {
         <Row className="mb-5">
           <Col lg={10} className="mx-auto">
             <div className={styles.imageContainer}>
-              <img 
-                src={project.image_link} 
+              <img
+                src={project.image_link}
                 alt={project.title}
                 className={`img-fluid p-0 ${styles.projectImage}`}
               />
@@ -146,9 +146,9 @@ const ProjectDetail = () => {
                   <h4 className="mb-3">Technologies Used</h4>
                   <div className={styles.tagsContainer}>
                     {project.technologies.map((tag, index) => (
-                      <Badge 
-                        key={index} 
-                        bg="success" 
+                      <Badge
+                        key={index}
+                        bg="success"
                         className={`me-1 mb-2 px-3 py-2 ${styles.technology}`}
                       >
                         {tag}
@@ -163,8 +163,8 @@ const ProjectDetail = () => {
                 <div className="fst-italic text-muted">
                   <small>Tags: </small>
                   {project.tags.map((tag, index) => (
-                    <small 
-                      key={index} 
+                    <small
+                      key={index}
                       className={`text-muted text-center mb-2 me-1 ${styles.tag}`}
                     >
                       {tag} <span className='fst-normal text-brand'>|</span>
@@ -178,26 +178,26 @@ const ProjectDetail = () => {
                 <h4 className="mb-3">Project Links</h4>
                 <div className="d-flex flex-column flex-md-row gap-3">
                   {project.button_link && (
-                    <Button 
-                      variant="brand rounded-pill" 
-                      size="lg" 
-                      as="a" 
-                      href={project.button_link} 
-                      target="_blank" 
+                    <Button
+                      variant="brand rounded-pill"
+                      size="lg"
+                      as="a"
+                      href={project.button_link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex-fill"
                     >
                       <FontAwesomeIcon icon={faRocket} /> Live Demo
                     </Button>
                   )}
-                  
+
                   {project.repo_link && (
-                    <Button 
-                      variant="outline-brand rounded-pill" 
-                      size="lg" 
-                      as="a" 
-                      href={project.repo_link} 
-                      target="_blank" 
+                    <Button
+                      variant="outline-brand rounded-pill"
+                      size="lg"
+                      as="a"
+                      href={project.repo_link}
+                      target="_blank"
                       rel="noopener noreferrer"
                       className="flex-fill"
                     >
@@ -215,20 +215,20 @@ const ProjectDetail = () => {
           <Col className="text-center">
             <h3 className="mb-4">Explore More Projects</h3>
             <div className="d-flex flex-column flex-md-row gap-3 justify-content-center">
-              <Link 
-                to="/projects" 
+              <Link
+                to="/projects"
                 className="btn btn-outline-brand rounded-pill"
               >
-               <FontAwesomeIcon icon={faFolderTree} /> View All Projects
+                <FontAwesomeIcon icon={faFolderTree} /> View All Projects
               </Link>
-              <Link 
-                to={`/projects/${project.group_slug}`} 
+              <Link
+                to={`/projects/${project.group_slug}`}
                 className="btn btn-outline-danger rounded-pill align-self-center py-2 border-2"
               >
                 <FontAwesomeIcon icon={faDiagramProject} /> More in {project.group}
               </Link>
-              <Link 
-                to="/contact" 
+              <Link
+                to="/contact"
                 className="btn btn-outline-dark align-self-center py-2 rounded-pill border-2"
               >
                 <FontAwesomeIcon icon={faPhone} /> Get In Touch

@@ -46,13 +46,13 @@ function Sections() {
 
   return (
     <>
-    {/* ✅ Place SEO once for entire Home page */}
-    <Seo
-      title="Home"
-      description="Welcome to my portfolio. Explore my web development projects, skills, and experience."
-      keywords={["portfolio", "web developer", "React", "projects"]}
-      canonical="https://apqdiaz.site/"
-    />
+      {/* ✅ Place SEO once for entire Home page */}
+      <Seo
+        title="Home"
+        description="Welcome to my portfolio. Explore my web development projects, skills, and experience."
+        keywords={["portfolio", "web developer", "React", "projects"]}
+        canonical="https://apqdiaz.online/"
+      />
 
       <Navbar />
       <main>

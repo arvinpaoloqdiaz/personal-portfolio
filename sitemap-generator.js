@@ -5,7 +5,7 @@ const { writeFileSync } = require("fs");
 
 async function generateSitemap() {
   try {
-    const hostname = "https://apqdiaz.qzz.io/";
+    const hostname = "https://apqdiaz.online/";
     const sitemap = new SitemapStream({ hostname });
 
     // Static routes

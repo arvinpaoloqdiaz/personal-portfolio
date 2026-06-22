@@ -21,7 +21,7 @@ const ProjectsPage = () => {
     if (group_slug) {
       const groupProjects = getProjectsByGroup(group_slug);
       setFilteredProjects(groupProjects);
-      
+
       const groups = getAllGroups();
       const group = groups.find(g => g.slug === group_slug);
       setCurrentGroup(group);
@@ -75,8 +75,8 @@ const ProjectsPage = () => {
     ? `Explore my portfolio of projects in the ${currentGroup.name} category.`
     : 'Explore my portfolio of web development projects.';
   const canonicalUrl = currentGroup
-    ? `https://apqdiaz.site/projects/${currentGroup.slug}`
-    : 'https://apqdiaz.site/projects';
+    ? `https://apqdiaz.online/projects/${currentGroup.slug}`
+    : 'https://apqdiaz.online/projects';
 
   return (
     <>
@@ -95,7 +95,7 @@ const ProjectsPage = () => {
           <Col className="text-center">
             <h1 className="mb-3">{currentGroup ? currentGroup.name : 'All Projects'}</h1>
             <p className="text-secondary">
-              {currentGroup 
+              {currentGroup
                 ? `Projects in ${currentGroup.name} category`
                 : 'Explore my portfolio of web development projects'}
             </p>
@@ -110,7 +110,7 @@ const ProjectsPage = () => {
                 {currentGroup ? currentGroup.name : 'All Categories'}
               </Dropdown.Toggle>
               <Dropdown.Menu>
-                <Dropdown.Item 
+                <Dropdown.Item
                   onClick={() => handleGroupFilter(null)}
                   active={!currentGroup}
                   className={!currentGroup ? styles.dropdownItemActive : ""}
@@ -118,7 +118,7 @@ const ProjectsPage = () => {
                   All Categories
                 </Dropdown.Item>
                 {groups.map((group) => (
-                  <Dropdown.Item 
+                  <Dropdown.Item
                     key={group.slug}
                     onClick={() => handleGroupFilter(group.slug)}
                     active={currentGroup?.slug === group.slug}
@@ -147,7 +147,7 @@ const ProjectsPage = () => {
               <Alert variant="info">
                 <Alert.Heading>No Projects Found</Alert.Heading>
                 <p>
-                  {currentGroup 
+                  {currentGroup
                     ? `No projects found in the ${currentGroup.name} category.`
                     : 'No projects available at the moment.'}
                 </p>
@@ -167,8 +167,8 @@ const ProjectsPage = () => {
             <Button variant="outline-brand" onClick={() => navigate('/')} className="me-3">
               ← Back to Home
             </Button>
-            <Button 
-              variant="outline-dark rounded-pill py-2 px-3 border-2" 
+            <Button
+              variant="outline-dark rounded-pill py-2 px-3 border-2"
               onClick={() => navigate('/contact')}
             >
               <FontAwesomeIcon icon={faPhone} /> Get in Touch
