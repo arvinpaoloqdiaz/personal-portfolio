@@ -27,7 +27,7 @@ export default function Footer(){
 			<span>
 			<span className="d-none d-md-inline">Arvin Paolo Diaz</span>
 			<span className="d-none d-md-inline">|</span>
-			<span>Copyright &copy; 2025</span>
+			<span>Copyright &copy; {new Date().getFullYear()}</span>
 			<span className="d-none d-md-inline">|</span>
 			<span className="d-none d-md-inline">Web Developer</span>
 			</span>
