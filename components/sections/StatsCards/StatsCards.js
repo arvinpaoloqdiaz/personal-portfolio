@@ -1,5 +1,5 @@
-import SmallCard from '@/components/SmallCard/SmallCard';
-import CertificatesModal from '@/components/CertificatesModal/CertificatesModal';
+import SmallCard from '@/components/ui/SmallCard/SmallCard';
+import CertificatesModal from '@/components/ui/CertificatesModal/CertificatesModal';
 import { faStar, faDiagramProject, faMedal } from '@fortawesome/free-solid-svg-icons';
 
 import { supabase } from '@/lib/supabase';

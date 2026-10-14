@@ -24,7 +24,7 @@
   font-family: var(--font-body-stack);
   font-weight: 500;
   color: var(--text-secondary);
-  background: rgba(10, 15, 13, 0.9);
+  background: rgba(10, 15, 13, 0.9); /* overridden in light mode below */
   border: 1px solid var(--border-subtle);
   padding: 0.15rem 0.5rem;
   border-radius: var(--radius-pill);
@@ -78,3 +78,24 @@
   border-radius: var(--radius-pill);
 }
 
+/* ─── Light Mode Overrides ─────────────────────────────────────────────── */
+:global([data-theme="light"]) .logoLabel {
+  background: rgba(255, 255, 255, 0.96);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: var(--text-primary);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+:global([data-theme="light"]) .socialsLogoContainer:hover .circle {
+  border-color: var(--emerald-500);
+  background: rgba(16, 185, 129, 0.1);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
+}
+
+:global([data-theme="light"]) .socialsLogoContainer:hover .github {
+  color: var(--emerald-600);
+}
+
+:global([data-theme="light"]) .socialsLogoContainer:hover .codepen {
+  color: var(--text-primary);
+}

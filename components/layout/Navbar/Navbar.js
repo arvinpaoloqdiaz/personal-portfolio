@@ -3,7 +3,8 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse, faUser, faBriefcase, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser, faBriefcase, faEnvelope, faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+import { useTheme } from '@/components/ui/ThemeProvider/ThemeProvider';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
@@ -11,6 +12,7 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState('Home');
   const pathname = usePathname();
   const router = useRouter();
+  const { theme, toggleTheme, mounted } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -40,15 +42,15 @@ export default function Navbar() {
   }, [pathname]);
 
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
     if (pathname === '/') {
+      e.preventDefault();
       const section = document.getElementById(sectionId);
       if (section) {
         section.scrollIntoView({ behavior: 'smooth' });
         setActiveSection(sectionId);
       }
     } else {
-      router.push(`/?scrollTo=${sectionId}`);
+      // Allow regular Next.js client-side navigation
     }
   };
 
@@ -56,42 +58,42 @@ export default function Navbar() {
     <header className={styles.navbarWrapper}>
       <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`} aria-label="Main Navigation">
         <div className={styles.navLogo}>
-          <a href="/" onClick={(e) => handleNavClick(e, 'Home')} aria-label="Home">
+          <Link href="/#Home" onClick={(e) => handleNavClick(e, 'Home')} aria-label="Home">
             <span className={styles.logoPrefix}>AP</span>
             <span className={styles.logoSuffix}>QD</span>
-          </a>
+          </Link>
         </div>
 
         <ul className={styles.navList}>
           <li>
-            <a
-              href="#Home"
+            <Link
+              href="/#Home"
               onClick={(e) => handleNavClick(e, 'Home')}
               className={pathname === '/' && activeSection === 'Home' ? styles.active : ''}
             >
               <FontAwesomeIcon icon={faHouse} className={styles.navIcon} />
               <span className={styles.navItem}>Home</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#About"
+            <Link
+              href="/#About"
               onClick={(e) => handleNavClick(e, 'About')}
               className={pathname === '/' && activeSection === 'About' ? styles.active : ''}
             >
               <FontAwesomeIcon icon={faUser} className={styles.navIcon} />
               <span className={styles.navItem}>About</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#Projects"
+            <Link
+              href="/#Projects"
               onClick={(e) => handleNavClick(e, 'Projects')}
               className={pathname === '/' && activeSection === 'Projects' ? styles.active : ''}
             >
               <FontAwesomeIcon icon={faBriefcase} className={styles.navIcon} />
               <span className={styles.navItem}>Projects</span>
-            </a>
+            </Link>
           </li>
           <li>
             <Link
@@ -103,6 +105,26 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
+
+        {/* Dark / Light Theme Toggle */}
+        <div className={styles.themeToggleContainer}>
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className={styles.themeToggleBtn}
+            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+          >
+            {mounted ? (
+              <FontAwesomeIcon
+                icon={theme === 'dark' ? faSun : faMoon}
+                className={styles.themeIcon}
+              />
+            ) : (
+              <span style={{ width: '14px', height: '14px', display: 'inline-block' }} />
+            )}
+          </button>
+        </div>
       </nav>
     </header>
   );

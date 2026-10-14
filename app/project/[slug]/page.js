@@ -3,8 +3,8 @@ import Link from 'next/link';
 import styles from './ProjectDetail.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket, faCode, faPhone, faDiagramProject, faFolderTree, faHouse } from "@fortawesome/free-solid-svg-icons";
-import Navbar from '@/components/Navbar/Navbar';
-import Footer from '@/components/Footer/Footer';
+import Navbar from '@/components/layout/Navbar/Navbar';
+import Footer from '@/components/layout/Footer/Footer';
 import { supabase } from '@/lib/supabase';
 
 async function fetchProject(slug) {
@@ -74,9 +74,36 @@ export default async function ProjectDetail({ params }) {
 
         <Row className="mb-5">
           <Col lg={8} className="mx-auto text-center">
-            <h1 className="mb-3">{project.title}</h1>
-            <p className="text-muted mb-4">
-              {project.group} • {project.technologies?.length || 0} technologies
+            <span 
+              style={{
+                fontFamily: 'var(--font-mono-stack)',
+                fontSize: '0.85rem',
+                color: 'var(--emerald-400)',
+                background: 'var(--emerald-pill-bg)',
+                border: '1px solid rgba(52, 211, 153, 0.25)',
+                padding: '0.25rem 0.85rem',
+                borderRadius: 'var(--radius-pill)',
+                display: 'inline-block',
+                marginBottom: '0.75rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+              }}
+            >
+              {project.group}
+            </span>
+            <h1 
+              style={{
+                fontSize: 'clamp(2.25rem, 4.5vw, 3.5rem)',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.02em',
+              }}
+              className="mb-2"
+            >
+              {project.title}
+            </h1>
+            <p style={{ color: 'var(--text-muted)' }}>
+              Stack of {project.technologies?.length || 0} technologies
             </p>
           </Col>
         </Row>
@@ -87,62 +114,66 @@ export default async function ProjectDetail({ params }) {
               <img
                 src={project.image_link}
                 alt={project.title}
-                className={`img-fluid p-0 ${styles.projectImage}`}
+                className={styles.projectImage}
               />
             </div>
           </Col>
         </Row>
 
         <Row className="mb-5">
-          <Col lg={8} className="mx-auto">
+          <Col lg={10} className="mx-auto">
             <div className={styles.detailsContainer}>
               <div className="mb-4">
-                <h3 className="mb-3">About This Project</h3>
-                <p className="lead text-secondary">{project.description}</p>
+                <h3 className="mb-3" style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
+                  About This Project
+                </h3>
+                <p style={{ color: 'var(--text-secondary)', lineHeight: 1.8, fontSize: '1.05rem' }}>
+                  {project.description}
+                </p>
               </div>
 
               {project.technologies && project.technologies.length > 0 && (
-                <div className="mb-2">
-                  <h4 className="mb-3">Technologies Used</h4>
+                <div className="mb-4">
+                  <h4 className="mb-3 h5" style={{ color: 'var(--text-primary)' }}>Technologies Used</h4>
                   <div className={styles.tagsContainer}>
                     {project.technologies.map((tag, index) => (
-                      <Badge
+                      <span
                         key={index}
-                        bg="success"
-                        className={`me-1 mb-2 px-3 py-2 ${styles.technology}`}
+                        className={styles.technology}
                       >
                         {tag}
-                      </Badge>
+                      </span>
                     ))}
                   </div>
                 </div>
               )}
 
               {project.tags && project.tags.length > 0 && (
-                <div className="fst-italic text-muted">
-                  <small>Tags: </small>
+                <div className="mb-4" style={{ color: 'var(--text-muted)' }}>
+                  <small className="me-2">Tags:</small>
                   {project.tags.map((tag, index) => (
                     <small
                       key={index}
-                      className={`text-muted text-center mb-2 me-1 ${styles.tag}`}
+                      className={styles.tag}
+                      style={{ color: 'var(--text-muted)' }}
                     >
-                      {tag} <span className='fst-normal text-brand'>|</span>
+                      #{tag} {index < project.tags.length - 1 ? '• ' : ''}
                     </small>
                   ))}
                 </div>
               )}
 
               <div className={styles.actionButtons}>
-                <h4 className="mb-3">Project Links</h4>
                 <div className="d-flex flex-column flex-md-row gap-3">
                   {project.button_link && (
                     <a
                       href={project.button_link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-brand rounded-pill btn-lg flex-fill"
+                      className="btn btn-brand rounded-pill btn-lg flex-fill d-flex align-items-center justify-content-center gap-2"
                     >
-                      <FontAwesomeIcon icon={faRocket} /> Live Demo
+                      <FontAwesomeIcon icon={faRocket} />
+                      <span>Live Demo</span>
                     </a>
                   )}
 
@@ -151,9 +182,10 @@ export default async function ProjectDetail({ params }) {
                       href={project.repo_link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="btn btn-outline-brand rounded-pill btn-lg flex-fill"
+                      className="btn btn-outline-brand rounded-pill btn-lg flex-fill d-flex align-items-center justify-content-center gap-2"
                     >
-                      <FontAwesomeIcon icon={faCode} /> View Code
+                      <FontAwesomeIcon icon={faCode} />
+                      <span>View Code</span>
                     </a>
                   )}
                 </div>
@@ -162,15 +194,17 @@ export default async function ProjectDetail({ params }) {
           </Col>
         </Row>
 
-        <Row className="mt-5">
+        <Row className="mt-5 mb-4">
           <Col className="text-center">
-            <h3 className="mb-4">Explore More Projects</h3>
-            <div className="d-flex flex-column flex-md-row gap-3 justify-content-center">
+            <h3 className="mb-3" style={{ color: 'var(--text-primary)' }}>Explore More</h3>
+            <div className="d-flex flex-wrap gap-3 justify-content-center">
               <Link href="/projects" className="btn btn-outline-brand rounded-pill">
-                <FontAwesomeIcon icon={faFolderTree} /> View All Projects
+                <FontAwesomeIcon icon={faFolderTree} className="me-2" />
+                <span>All Projects</span>
               </Link>
-              <Link href="/contact" className="btn btn-outline-dark align-self-center py-2 rounded-pill border-2">
-                <FontAwesomeIcon icon={faPhone} /> Get In Touch
+              <Link href="/contact" className="btn btn-brand rounded-pill">
+                <FontAwesomeIcon icon={faPhone} className="me-2" />
+                <span>Get in Touch</span>
               </Link>
             </div>
           </Col>

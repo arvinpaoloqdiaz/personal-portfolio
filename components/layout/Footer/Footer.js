@@ -1,6 +1,6 @@
 import styles from './Footer.module.css';
 import { Container, Row, Col } from 'react-bootstrap';
-import Socials from '../Socials/Socials';
+import Socials from '@/components/ui/Socials/Socials';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPhone, faArrowUp } from '@fortawesome/free-solid-svg-icons';
 

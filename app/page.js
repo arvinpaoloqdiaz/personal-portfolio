@@ -1,13 +1,13 @@
 import { Suspense } from 'react';
-import Navbar from '@/components/Navbar/Navbar';
-import Footer from '@/components/Footer/Footer';
-import Socials from '@/components/Socials/Socials';
-import TypeEffect from '@/components/TypeEffect/TypeEffect';
-import Carousel from '@/components/Carousel/Carousel';
-import ExperienceSection from '@/components/ExperienceSection/ExperienceSection';
-import StatsCards from '@/components/StatsCards/StatsCards';
-import StatsCardsSkeleton from '@/components/StatsCards/StatsCardsSkeleton';
-import ProjectsSection from '@/components/ProjectsSection/ProjectsSection';
+import Navbar from '@/components/layout/Navbar/Navbar';
+import Footer from '@/components/layout/Footer/Footer';
+import Socials from '@/components/ui/Socials/Socials';
+import TypeEffect from '@/components/ui/TypeEffect/TypeEffect';
+import Carousel from '@/components/sections/Carousel/Carousel';
+import ExperienceSection from '@/components/sections/ExperienceSection/ExperienceSection';
+import StatsCards from '@/components/sections/StatsCards/StatsCards';
+import StatsCardsSkeleton from '@/components/sections/StatsCards/StatsCardsSkeleton';
+import ProjectsSection from '@/components/sections/ProjectsSection/ProjectsSection';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
@@ -186,19 +186,17 @@ export default async function Page() {
           </div>
 
           {/* Technology / Carousel */}
-          <div className="row mt-5">
+          <div className="row mt-5 pt-4">
             <div className="col text-center">
-              <h2>Technology</h2>
-              <h6 className="text-secondary">Skillset</h6>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col text-center">
-              <hr className="w-25 mx-auto" style={{ borderColor: 'var(--green-main)', opacity: 0.3 }} />
+              <span className={aboutStyles.sectionEyebrow}>Tech Stack & Tools</span>
+              <h2 className={aboutStyles.sectionHeading}>Technologies</h2>
+              <p className="text-secondary mt-2 mb-4" style={{ fontSize: '0.95rem' }}>
+                Languages, libraries, and frameworks I use to bring ideas to life.
+              </p>
             </div>
           </div>
           <div className="row carousel-container">
-            <div className="row pt-3">
+            <div className="row pt-2">
               <Carousel CarouselData={carousel1} reverse={false} />
             </div>
             <div className="row py-3">
@@ -207,15 +205,13 @@ export default async function Page() {
           </div>
 
           {/* Qualifications */}
-          <div className="row mt-5">
+          <div className="row mt-5 pt-4">
             <div className="col text-center">
-              <h2>Qualifications</h2>
-              <h6 className="text-secondary">Current Experience</h6>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col text-center">
-              <hr className="w-25 mx-auto" style={{ borderColor: 'var(--green-main)', opacity: 0.3 }} />
+              <span className={aboutStyles.sectionEyebrow}>Career Timeline</span>
+              <h2 className={aboutStyles.sectionHeading}>Qualifications</h2>
+              <p className="text-secondary mt-2 mb-3" style={{ fontSize: '0.95rem' }}>
+                My professional experience and academic background.
+              </p>
             </div>
           </div>
           <ExperienceSection educationList={educationList} workList={workList} />

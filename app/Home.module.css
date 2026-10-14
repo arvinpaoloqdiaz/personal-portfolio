@@ -82,7 +82,7 @@
   width: 100%;
   border-radius: 50%;
   border: 2px solid rgba(52, 211, 153, 0.3);
-  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.8), 0 0 30px -10px rgba(16, 185, 129, 0.3);
+  box-shadow: none;
   transition: transform 0.4s ease, border-color 0.4s ease;
 }
 
@@ -126,13 +126,13 @@
   text-decoration: none;
   border: none;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 20px rgba(16, 185, 129, 0.35);
+  box-shadow: none;
 }
 
 .btnPrimaryCta:hover {
   background: var(--emerald-400);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(52, 211, 153, 0.5);
+  box-shadow: none;
 }
 
 .btnSecondaryCta {

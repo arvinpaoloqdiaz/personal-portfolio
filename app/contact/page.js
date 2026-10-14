@@ -1,9 +1,9 @@
 'use client';
 import { useState, useRef } from 'react';
 import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
-import Navbar from '@/components/Navbar/Navbar';
-import Footer from '@/components/Footer/Footer';
-import Socials from '@/components/Socials/Socials';
+import Navbar from '@/components/layout/Navbar/Navbar';
+import Footer from '@/components/layout/Footer/Footer';
+import Socials from '@/components/ui/Socials/Socials';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone, faPaperPlane, faCheckCircle, faExclamationCircle, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { Turnstile } from '@marsidev/react-turnstile';
@@ -96,11 +96,38 @@ export default function Contact() {
     <>
       <Navbar />
       <Container className="mt-5 pt-5 flex-grow-1" style={{ minHeight: '75vh' }}>
-        <Row className="mb-4">
+        <Row className="mb-5 pt-4">
           <Col className="text-center">
-            <h1 className="mb-3">Get In Touch</h1>
-            <p className="text-secondary max-w-lg mx-auto">
-              Have a project in mind, want to collaborate, or just want to say hi? Feel free to send me a message!
+            <span 
+              style={{
+                fontFamily: 'var(--font-mono-stack)',
+                fontSize: '0.85rem',
+                color: 'var(--emerald-400)',
+                background: 'var(--emerald-pill-bg)',
+                border: '1px solid rgba(52, 211, 153, 0.25)',
+                padding: '0.25rem 0.85rem',
+                borderRadius: 'var(--radius-pill)',
+                display: 'inline-block',
+                marginBottom: '0.75rem',
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+              }}
+            >
+              Start A Conversation
+            </span>
+            <h1 
+              style={{
+                fontSize: 'clamp(2.25rem, 4.5vw, 3.25rem)',
+                fontWeight: 800,
+                color: 'var(--text-primary)',
+                letterSpacing: '-0.02em',
+              }}
+              className="mb-2"
+            >
+              Get In Touch
+            </h1>
+            <p className="text-secondary" style={{ maxWidth: '520px', margin: '0 auto', fontSize: '0.95rem' }}>
+              Have a project in mind, want to collaborate, or just want to say hi? Feel free to reach out anytime!
             </p>
           </Col>
         </Row>

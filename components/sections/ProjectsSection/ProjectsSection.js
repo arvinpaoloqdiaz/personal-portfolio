@@ -30,8 +30,30 @@ export default async function ProjectsSection() {
   return (
     <section id="Projects" className="container mt-5 pb-5">
       <div className="row">
-        <div className="col text-center">
-          <h1 className="my-5">Projects</h1>
+        <div className="col text-center mb-5">
+          <span 
+            style={{
+              fontFamily: 'var(--font-mono-stack)',
+              fontSize: '0.85rem',
+              color: 'var(--emerald-400)',
+              background: 'var(--emerald-pill-bg)',
+              border: '1px solid rgba(52, 211, 153, 0.25)',
+              padding: '0.25rem 0.85rem',
+              borderRadius: 'var(--radius-pill)',
+              display: 'inline-block',
+              marginBottom: '0.75rem',
+              textTransform: 'uppercase',
+              letterSpacing: '0.05em',
+            }}
+          >
+            Featured Catalog
+          </span>
+          <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', fontWeight: 700, color: 'var(--text-primary)' }}>
+            Projects
+          </h2>
+          <p className="text-secondary mt-2 mb-0" style={{ fontSize: '0.95rem' }}>
+            Browse projects categorized by technology stack & purpose.
+          </p>
         </div>
       </div>
 

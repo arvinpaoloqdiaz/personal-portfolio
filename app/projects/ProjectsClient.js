@@ -1,11 +1,11 @@
 'use client';
 import { useState } from 'react';
-import { Container, Row, Col, Dropdown, Button, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Alert } from 'react-bootstrap';
 import { useRouter } from 'next/navigation';
-import ProjectCard from '@/components/ProjectCard/ProjectCard';
+import ProjectCard from '@/components/ui/ProjectCard/ProjectCard';
 import styles from './ProjectsPage.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function ProjectsClient({ projects, groups, isDbDown }) {
   const router = useRouter();
@@ -20,69 +20,112 @@ export default function ProjectsClient({ projects, groups, isDbDown }) {
       <Container className="mt-5 pt-5">
         <Row className="justify-content-center">
           <Col md={8} className="text-center">
-            <Alert variant="warning">
-              <Alert.Heading>Projects Temporarily Unavailable</Alert.Heading>
-              <p>The database may be down. Please try again later.</p>
-              <Button variant="outline-warning" onClick={() => router.push('/')}>
+            <div 
+              className="p-5 text-center"
+              style={{
+                background: 'var(--surface-card)',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-lg)',
+              }}
+            >
+              <h3 style={{ color: 'var(--text-primary)' }} className="mb-3">Projects Temporarily Unavailable</h3>
+              <p style={{ color: 'var(--text-secondary)' }} className="mb-4">The database may be down. Please try again later.</p>
+              <button 
+                className="btn btn-outline-brand" 
+                onClick={() => router.push('/')}
+              >
                 ← Back to Home
-              </Button>
-            </Alert>
+              </button>
+            </div>
           </Col>
         </Row>
       </Container>
     );
   }
 
-  const handleGroupFilter = (groupSlug) => {
-    if (groupSlug) {
-      const group = groups.find(g => g.slug === groupSlug);
-      setCurrentGroup(group);
-    } else {
-      setCurrentGroup(null);
-    }
-  };
-
   return (
-    <Container className="mt-5 pt-5 pt-lg-0">
-      <Row className="mb-4">
-        <Col className="text-center">
-          <h1 className="mb-3">{currentGroup ? currentGroup.name : 'All Projects'}</h1>
-          <p className="text-secondary">
-            {currentGroup
-              ? `Projects in ${currentGroup.name} category`
-              : 'Explore my portfolio of web development projects'}
-          </p>
-        </Col>
-      </Row>
+    <Container className="pt-5" style={{ minHeight: '80vh', paddingBottom: '4rem' }}>
+      <div className="text-center mb-5 pt-4">
+        <span 
+          style={{
+            fontFamily: 'var(--font-mono-stack)',
+            fontSize: '0.85rem',
+            color: 'var(--emerald-400)',
+            background: 'var(--emerald-pill-bg)',
+            border: '1px solid rgba(52, 211, 153, 0.2)',
+            padding: '0.25rem 0.85rem',
+            borderRadius: 'var(--radius-pill)',
+            display: 'inline-block',
+            marginBottom: '0.75rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em',
+          }}
+        >
+          Selected Works & Deployments
+        </span>
+        <h1 
+          style={{ 
+            fontSize: 'clamp(2.25rem, 4vw, 3.25rem)', 
+            fontWeight: 800, 
+            color: 'var(--text-primary)',
+            letterSpacing: '-0.02em',
+          }}
+          className="mb-2"
+        >
+          {currentGroup ? currentGroup.name : 'All Projects'}
+        </h1>
+        <p style={{ color: 'var(--text-secondary)', maxWidth: '540px', margin: '0 auto' }}>
+          {currentGroup
+            ? `Curated projects in the ${currentGroup.name} domain.`
+            : 'Explore full-stack applications, interactive tools, and web experiments.'}
+        </p>
 
-      <Row className="mb-4">
-        <Col className="text-center">
-          <Dropdown className="d-inline-block">
-            <Dropdown.Toggle variant="outline-brand" id="group-filter">
-              {currentGroup ? currentGroup.name : 'All Categories'}
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item
-                onClick={() => handleGroupFilter(null)}
-                active={!currentGroup}
-                className={!currentGroup ? styles.dropdownItemActive : ""}
+        {/* Category Filter Pills */}
+        <div className="d-flex flex-wrap justify-content-center gap-2 mt-4">
+          <button
+            type="button"
+            onClick={() => setCurrentGroup(null)}
+            style={{
+              padding: '0.45rem 1rem',
+              borderRadius: 'var(--radius-pill)',
+              fontSize: '0.875rem',
+              fontWeight: 500,
+              cursor: 'pointer',
+              transition: 'all 0.2s ease',
+              border: !currentGroup ? '1px solid var(--emerald-400)' : '1px solid var(--border-subtle)',
+              background: !currentGroup ? 'var(--emerald-pill-bg)' : 'var(--surface-card)',
+              color: !currentGroup ? 'var(--emerald-400)' : 'var(--text-secondary)',
+            }}
+          >
+            All Categories ({projects.length})
+          </button>
+
+          {groups.map((group) => {
+            const count = projects.filter((p) => p.group_slug === group.slug).length;
+            const isActive = currentGroup?.slug === group.slug;
+            return (
+              <button
+                key={group.slug}
+                type="button"
+                onClick={() => setCurrentGroup(group)}
+                style={{
+                  padding: '0.45rem 1rem',
+                  borderRadius: 'var(--radius-pill)',
+                  fontSize: '0.875rem',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  border: isActive ? '1px solid var(--emerald-400)' : '1px solid var(--border-subtle)',
+                  background: isActive ? 'var(--emerald-pill-bg)' : 'var(--surface-card)',
+                  color: isActive ? 'var(--emerald-400)' : 'var(--text-secondary)',
+                }}
               >
-                All Categories
-              </Dropdown.Item>
-              {groups.map((group) => (
-                <Dropdown.Item
-                  key={group.slug}
-                  onClick={() => handleGroupFilter(group.slug)}
-                  active={currentGroup?.slug === group.slug}
-                  className={currentGroup?.slug === group.slug ? styles.dropdownItemActive : ""}
-                >
-                  {group.name}
-                </Dropdown.Item>
-              ))}
-            </Dropdown.Menu>
-          </Dropdown>
-        </Col>
-      </Row>
+                {group.name} ({count})
+              </button>
+            );
+          })}
+        </div>
+      </div>
 
       {filteredProjects.length > 0 ? (
         <Row className="g-4">
@@ -93,38 +136,48 @@ export default function ProjectsClient({ projects, groups, isDbDown }) {
           ))}
         </Row>
       ) : (
-        <Row className="justify-content-center">
+        <Row className="justify-content-center my-5">
           <Col md={8} className="text-center">
-            <Alert variant="info">
-              <Alert.Heading>No Projects Found</Alert.Heading>
-              <p>
-                {currentGroup
-                  ? `No projects found in the ${currentGroup.name} category.`
-                  : 'No projects available at the moment.'}
+            <div 
+              className="p-5"
+              style={{
+                background: 'var(--surface-card)',
+                border: '1px solid var(--border-subtle)',
+                borderRadius: 'var(--radius-lg)',
+              }}
+            >
+              <h4 style={{ color: 'var(--text-primary)' }} className="mb-2">No Projects Found</h4>
+              <p style={{ color: 'var(--text-secondary)' }} className="mb-4">
+                No projects matched this specific category.
               </p>
-              {currentGroup && (
-                <Button variant="outline-info" onClick={() => handleGroupFilter(null)}>
-                  View All Projects
-                </Button>
-              )}
-            </Alert>
+              <button 
+                className="btn btn-outline-brand" 
+                onClick={() => setCurrentGroup(null)}
+              >
+                View All Projects
+              </button>
+            </div>
           </Col>
         </Row>
       )}
 
-      <Row className="mt-5">
-        <Col className="text-center">
-          <Button variant="outline-brand" onClick={() => router.push('/')} className="me-3">
-            ← Back to Home
-          </Button>
-          <Button
-            variant="outline-dark rounded-pill py-2 px-3 border-2"
-            onClick={() => router.push('/contact')}
-          >
-            <FontAwesomeIcon icon={faPhone} /> Get in Touch
-          </Button>
-        </Col>
-      </Row>
+      <div className="d-flex justify-content-center gap-3 mt-5 pt-3">
+        <button 
+          className="btn btn-outline-brand" 
+          onClick={() => router.push('/')}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} className="me-2" />
+          <span>Back to Home</span>
+        </button>
+        <button
+          className="btn btn-brand"
+          onClick={() => router.push('/contact')}
+        >
+          <FontAwesomeIcon icon={faEnvelope} className="me-2" />
+          <span>Get in Touch</span>
+        </button>
+      </div>
     </Container>
   );
 }
+

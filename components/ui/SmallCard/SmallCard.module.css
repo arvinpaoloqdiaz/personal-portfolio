@@ -6,14 +6,14 @@
   margin-top: 1rem;
   text-align: center;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .cardContainer:hover {
   background: var(--surface-card-hover);
   border-color: var(--border-hover);
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(16, 185, 129, 0.15);
+  box-shadow: none;
 }
 
 .iconCircle {

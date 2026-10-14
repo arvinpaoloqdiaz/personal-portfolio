@@ -43,13 +43,13 @@
   padding: 2.25rem;
   height: 100%;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+  box-shadow: none;
 }
 
 .bentoCard:hover {
   background: var(--surface-card-hover);
   border-color: var(--border-hover);
-  box-shadow: 0 12px 30px -5px rgba(0, 0, 0, 0.5), 0 0 20px -5px rgba(16, 185, 129, 0.12);
+  box-shadow: none;
 }
 
 .bentoCardTitle {
@@ -128,13 +128,13 @@
   text-decoration: none;
   font-weight: 600;
   transition: all 0.25s ease;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  box-shadow: none;
 }
 
 .resumePill:hover {
   background: var(--emerald-400);
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(52, 211, 153, 0.45);
+  box-shadow: none;
 }
 
 :global(abbr) {

@@ -1,0 +1,57 @@
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+
+.skeletonLine {
+  /* Dark mode: dim surface shimmer */
+  background: linear-gradient(
+    90deg,
+    var(--surface-card)       25%,
+    var(--surface-card-hover) 50%,
+    var(--surface-card)       75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: 4px;
+  height: 1rem;
+}
+
+.skeletonCard {
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  background: var(--surface-card);
+}
+
+.skeletonIcon {
+  background: linear-gradient(
+    90deg,
+    var(--surface-card)       25%,
+    var(--surface-card-hover) 50%,
+    var(--surface-card)       75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  margin: 0 auto 0.5rem;
+}
+
+/* ─── Light Mode Overrides ─────────────────────────────────────────────── */
+:global([data-theme="light"]) .skeletonLine {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 800px 100%;
+}
+
+:global([data-theme="light"]) .skeletonIcon {
+  background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%);
+  background-size: 800px 100%;
+}
+
+:global([data-theme="light"]) .skeletonCard {
+  border-color: #e0e0e0;
+  background: #ffffff;
+}
