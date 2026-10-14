@@ -1,0 +1,25 @@
+.modalContent {
+  background: var(--main-black);
+  color: var(--main-white);
+}
+
+.btnClose :global(.btn-close) {
+  filter: invert(1);
+}
+
+.certsGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certCard {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--main-white);
+  transition: all 0.2s ease;
+}
+
+.certCard:hover {
+  border-color: var(--green-main);
+  background: rgba(255, 255, 255, 0.08);
+}

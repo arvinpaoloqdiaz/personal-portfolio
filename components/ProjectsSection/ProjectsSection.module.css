@@ -1,0 +1,95 @@
+.groupCard {
+  min-height: 220px;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 1.5rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  color: var(--text-primary);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+}
+
+.groupCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(52, 211, 153, 0.4), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.groupCard:hover {
+  transform: translateY(-4px);
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 16px 36px -10px rgba(0, 0, 0, 0.6), 0 0 20px -5px rgba(16, 185, 129, 0.2);
+}
+
+.groupCard:hover::before {
+  opacity: 1;
+}
+
+.groupBody {
+  flex: 1;
+  padding: 0.5rem 0;
+}
+
+.groupTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.groupText {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.highlightNumber {
+  display: block;
+  font-family: var(--font-mono-stack);
+  font-size: 4rem;
+  font-weight: 800;
+  color: var(--emerald-400);
+  line-height: 1.1;
+  margin-bottom: 0.25rem;
+}
+
+.highlightAll {
+  display: block;
+  font-family: var(--font-heading-stack);
+  font-size: 2.75rem;
+  font-weight: 800;
+  color: var(--emerald-400);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+}
+
+.cardFooter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+  margin-top: 1rem;
+}
+
+.groupCard:hover .cardFooter {
+  color: var(--emerald-400);
+}
+

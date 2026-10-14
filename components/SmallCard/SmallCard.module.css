@@ -1,0 +1,68 @@
+.cardContainer {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+}
+
+.cardContainer:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 0 15px -3px rgba(16, 185, 129, 0.15);
+}
+
+.iconCircle {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-400);
+}
+
+.icon {
+  font-size: 1.15rem;
+}
+
+.cardTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.35rem;
+}
+
+.cardTitle :global(a) {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.cardTitle :global(a:hover) {
+  color: var(--emerald-400);
+}
+
+.valueRow {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.quantity {
+  font-family: var(--font-mono-stack);
+  font-weight: 600;
+  color: var(--emerald-400);
+  font-size: 0.95rem;
+}
+
+.subtitle {
+  color: var(--text-muted);
+}
+
