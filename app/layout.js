@@ -86,14 +86,7 @@ export default function RootLayout({ children }) {
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var saved = localStorage.getItem('theme');
-                if (saved) {
-                  document.documentElement.setAttribute('data-theme', saved);
-                } else if (window.matchMedia('(prefers-color-scheme: light)').matches) {
-                  document.documentElement.setAttribute('data-theme', 'light');
-                } else {
-                  document.documentElement.setAttribute('data-theme', 'dark');
-                }
+                document.documentElement.setAttribute('data-theme', 'light');
               } catch (e) {}
             `,
           }}

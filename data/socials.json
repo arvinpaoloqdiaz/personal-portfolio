@@ -1,0 +1,37 @@
+[
+  {
+    "name": "LinkedIn",
+    "url": "https://www.linkedin.com/in/arvin-paolo-diaz/",
+    "icon": "faLinkedin",
+    "hoverColor": "#0a66c2",
+    "ariaLabel": "Visit Arvin's LinkedIn Profile"
+  },
+  {
+    "name": "Gmail",
+    "url": "mailto:arvinpaoloq.diaz@gmail.com",
+    "icon": "faGoogle",
+    "hoverColor": "#ea4335",
+    "ariaLabel": "Send email to Arvin"
+  },
+  {
+    "name": "Blog",
+    "url": "https://blog.apqdiaz.online",
+    "icon": "faBlog",
+    "hoverColor": "#aa55ff",
+    "ariaLabel": "Personal Blog"
+  },
+  {
+    "name": "CodePen",
+    "url": "https://codepen.io/Arvin-Paolo-Diaz",
+    "icon": "faCodepen",
+    "hoverColor": "#34d399",
+    "ariaLabel": "View Arvin's CodePen Profile"
+  },
+  {
+    "name": "GitHub",
+    "url": "https://github.com/arvinpaoloqdiaz",
+    "icon": "faGithub",
+    "hoverColor": "#34d399",
+    "ariaLabel": "View Arvin's GitHub Profile"
+  }
+]

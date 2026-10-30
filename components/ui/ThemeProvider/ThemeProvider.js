@@ -2,34 +2,28 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 
 const ThemeContext = createContext({
-  theme: 'dark',
+  theme: 'light',
   toggleTheme: () => {},
 });
 
 export function ThemeProvider({ children }) {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check localStorage or system preference
-    const saved = localStorage.getItem('theme');
-    if (saved === 'light' || saved === 'dark') {
-      setTheme(saved);
-      document.documentElement.setAttribute('data-theme', saved);
-    } else {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      const initial = prefersDark ? 'dark' : 'light';
-      setTheme(initial);
-      document.documentElement.setAttribute('data-theme', initial);
-    }
+    // Light scheme set as default; dark mode disabled for now
+    setTheme('light');
+    document.documentElement.setAttribute('data-theme', 'light');
+    try {
+      localStorage.setItem('theme', 'light');
+    } catch (e) {}
     setMounted(true);
   }, []);
 
   const toggleTheme = () => {
-    const nextTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(nextTheme);
-    localStorage.setItem('theme', nextTheme);
-    document.documentElement.setAttribute('data-theme', nextTheme);
+    // Disabled for now: maintains light theme
+    setTheme('light');
+    document.documentElement.setAttribute('data-theme', 'light');
   };
 
   return (

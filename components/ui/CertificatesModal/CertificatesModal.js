@@ -1,72 +1,80 @@
 'use client';
-import styles from './CertificatesModal.module.css';
-import { Modal, Button, Row, Col, Card } from 'react-bootstrap';
+
 import { useState } from 'react';
+import { Modal, Row, Col, Card } from 'react-bootstrap';
+import styles from './CertificatesModal.module.css';
 
-export default function CertificatesModal({ certificates }) {
-  const [show, setShow] = useState(false);
-
+/**
+ * Modern Certificates Modal Dialog
+ * Rendered by parent and controlled via open state
+ */
+export default function CertificatesModal({
+  certificates = [],
+  show = false,
+  onHide = () => {}
+}) {
   return (
-    <>
-      <Button
-        variant="link"
-        onClick={() => setShow(true)}
-        className="btn-text-link-brand"
+    <Modal
+      show={show}
+      onHide={onHide}
+      fullscreen
+      aria-labelledby="certificates-modal-title"
+      contentClassName={styles.modalContent}
+    >
+      <Modal.Header
+        closeButton
+        className={`border-bottom-0 ${styles.btnClose}`}
       >
-        Certifications
-      </Button>
+        <Modal.Title id="certificates-modal-title" className={styles.modalHeaderTitle}>
+          Certifications &amp; Credentials ({certificates.length})
+        </Modal.Title>
+      </Modal.Header>
 
-      <Modal
-        show={show}
-        onHide={() => setShow(false)}
-        fullscreen
-        aria-labelledby="modal-styling-title"
-        contentClassName={styles.modalContent}
-      >
-        <Modal.Header
-          closeButton
-          className={`border-bottom-0 text-white ${styles.btnClose}`}
-        />
-
-        <Modal.Body className="p-4">
-          <Row className={`g-3 ${styles.certsGrid}`}>
-            {certificates.length > 0 ? (
-              certificates.map((cert, index) => (
-                <Col key={index} xs={12} sm={6} md={4}>
-                  <Card className={`h-100 text-start ${styles.certCard}`}>
-                    <Card.Body>
-                      <Card.Title className="fw-bold">{cert.title}</Card.Title>
-                      <Card.Subtitle className="mb-2 text-muted">
-                        {cert.from}
-                      </Card.Subtitle>
-                      <div>
-                        Issued on: <strong>{cert.date}</strong>
+      <Modal.Body className="p-4">
+        <Row className={`g-4 ${styles.certsGrid}`}>
+          {certificates.length > 0 ? (
+            certificates.map((cert, index) => (
+              <Col key={index} xs={12} sm={6} lg={4}>
+                <Card className={`h-100 ${styles.certCard}`}>
+                  <Card.Body className="d-flex flex-column justify-content-between p-4">
+                    <div>
+                      <div className={styles.issuerBadge}>{cert.from}</div>
+                      <Card.Title className={styles.certHeading}>{cert.title}</Card.Title>
+                      
+                      <div className={styles.certMeta}>
+                        <div>Issued on: <strong className={styles.certMetaHighlight}>{cert.date}</strong></div>
+                        {cert.credential_id && (
+                          <div className="mt-1">
+                            ID: <code className={styles.certCode}>{cert.credential_id}</code>
+                          </div>
+                        )}
                       </div>
-                      {cert.credential_id && (
-                        <div>
-                          Credential ID: <strong>{cert.credential_id}</strong>
-                        </div>
-                      )}
-                      {cert.link && (
+                    </div>
+
+                    {cert.link && (
+                      <div className="mt-3 pt-3 border-top border-secondary border-opacity-25">
                         <a
                           href={cert.link}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-link-brand"
+                          className={styles.certLink}
                         >
-                          View Credential
+                          <span>Verify Credential</span>
+                          <span aria-hidden="true">&rarr;</span>
                         </a>
-                      )}
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))
-            ) : (
-              <p className="text-center">No certificates found.</p>
-            )}
-          </Row>
-        </Modal.Body>
-      </Modal>
-    </>
+                      </div>
+                    )}
+                  </Card.Body>
+                </Card>
+              </Col>
+            ))
+          ) : (
+            <Col xs={12}>
+              <p className="text-center text-muted">No certificates found.</p>
+            </Col>
+          )}
+        </Row>
+      </Modal.Body>
+    </Modal>
   );
 }

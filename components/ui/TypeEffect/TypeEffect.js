@@ -5,12 +5,14 @@ export default function TypeEffect() {
   return (
     <TypeAnimation
       sequence={[
-        'Frontend',
-        5000,
-        'Backend',
-        5000,
-        'Full-Stack',
-        5000,
+        'Full-Stack Engineer',
+        4000,
+        'Backend Engineer',
+        4000,
+        'DevOps & Cloud',
+        4000,
+        'Platform Engineer',
+        4000,
       ]}
       repeat={Infinity}
     />

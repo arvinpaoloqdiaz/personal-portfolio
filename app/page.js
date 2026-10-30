@@ -2,12 +2,14 @@ import { Suspense } from 'react';
 import Navbar from '@/components/layout/Navbar/Navbar';
 import Footer from '@/components/layout/Footer/Footer';
 import Socials from '@/components/ui/Socials/Socials';
-import TypeEffect from '@/components/ui/TypeEffect/TypeEffect';
+import RoleAnimation from '@/components/ui/RoleAnimation/RoleAnimation';
 import Carousel from '@/components/sections/Carousel/Carousel';
 import ExperienceSection from '@/components/sections/ExperienceSection/ExperienceSection';
 import StatsCards from '@/components/sections/StatsCards/StatsCards';
 import StatsCardsSkeleton from '@/components/sections/StatsCards/StatsCardsSkeleton';
 import ProjectsSection from '@/components/sections/ProjectsSection/ProjectsSection';
+import HeroAvatar from '@/components/ui/HeroAvatar/HeroAvatar';
+import Button from '@/components/ui/Button/Button';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDownload } from '@fortawesome/free-solid-svg-icons';
@@ -18,8 +20,8 @@ import aboutStyles from './About.module.css';
 import { supabase } from '@/lib/supabase';
 
 export const metadata = {
-  title: 'Arvin Paolo Diaz | Web Developer',
-  description: 'Personal portfolio of Arvin Paolo Diaz, a full-stack web developer from the Philippines.',
+  title: 'Arvin Paolo Diaz | Full-Stack & DevOps Engineer',
+  description: 'Personal portfolio of Arvin Paolo Diaz — Full-Stack Developer with a growing focus on DevOps & Cloud.',
 };
 
 export default async function Page() {
@@ -55,49 +57,36 @@ export default async function Page() {
         <div className="container">
           <div className="row justify-content-center text-center">
             <div className="col-12">
-              <div className={homeStyles.statusBadge}>
-                <span className={homeStyles.statusDot} />
-                <span>Available for new projects & opportunities</span>
-              </div>
               <h1 className={homeStyles.heroTitle}>
-                Crafting Scalable, Modern Web Apps with <span className={homeStyles.heroTitleAccent}>Precision</span>
+                Building Fast <span className={homeStyles.heroTitleAccent}>Web Apps</span> &{' '}
+                <br className={homeStyles.heroBreak} />
+                Smooth <span className={homeStyles.heroTitleAccent}>Deployments</span>
               </h1>
               <div className={homeStyles.roleRow}>
-                <span className={homeStyles.roleBadge}>
-                  <TypeEffect />
-                </span>
-                <span className="text-secondary">•</span>
-                <span className="text-secondary">Full-Stack Web Developer</span>
+                <RoleAnimation />
               </div>
             </div>
           </div>
 
           <div className="row gy-5 align-items-center justify-content-center mt-2">
             <div className="col-12 col-lg-5 text-center">
-              <div className={homeStyles.avatarContainer}>
-                <div className={homeStyles.avatarGlow} />
-                <img
-                  src="/images/Arvin-updated.png"
-                  className={homeStyles.avatarImage}
-                  alt="Arvin Paolo Diaz"
-                />
-              </div>
+              <HeroAvatar mode={process.env.NEXT_PUBLIC_HERO_PHOTO_MODE || 'professional'} />
             </div>
 
             <div className="col-12 col-lg-6">
               <div className="d-flex flex-column gap-3">
                 <p className={homeStyles.bioLead}>
-                  Hi, I'm <strong>Arvin Paolo Diaz</strong> — a Full-Stack Web Developer based in the{' '}
-                  <em>Philippines</em>. I build robust, human-centered web solutions combining engineering rigor with fluid modern design.
+                  Hi, I'm <strong>Arvin Paolo Diaz</strong> — a Web Developer based in the{' '}
+                  <em>Philippines</em>. I build practical full-stack web applications and help teams set up simple, reliable build and deployment pipelines.
                 </p>
 
                 <div className={homeStyles.ctaRow}>
-                  <a href="#Projects" className={homeStyles.btnPrimaryCta}>
-                    <span>View Projects</span>
-                  </a>
-                  <Link href="/contact" className={homeStyles.btnSecondaryCta}>
-                    <span>Get in Touch</span>
-                  </Link>
+                  <Button href="#Projects" variant="gradient">
+                    View Projects
+                  </Button>
+                  <Button href="/contact" variant="secondary">
+                    Get in Touch
+                  </Button>
                 </div>
 
                 <div className="mt-2">
@@ -129,56 +118,52 @@ export default async function Page() {
               <div className="col-12 col-lg-7">
                 <div className={aboutStyles.bentoCard}>
                   <h3 className={aboutStyles.bentoCardTitle}>
-                    From Electronics Engineering to Full-Stack Craft
+                    From Hardware Engineering to the Web & Cloud
                   </h3>
                   <p className={aboutStyles.bioParagraph}>
-                    I'm a passionate career shifter from the <em>Electronics Engineering</em> industry, now dedicating my focus to full-stack web development. What started as a curious coding passion evolved into a disciplined engineering career after completing an intensive bootcamp centered on modern JavaScript and full-stack systems.
+                    With a background in <em>Electronics Engineering</em>, I bring practical problem-solving and structured thinking to web development.
                   </p>
                   <p className={aboutStyles.bioParagraph}>
-                    When I'm not writing code, you'll find me exploring emerging tech stacks, participating in engineering discussions, or analyzing systems architecture. I bring an analytical, systematic engineering mindset to every digital product I build.
+                    As a <em>Full-Stack developer</em> expanding into <strong>DevOps and Cloud workflows</strong>, I enjoy taking projects all the way from clean code to automated builds and smooth hosting setups.
                   </p>
                   <p className={aboutStyles.bioParagraph}>
-                    Currently specializing in <strong>PHP</strong>, <strong>React</strong>, <strong>Next.js</strong>, and <strong>MySQL</strong>, with an active focus on expanding into <strong>DevOps</strong> and cloud deployment workflows.
+                    I genuinely enjoy analyzing everyday processes and finding clever, efficient ways to automate them. There's real satisfaction in simplifying complexity and making workflows effortless—especially in an era where agility and automation matter most.
+                  </p>
+                  <p className={`${aboutStyles.bioParagraph} ${aboutStyles.techStackBlock}`}>
+                    <strong>Core Stack:</strong> PHP, React, Next.js, MySQL, Node.js <br />
+                    <strong>DevOps & Tools:</strong> Docker, GitHub Actions, Linux, Cloudflare
                   </p>
                 </div>
               </div>
 
               <div className="col-12 col-lg-5">
-                <div className={`${aboutStyles.bentoCard} d-flex flex-column justify-content-between`}>
+                <div className={aboutStyles.ctaBentoCard}>
                   <div>
+                    <div className={aboutStyles.ctaPillBadge}>
+                      <span className={aboutStyles.ctaPillDot} />
+                      <span>Open for Opportunities</span>
+                    </div>
+
                     <h3 className={aboutStyles.bentoCardTitle}>
                       Let's Build Together
                     </h3>
                     <p className={aboutStyles.bioParagraph}>
-                      Whether you have an upcoming project, want to collaborate on open-source, or need a developer for your team, my inbox is open.
+                      Whether you have an upcoming project, are looking to automate deployments, or need a developer on your team, my inbox is always open. Let's create something reliable and impactful.
                     </p>
-                    <div className={aboutStyles.actionPillsRow}>
-                      <Link href="/contact" className={aboutStyles.actionPill}>
-                        Contact Me
-                      </Link>
-                      <a href="#Projects" className={aboutStyles.actionPill}>
-                        Explore Work
-                      </a>
-                      <a
-                        href="https://github.com/arvinpaoloqdiaz"
-                        target="_blank"
-                        rel="noreferrer"
-                        className={aboutStyles.actionPill}
-                      >
-                        GitHub Profile
-                      </a>
-                    </div>
                   </div>
 
-                  <div className="mt-4 pt-3 border-top border-secondary-subtle">
-                    <a
+                  <div className={aboutStyles.ctaButtonGroup}>
+                    <Button
                       href="https://raw.githubusercontent.com/arvinpaoloqdiaz/files/resume/Arvin%20Paolo%20Diaz%20-%20Resume.pdf"
-                      className={aboutStyles.resumePill}
-                      download
+                      variant="gradient"
+                      external
+                      icon={<FontAwesomeIcon icon={faDownload} />}
                     >
-                      <FontAwesomeIcon icon={faDownload} />
-                      <span>Download Resume</span>
-                    </a>
+                      Download Resume
+                    </Button>
+                    <Button href="/contact" variant="secondary">
+                      Contact Me
+                    </Button>
                   </div>
                 </div>
               </div>

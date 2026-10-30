@@ -1,44 +1,99 @@
+'use client';
+
+import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin, faGoogle, faCodepen, faGithub } from '@fortawesome/free-brands-svg-icons';
+import {
+  faLinkedin,
+  faGoogle,
+  faCodepen,
+  faGithub,
+  faTwitter,
+  faXTwitter,
+  faYoutube,
+  faDiscord,
+  faInstagram,
+  faGitlab,
+  faMedium,
+  faStackOverflow
+} from '@fortawesome/free-brands-svg-icons';
+import { faEnvelope, faGlobe, faLink } from '@fortawesome/free-solid-svg-icons';
+import defaultSocials from '@/data/socials.json';
 import styles from './Socials.module.css';
 
-export default function Socials({ isFooter = false, isAbout = false }) {
+// FontAwesome icon lookup map for easy configuration by string name in socials.json
+const ICON_MAP = {
+  faLinkedin,
+  faGoogle,
+  faCodepen,
+  faGithub,
+  faTwitter,
+  faXTwitter,
+  faYoutube,
+  faDiscord,
+  faInstagram,
+  faGitlab,
+  faMedium,
+  faStackOverflow,
+  faEnvelope,
+  faGlobe,
+  faLink
+};
+
+export default function Socials({
+  isFooter = false,
+  isAbout = false,
+  links = defaultSocials
+}) {
+  const containerClass = isFooter
+    ? `${styles.socialsContainer} ${styles.footerAlign}`
+    : isAbout
+    ? `${styles.socialsContainer} ${styles.centerAlign}`
+    : `${styles.socialsContainer} ${styles.homeAlign}`;
+
   return (
-    <div className={isFooter ? 'd-flex justify-content-center justify-content-md-end' : isAbout ? 'd-flex justify-content-center' : styles.socials__home}>
-      <div className={`${styles.socials__bar} d-flex ${isFooter || isAbout ? 'gap-4' : styles.socials__border}`}>
-        <span className={styles.socialsLogoContainer}>
-          <a href="https://www.linkedin.com/in/arvin-paolo-diaz/" target="_blank" rel="noreferrer" className="text-link-brand">
-            <div className={`${styles.circle} ${styles.linkedinCircle}`}>
-              <FontAwesomeIcon icon={faLinkedin} className={styles.linkedin} />
-            </div>
-            <div className={styles.logoLabel}>LinkedIn</div>
-          </a>
-        </span>
-        <span className={styles.socialsLogoContainer}>
-          <a href="mailto:arvinpaoloq.diaz@gmail.com" target="_blank" rel="noreferrer" className="text-link-brand">
-            <div className={`${styles.circle} ${styles.googleCircle}`}>
-              <FontAwesomeIcon icon={faGoogle} className={styles.google} />
-            </div>
-            <div className={styles.logoLabel}>Gmail</div>
-          </a>
-        </span>
-        <span className={styles.socialsLogoContainer}>
-          <a href="https://codepen.io/Arvin-Paolo-Diaz" target="_blank" rel="noreferrer" className="text-link-brand">
-            <div className={`${styles.circle} ${styles.codepenCircle}`}>
-              <FontAwesomeIcon icon={faCodepen} className={styles.codepen} />
-            </div>
-            <div className={styles.logoLabel}>CodePen</div>
-          </a>
-        </span>
-        <span className={styles.socialsLogoContainer}>
-          <a href="https://github.com/arvinpaoloqdiaz" target="_blank" rel="noreferrer" className="text-link-brand">
-            <div className={`${styles.circle} ${styles.githubCircle}`}>
-              <FontAwesomeIcon icon={faGithub} className={styles.github} />
-            </div>
-            <div className={styles.logoLabel}>GitHub</div>
-          </a>
-        </span>
+    <nav className={containerClass} aria-label="Social media and links">
+      <div className={styles.socialsDock}>
+        {links.map((item, index) => {
+          const isFontAwesome = typeof item.icon === 'string' && ICON_MAP[item.icon];
+          const isImagePath = typeof item.icon === 'string' && (item.icon.startsWith('/') || item.icon.startsWith('http'));
+
+          return (
+            <a
+              key={item.name || index}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer noopener"
+              className={styles.socialItem}
+              aria-label={item.ariaLabel || item.name}
+              style={{ '--item-accent': item.hoverColor || '#34d399' }}
+            >
+              <div className={styles.iconCircle}>
+                {isFontAwesome && (
+                  <FontAwesomeIcon
+                    icon={ICON_MAP[item.icon]}
+                    className={styles.iconElement}
+                  />
+                )}
+                {isImagePath && (
+                  <Image
+                    src={item.icon}
+                    alt={item.name}
+                    width={20}
+                    height={20}
+                    className={styles.customIconImage}
+                  />
+                )}
+                {!isFontAwesome && !isImagePath && (
+                  <FontAwesomeIcon icon={faLink} className={styles.iconElement} />
+                )}
+              </div>
+
+              {/* Floating Tooltip Label */}
+              <span className={styles.tooltip}>{item.name}</span>
+            </a>
+          );
+        })}
       </div>
-    </div>
+    </nav>
   );
 }

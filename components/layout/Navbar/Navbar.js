@@ -105,26 +105,6 @@ export default function Navbar() {
             </Link>
           </li>
         </ul>
-
-        {/* Dark / Light Theme Toggle */}
-        <div className={styles.themeToggleContainer}>
-          <button
-            type="button"
-            onClick={toggleTheme}
-            className={styles.themeToggleBtn}
-            aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-            title={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
-          >
-            {mounted ? (
-              <FontAwesomeIcon
-                icon={theme === 'dark' ? faSun : faMoon}
-                className={styles.themeIcon}
-              />
-            ) : (
-              <span style={{ width: '14px', height: '14px', display: 'inline-block' }} />
-            )}
-          </button>
-        </div>
       </nav>
     </header>
   );

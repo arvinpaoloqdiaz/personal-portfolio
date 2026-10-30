@@ -1,101 +1,166 @@
-.socialsLogoContainer {
-  position: relative;
+/* ==========================================================================
+   Modern Socials Dock & Item Styles
+   Clean, flat resting state with theme-aware glow on hover
+   ========================================================================== */
+
+.socialsContainer {
   display: flex;
+  width: 100%;
+}
+
+.homeAlign {
+  justify-content: center;
+}
+
+.centerAlign {
+  justify-content: center;
+}
+
+.footerAlign {
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footerAlign {
+    justify-content: flex-end;
+  }
+}
+
+/* ── MODERN DOCK CAPSULE ── */
+.socialsDock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-card, #121a16);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.15));
+  border-radius: var(--radius-pill, 9999px);
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+.socialsDock:hover {
+  border-color: var(--border-hover, rgba(52, 211, 153, 0.28));
+}
+
+/* ── SOCIAL ITEM ANCHOR ── */
+.socialItem {
+  position: relative;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
 }
 
-.socialsLogoContainer:hover .circle {
-  transform: translateY(-4px);
-  border-color: var(--emerald-400);
-  background: var(--emerald-pill-bg);
-  box-shadow: 0 0 16px rgba(52, 211, 153, 0.25);
+/* ── ICON CIRCLE (Flat resting, glow on hover) ── */
+.iconCircle {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 50%;
+  background: var(--bg-canvas, #0a0f0d);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #94a3b8);
+  box-shadow: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.25s ease;
 }
 
-.socialsLogoContainer:hover .logoLabel {
-  opacity: 1;
+.iconElement {
+  width: 1.15rem !important;
+  height: 1.15rem !important;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.customIconImage {
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+/* ── HOVER & FOCUS STATES ── */
+.socialItem:hover .iconCircle,
+.socialItem:focus-visible .iconCircle {
+  transform: translateY(-3px);
+  border-color: var(--item-accent, var(--emerald-400));
+  color: var(--item-accent, var(--emerald-400));
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.12));
+  box-shadow: 0 8px 18px -4px rgba(16, 185, 129, 0.35);
+}
+
+.socialItem:hover .iconElement,
+.socialItem:focus-visible .iconElement {
+  transform: scale(1.1);
+}
+
+.socialItem:hover .customIconImage,
+.socialItem:focus-visible .customIconImage {
+  transform: scale(1.1);
+}
+
+.socialItem:active .iconCircle {
   transform: translateY(0);
+  box-shadow: 0 4px 10px -2px rgba(16, 185, 129, 0.3);
 }
 
-.logoLabel {
+/* ── TOOLTIP (Resting: hidden, Hover: reveals) ── */
+.tooltip {
   position: absolute;
-  top: 105%;
-  font-size: 0.75rem;
-  font-family: var(--font-body-stack);
-  font-weight: 500;
-  color: var(--text-secondary);
-  background: rgba(10, 15, 13, 0.9); /* overridden in light mode below */
-  border: 1px solid var(--border-subtle);
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-pill);
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0f1713;
+  color: #f0fdf4;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill, 9999px);
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transform: translateY(-4px);
-  transition: all 0.2s ease;
-  z-index: 10;
+  box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
 }
 
-.socials__bar {
-  padding-block: 0.25rem;
-  margin-block: 0.75rem;
-  justify-content: center;
-  gap: 1rem;
+.socialItem:hover .tooltip,
+.socialItem:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
-.circle {
-  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  background: var(--surface-card);
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--border-subtle);
-  width: 2.75rem;
-  height: 2.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+/* ── LIGHT THEME ADAPTATION ── */
+:global([data-theme="light"]) .socialsDock {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.06);
 }
 
-.linkedin, .google, .codepen, .github {
-  width: 1.25rem !important;
-  height: 1.25rem !important;
-  flex-shrink: 0;
-  color: var(--text-secondary);
-  transition: color 0.2s ease;
+:global([data-theme="light"]) .iconCircle {
+  background: #f8fafc;
+  border-color: rgba(16, 185, 129, 0.15);
+  color: #64748b;
+  box-shadow: none;
 }
 
-.socialsLogoContainer:hover .linkedin { color: #0a66c2; }
-.socialsLogoContainer:hover .google { color: #ea4335; }
-.socialsLogoContainer:hover .codepen { color: var(--text-primary); }
-.socialsLogoContainer:hover .github { color: var(--emerald-400); }
-
-.socials__home {
-  display: flex;
-  justify-content: center;
+:global([data-theme="light"]) .socialItem:hover .iconCircle {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--item-accent, #10b981);
+  box-shadow: 0 6px 16px -4px rgba(16, 185, 129, 0.25);
 }
 
-.socials__border {
-  border-radius: var(--radius-pill);
-}
-
-/* ─── Light Mode Overrides ─────────────────────────────────────────────── */
-:global([data-theme="light"]) .logoLabel {
-  background: rgba(255, 255, 255, 0.96);
-  border-color: rgba(16, 185, 129, 0.25);
-  color: var(--text-primary);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-:global([data-theme="light"]) .socialsLogoContainer:hover .circle {
-  border-color: var(--emerald-500);
-  background: rgba(16, 185, 129, 0.1);
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.2);
-}
-
-:global([data-theme="light"]) .socialsLogoContainer:hover .github {
-  color: var(--emerald-600);
-}
-
-:global([data-theme="light"]) .socialsLogoContainer:hover .codepen {
-  color: var(--text-primary);
+:global([data-theme="light"]) .tooltip {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.15);
 }

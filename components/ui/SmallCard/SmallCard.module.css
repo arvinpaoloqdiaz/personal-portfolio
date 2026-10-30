@@ -1,68 +1,182 @@
+/* ==========================================================================
+   Modern Metric / Stat Card Styles
+   Flat resting state with clean typography & interactive hover elevation
+   ========================================================================== */
+
 .cardContainer {
-  background: var(--surface-card);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1rem;
-  margin-top: 1rem;
-  text-align: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 145px;
+  background: var(--surface-card, #121a16);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.14));
+  border-radius: var(--radius-lg, 20px);
+  padding: 1.15rem 1.25rem;
+  text-decoration: none;
   box-shadow: none;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              background-color 0.3s ease,
+              box-shadow 0.3s ease;
+  width: 100%;
 }
 
-.cardContainer:hover {
-  background: var(--surface-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
-  box-shadow: none;
+.buttonReset {
+  background: var(--surface-card, #121a16);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.14));
+  cursor: pointer;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ── TOP ROW: ICON + OPTIONAL BADGE ── */
+.topRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
 }
 
 .iconCircle {
-  width: 44px;
-  height: 44px;
-  margin: 0 auto 0.75rem;
-  border-radius: var(--radius-pill);
-  background: var(--emerald-pill-bg);
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.1));
   border: 1px solid rgba(52, 211, 153, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--emerald-400);
+  color: var(--emerald-400, #34d399);
+  transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
 }
 
 .icon {
-  font-size: 1.15rem;
+  font-size: 1rem;
 }
 
-.cardTitle {
-  font-size: 0.95rem;
+.statusBadge {
+  font-size: 0.72rem;
   font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: 0.35rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--emerald-400, #34d399);
+  border: 1px solid rgba(52, 211, 153, 0.25);
 }
 
-.cardTitle :global(a) {
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.cardTitle :global(a:hover) {
-  color: var(--emerald-400);
-}
-
-.valueRow {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
+/* ── METRIC BLOCK ── */
+.metricBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  margin-bottom: 0.6rem;
 }
 
 .quantity {
-  font-family: var(--font-mono-stack);
-  font-weight: 600;
-  color: var(--emerald-400);
-  font-size: 0.95rem;
+  font-family: var(--font-heading-stack, var(--font-mono-stack));
+  font-size: 1.45rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #f0fdf4);
+  line-height: 1.2;
 }
 
 .subtitle {
-  color: var(--text-muted);
+  font-size: 0.78rem;
+  color: var(--text-muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
 
+/* ── FOOTER ROW ── */
+.footerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cardTitle {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary, #94a3b8);
+  transition: color 0.2s ease;
+}
+
+.arrowIcon {
+  font-size: 0.78rem;
+  color: var(--text-muted, #64748b);
+  transition: transform 0.25s ease, color 0.25s ease;
+  display: flex;
+  align-items: center;
+}
+
+/* ── INTERACTIVE HOVER BEHAVIORS ── */
+.interactiveCard {
+  cursor: pointer;
+}
+
+.cardContainer:hover {
+  transform: translateY(-3px);
+  border-color: rgba(52, 211, 153, 0.45);
+  background: var(--surface-card-hover, #17241e);
+  box-shadow: 0 10px 24px -6px rgba(0, 0, 0, 0.35),
+              0 0 20px -4px rgba(16, 185, 129, 0.18);
+}
+
+.interactiveCard:hover .cardTitle {
+  color: var(--emerald-400, #34d399);
+}
+
+.interactiveCard:hover .arrowIcon {
+  transform: translateX(3px);
+  color: var(--emerald-400, #34d399);
+}
+
+/* ── LIGHT MODE OVERRIDES ── */
+:global([data-theme="light"]) .cardContainer {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.05);
+}
+
+:global([data-theme="light"]) .buttonReset {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.18);
+}
+
+:global([data-theme="light"]) .footerRow {
+  border-top-color: rgba(0, 0, 0, 0.05);
+}
+
+:global([data-theme="light"]) .quantity {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .subtitle {
+  color: #64748b;
+}
+
+:global([data-theme="light"]) .cardTitle {
+  color: #475569;
+}
+
+:global([data-theme="light"]) .cardContainer:hover {
+  background: #f4fbf6;
+  border-color: var(--emerald-500, #10b981);
+  box-shadow: 0 10px 22px -6px rgba(16, 185, 129, 0.2);
+}
+
+:global([data-theme="light"]) .interactiveCard:hover .cardTitle {
+  color: #059669;
+}
+
+:global([data-theme="light"]) .interactiveCard:hover .arrowIcon {
+  color: #059669;
+}

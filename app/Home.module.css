@@ -40,6 +40,16 @@
   color: var(--text-primary);
 }
 
+.heroBreak {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .heroBreak {
+    display: inline;
+  }
+}
+
 .heroTitleAccent {
   background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
   -webkit-background-clip: text;
@@ -95,6 +105,8 @@
   font-size: 1.15rem;
   line-height: 1.7;
   color: var(--text-secondary);
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .bioLead strong {
@@ -109,8 +121,10 @@
 
 .ctaRow {
   display: flex;
-  gap: 1rem;
+  gap: 1.25rem;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
   margin-top: 1.5rem;
 }
 

@@ -3,9 +3,13 @@ import styles from './Skeleton.module.css';
 export function SkeletonCard() {
   return (
     <div className={styles.skeletonCard}>
-      <div className={styles.skeletonIcon}></div>
-      <div className={styles.skeletonLine} style={{ width: '60%', margin: '0.5rem auto' }}></div>
-      <div className={styles.skeletonLine} style={{ width: '80%', margin: '0.25rem auto' }}></div>
+      <div className={styles.skeletonTop}>
+        <div className={styles.skeletonIcon}></div>
+        <div className={styles.skeletonPill}></div>
+      </div>
+      <div className={styles.skeletonLine} style={{ width: '45%', height: '1.75rem', margin: '0.75rem 0 0.25rem' }}></div>
+      <div className={styles.skeletonLine} style={{ width: '65%', height: '0.75rem', margin: '0.25rem 0 0.75rem' }}></div>
+      <div className={styles.skeletonLine} style={{ width: '85%', height: '0.85rem', margin: '0.5rem 0 0' }}></div>
     </div>
   );
 }
