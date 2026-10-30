@@ -1,0 +1,184 @@
+[
+  {
+    "name": "Docker",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/docker.svg",
+    "description": "Containerization & multi-container compose environments",
+    "highlight": true
+  },
+  {
+    "name": "Kubernetes",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/kubernetes.svg",
+    "description": "Container orchestration, cluster scaling & workload management",
+    "highlight": true
+  },
+  {
+    "name": "GitHub Actions",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/github-actions.svg",
+    "description": "Automated CI/CD build, test & deployment pipelines",
+    "highlight": true
+  },
+  {
+    "name": "Tailscale",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/tailscale.svg",
+    "description": "Zero-trust mesh VPN & secure private infrastructure routing",
+    "highlight": true
+  },
+  {
+    "name": "Linux / Bash",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/linux.svg",
+    "description": "Server administration, shell scripting & automation",
+    "highlight": true
+  },
+  {
+    "name": "Cloudflare",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/cloudflare.svg",
+    "description": "DNS, edge caching, SSL & Turnstile bot defense",
+    "highlight": true
+  },
+  {
+    "name": "Playwright & Chromium",
+    "category": "devops",
+    "categoryLabel": "DevOps & Testing",
+    "svg": "/images/logos/playwright.svg",
+    "description": "End-to-end browser automation & headless pipeline testing",
+    "highlight": true
+  },
+  {
+    "name": "Hermes AI Agent",
+    "category": "ai",
+    "categoryLabel": "AI & Automation",
+    "svg": "/images/logos/nousresearch-hermes.svg",
+    "description": "Autonomous developer agents, tool use & task automation workflows",
+    "highlight": true
+  },
+  {
+    "name": "AntiGravity IDE",
+    "category": "ai",
+    "categoryLabel": "AI & Automation",
+    "svg": "/images/logos/google-antigravity.svg",
+    "description": "Next-gen agentic coding environment with pair programming workflows",
+    "highlight": true
+  },
+  {
+    "name": "Cursor IDE",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/cursor.svg",
+    "description": "AI-first code editor with codebase embeddings & smart generation",
+    "highlight": true
+  },
+  {
+    "name": "Git & GitLab",
+    "category": "devops",
+    "categoryLabel": "DevOps & Cloud",
+    "svg": "/images/logos/gitlab.svg",
+    "description": "Version control, branching strategies & CI runner hooks"
+  },
+  {
+    "name": "Next.js",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/nextjs.svg",
+    "description": "Server-side rendering, App Router & full-stack React",
+    "highlight": true
+  },
+  {
+    "name": "React",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/react.svg",
+    "description": "Component-driven interactive client applications",
+    "highlight": true
+  },
+  {
+    "name": "Tauri",
+    "category": "fullstack",
+    "categoryLabel": "Cross-Platform",
+    "svg": "/images/logos/tauri.svg",
+    "description": "Lightweight, secure native desktop apps built with web tech",
+    "highlight": true
+  },
+  {
+    "name": "PHP & Laravel",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/laravel.svg",
+    "description": "Enterprise MVC architecture, routing & Eloquent ORM",
+    "highlight": true
+  },
+  {
+    "name": "Node.js & Express",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/nodejs.svg",
+    "description": "High-throughput asynchronous backends & REST APIs"
+  },
+  {
+    "name": "MySQL & SQLite",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/mysql.svg",
+    "description": "Relational schema design, normalization, embedded & production DBs"
+  },
+  {
+    "name": "Supabase & Postgres",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/supabase.svg",
+    "description": "Relational cloud database, Auth & Realtime engine"
+  },
+  {
+    "name": "JavaScript (ES6+)",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/javascript.svg",
+    "description": "Modern async programming, DOM & application runtimes"
+  },
+  {
+    "name": "Python",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/python.svg",
+    "description": "Automation scripts, data processing & backend logic"
+  },
+  {
+    "name": "DBeaver",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/dbeaver.svg",
+    "description": "Universal database administration, query inspection & ER diagrams"
+  },
+  {
+    "name": "Postman",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/postman.svg",
+    "description": "API contract testing, environment mocks & integration runs"
+  },
+  {
+    "name": "VS Code",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/vscode.svg",
+    "description": "Primary IDE configured with linting, formatting & containers"
+  },
+  {
+    "name": "Figma",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/figma.svg",
+    "description": "UI/UX wireframing, layout prototyping & token inspection"
+  }
+]

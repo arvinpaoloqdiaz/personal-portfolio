@@ -47,8 +47,8 @@ export default function Socials({
   const containerClass = isFooter
     ? `${styles.socialsContainer} ${styles.footerAlign}`
     : isAbout
-    ? `${styles.socialsContainer} ${styles.centerAlign}`
-    : `${styles.socialsContainer} ${styles.homeAlign}`;
+      ? `${styles.socialsContainer} ${styles.centerAlign}`
+      : `${styles.socialsContainer} ${styles.homeAlign}`;
 
   return (
     <nav className={containerClass} aria-label="Social media and links">

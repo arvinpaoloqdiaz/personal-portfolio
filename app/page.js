@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer/Footer';
 import Socials from '@/components/ui/Socials/Socials';
 import RoleAnimation from '@/components/ui/RoleAnimation/RoleAnimation';
 import Carousel from '@/components/sections/Carousel/Carousel';
+import TechShowcase from '@/components/sections/TechShowcase/TechShowcase';
 import ExperienceSection from '@/components/sections/ExperienceSection/ExperienceSection';
 import StatsCards from '@/components/sections/StatsCards/StatsCards';
 import StatsCardsSkeleton from '@/components/sections/StatsCards/StatsCardsSkeleton';
@@ -170,24 +171,17 @@ export default async function Page() {
             </div>
           </div>
 
-          {/* Technology / Carousel */}
+          {/* Technology / Showcase */}
           <div className="row mt-5 pt-4">
             <div className="col text-center">
               <span className={aboutStyles.sectionEyebrow}>Tech Stack & Tools</span>
               <h2 className={aboutStyles.sectionHeading}>Technologies</h2>
               <p className="text-secondary mt-2 mb-4" style={{ fontSize: '0.95rem' }}>
-                Languages, libraries, and frameworks I use to bring ideas to life.
+                Languages, frameworks, and cloud workflows I use to build scalable web applications.
               </p>
             </div>
           </div>
-          <div className="row carousel-container">
-            <div className="row pt-2">
-              <Carousel CarouselData={carousel1} reverse={false} />
-            </div>
-            <div className="row py-3">
-              <Carousel CarouselData={carousel2} reverse={true} />
-            </div>
-          </div>
+          <TechShowcase fallbackData={[...carousel1, ...carousel2]} />
 
           {/* Qualifications */}
           <div className="row mt-5 pt-4">

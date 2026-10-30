@@ -1,0 +1,153 @@
+/* ==========================================================================
+   Tech Showcase Styles: Option A (Smart Categorized Continuous Marquee)
+   ========================================================================== */
+
+.showcaseWrapper {
+  width: 100%;
+  position: relative;
+  margin-top: 1rem;
+}
+
+/* ── COMMON CARD ATOMS ── */
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.08));
+  border: 1px solid rgba(16, 185, 129, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.techSvg {
+  object-fit: contain;
+}
+
+.techFaIcon {
+  font-size: 1.35rem;
+  color: var(--emerald-600, #059669);
+}
+
+.badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill, 9999px);
+  background: rgba(16, 185, 129, 0.08);
+  color: var(--emerald-600, #059669);
+  border: 1px solid rgba(16, 185, 129, 0.18);
+}
+
+.cardTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary, #0f172a);
+  margin-top: 0.65rem;
+  margin-bottom: 0.25rem;
+  letter-spacing: -0.01em;
+}
+
+.cardDesc {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #64748b);
+  line-height: 1.45;
+}
+
+/* ── MARQUEE TRACKS ── */
+.marqueeTrackWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  overflow: hidden;
+  position: relative;
+  padding: 1rem 0; /* Ensures hover translateY(-4px) and borders are never clipped */
+}
+
+/* Soft gradient edge fade that seamlessly matches canvas background */
+.marqueeTrackWrapper::before,
+.marqueeTrackWrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.marqueeTrackWrapper::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-canvas, #fbfdfb) 0%, transparent 100%);
+}
+
+.marqueeTrackWrapper::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-canvas, #fbfdfb) 0%, transparent 100%);
+}
+
+.marqueeTrack {
+  width: 100%;
+  overflow: visible; /* Prevents card borders/elevations from clipping on hover */
+  display: flex;
+  padding: 0.5rem 0;
+}
+
+.marqueeTrackInner {
+  display: flex;
+  gap: 1.25rem;
+  width: max-content;
+  animation: scrollLeft 42s linear infinite;
+  padding: 4px; /* Clearance for hover box-shadow & borders */
+}
+
+.reverseSlide {
+  animation: scrollRight 42s linear infinite;
+}
+
+.marqueeTrackWrapper:hover .marqueeTrackInner {
+  animation-play-state: paused;
+}
+
+.marqueeCard {
+  width: 290px;
+  flex-shrink: 0;
+  background: var(--surface-card, #ffffff);
+  border: 1px solid var(--border-subtle, rgba(16, 185, 129, 0.15));
+  border-radius: 18px;
+  padding: 1.15rem 1.25rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease,
+              box-shadow 0.3s ease;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+.marqueeCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--emerald-500, #10b981);
+  box-shadow: 0 12px 24px -6px rgba(16, 185, 129, 0.2);
+}
+
+.marqueeCard:hover .iconBox {
+  transform: scale(1.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-100% / 3)); }
+}
+
+@keyframes scrollRight {
+  0% { transform: translateX(calc(-100% / 3)); }
+  100% { transform: translateX(0); }
+}
