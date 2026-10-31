@@ -1,0 +1,143 @@
+/* ==========================================================================
+   Modern Certificates Modal Styles
+   ========================================================================== */
+
+.modalContent {
+  background: var(--bg-canvas, #0a0f0d) !important;
+  color: var(--text-primary, #f0fdf4) !important;
+}
+
+.modalHeaderTitle {
+  font-family: var(--font-heading-stack);
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.btnClose :global(.btn-close) {
+  filter: invert(1);
+  opacity: 0.8;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.btnClose :global(.btn-close:hover) {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.certsGrid {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.certCard {
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.15)) !important;
+  background: var(--surface-card, #121a16) !important;
+  border-radius: var(--radius-lg, 20px) !important;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+}
+
+.certCard:hover {
+  transform: translateY(-4px);
+  border-color: var(--emerald-400, #34d399) !important;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.5),
+              0 0 20px -5px rgba(16, 185, 129, 0.25);
+}
+
+.issuerBadge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.1));
+  color: var(--emerald-400, #34d399);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  margin-bottom: 0.75rem;
+}
+
+.certHeading {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 0.75rem;
+}
+
+.certMeta {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.certMetaHighlight {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.certCode {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.78rem;
+  color: var(--emerald-400);
+}
+
+.certLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--emerald-500, #10b981);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: gap 0.2s ease, color 0.2s ease;
+}
+
+.certLink:hover {
+  gap: 0.65rem;
+  color: var(--emerald-600, #059669);
+}
+
+:global([data-theme="dark"]) .certLink {
+  color: var(--emerald-400, #34d399);
+}
+
+:global([data-theme="dark"]) .certLink:hover {
+  color: #ffffff;
+}
+
+/* ── Light Mode Overrides ── */
+:global([data-theme="light"]) .modalContent {
+  background: #fbfdfb !important;
+  color: #0f172a !important;
+}
+
+:global([data-theme="light"]) .modalHeaderTitle {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .btnClose :global(.btn-close) {
+  filter: none;
+}
+
+:global([data-theme="light"]) .certCard {
+  background: #ffffff !important;
+  border-color: rgba(16, 185, 129, 0.18) !important;
+}
+
+:global([data-theme="light"]) .certHeading {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .certMetaHighlight {
+  color: #0f172a;
+}
+
+:global([data-theme="light"]) .certCode {
+  background: #f1f5f9;
+  color: #059669;
+}

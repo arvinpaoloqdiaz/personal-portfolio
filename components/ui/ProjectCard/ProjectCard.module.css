@@ -1,0 +1,283 @@
+.projectCard {
+  position: relative;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.2);
+}
+
+.projectCard:hover {
+  transform: translateY(-6px);
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: 0 12px 30px -4px rgba(16, 185, 129, 0.15);
+}
+
+/* ── CORNER STATUS RIBBON / BADGE ── */
+.cornerRibbonContainer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 110px;
+  height: 110px;
+  overflow: hidden;
+  z-index: 5;
+  pointer-events: none;
+}
+
+.cornerRibbon {
+  position: absolute;
+  top: 22px;
+  right: -32px;
+  transform: rotate(45deg);
+  width: 140px;
+  text-align: center;
+  padding: 0.28rem 0;
+  font-family: var(--font-mono-stack);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+}
+
+.statusLive {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+}
+
+.statusBeta {
+  background: linear-gradient(135deg, #38bdf8 0%, #0284c7 100%);
+  color: #ffffff;
+}
+
+.statusWip {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #ffffff;
+}
+
+.statusArchived {
+  background: linear-gradient(135deg, #64748b 0%, #475569 100%);
+  color: #cbd5e1;
+}
+
+.statusPulseDot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: inline-block;
+  box-shadow: 0 0 6px #ffffff;
+}
+
+.imageContainer {
+  position: relative;
+  overflow: hidden;
+  height: 210px;
+  background: var(--bg-subtle);
+}
+
+.cardImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.projectCard:hover .cardImage {
+  transform: scale(1.06);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(18, 26, 22, 0.05) 40%, rgba(18, 26, 22, 0.85) 100%);
+  pointer-events: none;
+}
+
+.cardContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.cardHeaderTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.categoryPill {
+  font-family: var(--font-mono-stack);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.015em;
+  line-height: 1.35;
+}
+
+.cardDescription {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  flex-grow: 1;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.5rem;
+}
+
+.techBadge {
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--emerald-400);
+  background: rgba(52, 211, 153, 0.06);
+  border: 1px solid rgba(52, 211, 153, 0.18);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  transition: all 0.2s ease;
+}
+
+.techBadge:hover {
+  background: var(--emerald-pill-bg);
+  border-color: var(--emerald-400);
+}
+
+.moreBadge {
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.2rem 0.45rem;
+  border-radius: var(--radius-pill);
+}
+
+.actionsRow {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+  padding-top: 0.5rem;
+}
+
+/* ── REINVENTED GRADIENT PRIMARY BUTTON ── */
+.btnPrimaryGradient {
+  flex-grow: 1;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.15rem;
+  font-weight: 600;
+  font-size: 0.88rem;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  background: linear-gradient(90deg, #10b981 0%, #059669 50%, #047857 100%);
+  background-size: 200% 100%;
+  background-position: left center;
+  border: none;
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.25);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.btnPrimaryGradient:hover {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+  color: #ffffff !important;
+}
+
+.btnPrimaryGradient::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.15) 100%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btnPrimaryGradient:hover::before {
+  animation: shine-sweep 1.2s forwards;
+  opacity: 1;
+}
+
+@keyframes shine-sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+.arrowIcon {
+  font-size: 0.75rem;
+  transition: transform 0.25s ease;
+}
+
+.btnPrimaryGradient:hover .arrowIcon {
+  transform: translateX(3px);
+}
+
+.secondaryActions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.iconBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.88rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.iconBtn:hover {
+  color: var(--emerald-400);
+  border-color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(52, 211, 153, 0.2);
+}
+
+

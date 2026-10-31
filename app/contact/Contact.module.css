@@ -1,0 +1,312 @@
+.pageWrapper {
+  min-height: 80vh;
+  padding-bottom: 5rem;
+}
+
+.heroSection {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  padding-top: 1.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono-stack);
+  font-size: 0.82rem;
+  color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+  margin-bottom: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.heading {
+  font-size: clamp(2.25rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  margin-bottom: 0.75rem;
+}
+
+.subheading {
+  color: var(--text-secondary);
+  max-width: 540px;
+  margin: 0 auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* ── SIDEBAR INFO CARD ── */
+.infoCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.infoCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--emerald-400), transparent 70%);
+}
+
+.cardTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.75rem;
+  letter-spacing: -0.01em;
+}
+
+.contactList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.contactItem:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--emerald-400);
+  transform: translateX(4px);
+}
+
+.iconCircle {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  color: var(--emerald-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.contactLabel {
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  letter-spacing: 0.05em;
+  display: block;
+}
+
+.contactValue {
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.92rem;
+  word-break: break-all;
+}
+
+.socialsWrapper {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+  margin-bottom: 1.5rem;
+}
+
+.socialsPrompt {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+
+.locationFooter {
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ── MAIN FORM CARD ── */
+.formCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.75rem;
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.formCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.formLabel {
+  font-family: var(--font-mono-stack);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-secondary);
+  margin-bottom: 0.45rem;
+  display: block;
+}
+
+.customInput,
+.customTextarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: var(--bg-subtle) !important;
+  border: 1px solid var(--border-subtle) !important;
+  border-radius: var(--radius-md) !important;
+  color: var(--text-primary) !important;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.customInput:focus,
+.customTextarea:focus {
+  border-color: var(--emerald-400) !important;
+  box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.15) !important;
+  background: var(--surface-card-hover) !important;
+}
+
+.messageHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.45rem;
+}
+
+.charCounter {
+  font-family: var(--font-mono-stack);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.charCounterWarning {
+  color: #fbbf24;
+}
+
+.charCounterLimit {
+  color: #f87171;
+  font-weight: 700;
+}
+
+.statusAlert {
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  font-size: 0.92rem;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.statusSuccess {
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.35);
+  color: var(--emerald-400);
+}
+
+.statusError {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #f87171;
+}
+
+/* ── GRADIENT SUBMIT BUTTON ── */
+.submitBtn {
+  width: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.75rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #ffffff !important;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  background: linear-gradient(90deg, #10b981 0%, #059669 50%, #047857 100%);
+  background-size: 200% 100%;
+  border: none;
+  box-shadow: 0 4px 18px rgba(16, 185, 129, 0.35);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.submitBtn:hover:not(:disabled) {
+  background-position: right center;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(16, 185, 129, 0.5);
+}
+
+.submitBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.45) 50%, rgba(255, 255, 255, 0.15) 100%);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.submitBtn:not(:disabled):hover::before {
+  animation: shine-sweep 1.2s forwards;
+  opacity: 1;
+}
+
+@keyframes shine-sweep {
+  0% { left: -75%; }
+  100% { left: 125%; }
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+@media (max-width: 768px) {
+  .infoCard, .formCard {
+    padding: 1.5rem;
+  }
+}
+

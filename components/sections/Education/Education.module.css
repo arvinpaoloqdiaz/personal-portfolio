@@ -1,0 +1,96 @@
+.timelineWrapper {
+  max-width: 860px;
+  margin: 2rem auto;
+  position: relative;
+  padding: 0 1rem;
+}
+
+.timelineTrack {
+  position: relative;
+}
+
+.timelineTrack::before {
+  content: "";
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 20px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--emerald-500) 0%, rgba(52, 211, 153, 0.2) 100%);
+}
+
+.timelineItem {
+  position: relative;
+  padding-left: 55px;
+  margin-bottom: 2rem;
+}
+
+.timelineItem:last-child {
+  margin-bottom: 0;
+}
+
+.timelineNode {
+  position: absolute;
+  left: 11px;
+  top: 18px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--bg-canvas);
+  border: 3px solid var(--emerald-400);
+  box-shadow: none;
+  transition: all 0.25s ease;
+  z-index: 2;
+}
+
+.timelineItem:hover .timelineNode {
+  transform: scale(1.15);
+  background: var(--emerald-400);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+}
+
+.timelineCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.75rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
+}
+
+.timelineCard:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--emerald-500, #10b981);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -6px rgba(16, 185, 129, 0.18);
+}
+
+.degreeTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.institutionName {
+  font-size: 0.95rem;
+  color: var(--emerald-400);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.dateBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-family: var(--font-mono-stack);
+  color: var(--text-muted);
+}
+
+@media (max-width: 640px) {
+  .degreeTitle {
+    font-size: 1rem;
+  }
+}
+

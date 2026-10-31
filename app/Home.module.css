@@ -1,0 +1,193 @@
+.heroWrapper {
+  position: relative;
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  font-size: 0.85rem;
+  color: var(--emerald-400);
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--emerald-400);
+  box-shadow: 0 0 10px var(--emerald-400);
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.heroTitle {
+  font-size: clamp(1.85rem, 5vw, 4.25rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.heroBreak {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .heroBreak {
+    display: inline;
+  }
+}
+
+.heroTitleAccent {
+  background: linear-gradient(135deg, #34d399 0%, #10b981 50%, #059669 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.roleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.roleBadge {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--emerald-400);
+}
+
+.avatarContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.avatarGlow {
+  position: absolute;
+  inset: -15px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.25) 0%, transparent 70%);
+  filter: blur(20px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.avatarImage {
+  position: relative;
+  z-index: 1;
+  max-width: 320px;
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(52, 211, 153, 0.3);
+  box-shadow: none;
+  transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.avatarImage:hover {
+  transform: scale(1.02);
+  border-color: var(--emerald-400);
+}
+
+.bioLead {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.bioLead strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+.bioLead em {
+  color: var(--emerald-400);
+  font-style: normal;
+}
+
+.ctaRow {
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.btnPrimaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--emerald-500);
+  color: #042417 !important;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: none;
+  transition: all 0.25s ease;
+  box-shadow: none;
+}
+
+.btnPrimaryCta:hover {
+  background: var(--emerald-400);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+.btnSecondaryCta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-primary) !important;
+  font-weight: 500;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s ease;
+}
+
+.btnSecondaryCta:hover {
+  border-color: var(--border-hover);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .heroWrapper {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .roleRow {
+    margin-bottom: 1.5rem;
+  }
+
+  .bioLead {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+.heroNoBreak {
+  white-space: nowrap;
+}
+

@@ -1,0 +1,166 @@
+/* ==========================================================================
+   Modern Socials Dock & Item Styles
+   Clean, flat resting state with theme-aware glow on hover
+   ========================================================================== */
+
+.socialsContainer {
+  display: flex;
+  width: 100%;
+}
+
+.homeAlign {
+  justify-content: center;
+}
+
+.centerAlign {
+  justify-content: center;
+}
+
+.footerAlign {
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .footerAlign {
+    justify-content: flex-end;
+  }
+}
+
+/* ── MODERN DOCK CAPSULE ── */
+.socialsDock {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.35rem 0.65rem;
+  background: var(--surface-card, #121a16);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.15));
+  border-radius: var(--radius-pill, 9999px);
+  box-shadow: none;
+  transition: border-color 0.3s ease;
+}
+
+.socialsDock:hover {
+  border-color: var(--border-hover, rgba(52, 211, 153, 0.28));
+}
+
+/* ── SOCIAL ITEM ANCHOR ── */
+.socialItem {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: inherit;
+  outline: none;
+}
+
+/* ── ICON CIRCLE (Flat resting, glow on hover) ── */
+.iconCircle {
+  width: 2.65rem;
+  height: 2.65rem;
+  border-radius: 50%;
+  background: var(--bg-canvas, #0a0f0d);
+  border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.12));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary, #94a3b8);
+  box-shadow: none;
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease,
+              background-color 0.25s ease,
+              color 0.25s ease,
+              box-shadow 0.25s ease;
+}
+
+.iconElement {
+  width: 1.15rem !important;
+  height: 1.15rem !important;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.customIconImage {
+  object-fit: contain;
+  transition: transform 0.25s ease;
+}
+
+/* ── HOVER & FOCUS STATES ── */
+.socialItem:hover .iconCircle,
+.socialItem:focus-visible .iconCircle {
+  transform: translateY(-3px);
+  border-color: var(--item-accent, var(--emerald-400));
+  color: var(--item-accent, var(--emerald-400));
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.12));
+  box-shadow: 0 8px 18px -4px rgba(16, 185, 129, 0.35);
+}
+
+.socialItem:hover .iconElement,
+.socialItem:focus-visible .iconElement {
+  transform: scale(1.1);
+}
+
+.socialItem:hover .customIconImage,
+.socialItem:focus-visible .customIconImage {
+  transform: scale(1.1);
+}
+
+.socialItem:active .iconCircle {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px -2px rgba(16, 185, 129, 0.3);
+}
+
+/* ── TOOLTIP (Resting: hidden, Hover: reveals) ── */
+.tooltip {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: #0f1713;
+  color: #f0fdf4;
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill, 9999px);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  box-shadow: 0 6px 14px -2px rgba(0, 0, 0, 0.45);
+  transition: opacity 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 20;
+}
+
+.socialItem:hover .tooltip,
+.socialItem:focus-visible .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ── LIGHT THEME ADAPTATION ── */
+:global([data-theme="light"]) .socialsDock {
+  background: #ffffff;
+  border-color: rgba(16, 185, 129, 0.18);
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.06);
+}
+
+:global([data-theme="light"]) .iconCircle {
+  background: #f8fafc;
+  border-color: rgba(16, 185, 129, 0.15);
+  color: #64748b;
+  box-shadow: none;
+}
+
+:global([data-theme="light"]) .socialItem:hover .iconCircle {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: var(--item-accent, #10b981);
+  box-shadow: 0 6px 16px -4px rgba(16, 185, 129, 0.25);
+}
+
+:global([data-theme="light"]) .tooltip {
+  background: #0f172a;
+  color: #ffffff;
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 6px 16px -2px rgba(0, 0, 0, 0.15);
+}

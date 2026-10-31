@@ -1,0 +1,239 @@
+.aboutSection {
+  padding: 5rem 0;
+  position: relative;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.85rem;
+  color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sectionHeading {
+  font-size: clamp(1.65rem, 4vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+.bentoContainer {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.bentoCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  height: 100%;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+}
+
+.bentoCard:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+  box-shadow: none;
+}
+
+.bentoCardTitle {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.bentoCardIcon {
+  color: var(--emerald-400);
+  font-size: 1.1rem;
+}
+
+.bioParagraph {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1.02rem;
+  margin-bottom: 1.25rem;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.techStackBlock {
+  text-align: left;
+}
+
+.bioParagraph:last-child {
+  margin-bottom: 0;
+}
+
+.bioParagraph strong {
+  color: var(--text-primary);
+}
+
+.bioParagraph em {
+  color: var(--emerald-400);
+  font-style: normal;
+}
+
+/* ── CTA Bento Card Reinvention ── */
+.ctaBentoCard {
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: none;
+}
+
+.ctaBentoCard:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+}
+
+.ctaPillBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-pill-bg, rgba(16, 185, 129, 0.1));
+  color: var(--emerald-500, #10b981);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+.ctaPillDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--emerald-500, #10b981);
+  box-shadow: 0 0 6px var(--emerald-500, #10b981);
+}
+
+.ctaButtonGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: 1.75rem;
+}
+
+@media (min-width: 576px) {
+  .ctaButtonGroup {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+.actionPillsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.actionPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.15rem;
+  border-radius: var(--radius-pill);
+  background: var(--surface-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.actionPill:hover {
+  color: var(--emerald-400);
+  border-color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  transform: translateY(-2px);
+}
+
+.resumePill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-pill);
+  background: var(--emerald-500);
+  color: #042417 !important;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.25s ease;
+  box-shadow: none;
+}
+
+.resumePill:hover {
+  background: var(--emerald-400);
+  transform: translateY(-2px);
+  box-shadow: none;
+}
+
+:global(abbr) {
+  font-weight: 600;
+  color: var(--emerald-400);
+  text-decoration: none !important;
+  border-bottom: 1px dashed var(--emerald-500);
+  cursor: help;
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 3rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .bentoCard,
+  .ctaBentoCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .bentoCardTitle {
+    font-size: 1.15rem;
+  }
+
+  .bioParagraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
