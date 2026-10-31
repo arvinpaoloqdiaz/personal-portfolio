@@ -1,15 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
-import { Plus_Jakarta_Sans, Inter, JetBrains_Mono } from 'next/font/google';
+import localFont from 'next/font/local';
+import { Inter, JetBrains_Mono } from 'next/font/google';
 import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 
 // Prevent Font Awesome from adding its CSS automatically (Next.js handles it)
 config.autoAddCss = false;
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
-  weight: ['500', '600', '700', '800'],
+const plusJakartaSans = localFont({
+  src: [
+    { path: './fonts/PlusJakartaSans-latin.woff2', weight: '500', style: 'normal' },
+    { path: './fonts/PlusJakartaSans-latin.woff2', weight: '600', style: 'normal' },
+    { path: './fonts/PlusJakartaSans-latin.woff2', weight: '700', style: 'normal' },
+    { path: './fonts/PlusJakartaSans-latin.woff2', weight: '800', style: 'normal' },
+  ],
   variable: '--font-heading',
   display: 'swap',
 });
