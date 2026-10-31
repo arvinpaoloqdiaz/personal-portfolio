@@ -110,14 +110,20 @@ export default function Work({ workList = [] }) {
                     <h5 className="h6 mb-2" style={{ color: 'var(--emerald-400)' }}>Key Responsibilities & Highlights</h5>
                     <ul className={styles.summaryList}>
                       {selectedEntry.summary.map((point, i) => (
-                        <li key={i}>{point}</li>
+                        <li
+                          key={i}
+                          dangerouslySetInnerHTML={{ __html: point }}
+                        />
                       ))}
                     </ul>
                   </div>
                 )}
 
                 {selectedEntry.description && (
-                  <p className={styles.modalDescription}>{selectedEntry.description}</p>
+                  <p
+                    className={styles.modalDescription}
+                    dangerouslySetInnerHTML={{ __html: selectedEntry.description }}
+                  />
                 )}
               </div>
             </motion.div>

@@ -1,0 +1,227 @@
+.section {
+  min-height: auto;
+  padding: 5rem 0;
+}
+
+/* ── Section Header ── */
+.headerSection {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.85rem;
+  color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.heading {
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.subheading {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* ── Premium Coverless Card ── */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--surface-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+/* Subtle top glow bar */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--emerald-500), var(--emerald-400), transparent);
+  opacity: 0.4;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover {
+  background: var(--surface-card-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px rgba(16, 185, 129, 0.08);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* Top Row: Icon Box + Case Badge */
+.cardTopRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.iconBox {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--emerald-400);
+  font-size: 1.15rem;
+  transition: all 0.3s ease;
+}
+
+.card:hover .iconBox {
+  background: rgba(52, 211, 153, 0.18);
+  border-color: var(--emerald-400);
+  transform: scale(1.05);
+}
+
+.caseBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono-stack);
+  font-size: 0.72rem;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.branchIcon {
+  font-size: 0.75rem;
+  color: var(--emerald-400);
+}
+
+/* Body */
+.cardBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tagRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.85rem;
+}
+
+.tag {
+  font-family: var(--font-mono-stack);
+  font-size: 0.72rem;
+  color: var(--emerald-400);
+  background: var(--emerald-pill-bg);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.cardTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.015em;
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+  transition: color 0.2s ease;
+}
+
+.card:hover .cardTitle {
+  color: var(--emerald-400);
+}
+
+.cardExcerpt {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Footer */
+.cardFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.25rem;
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.readLink {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  transition: color 0.2s ease;
+}
+
+.card:hover .readLink {
+  color: var(--emerald-400);
+}
+
+.arrowCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s ease;
+}
+
+.arrowIcon {
+  font-size: 0.75rem;
+  color: var(--emerald-400);
+  transition: transform 0.25s ease;
+}
+
+.card:hover .arrowCircle {
+  background: var(--emerald-pill-bg);
+  border-color: var(--emerald-400);
+}
+
+.card:hover .arrowIcon {
+  transform: translateX(2px);
+}

@@ -140,6 +140,13 @@
     "description": "Relational cloud database, Auth & Realtime engine"
   },
   {
+    "name": "MongoDB",
+    "category": "fullstack",
+    "categoryLabel": "Full-Stack & APIs",
+    "svg": "/images/logos/mongodb.svg",
+    "description": "Document-based NoSQL database for flexible data modeling"
+  },
+  {
     "name": "JavaScript (ES6+)",
     "category": "fullstack",
     "categoryLabel": "Full-Stack & APIs",
@@ -180,5 +187,12 @@
     "categoryLabel": "Tools & Workflow",
     "svg": "/images/logos/figma.svg",
     "description": "UI/UX wireframing, layout prototyping & token inspection"
+  },
+  {
+    "name": "Trello",
+    "category": "tools",
+    "categoryLabel": "Tools & Workflow",
+    "svg": "/images/logos/trello.svg",
+    "description": "Agile task tracking, sprint planning & Kanban workflows"
   }
 ]

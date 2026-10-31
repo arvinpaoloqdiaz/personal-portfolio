@@ -9,6 +9,9 @@ import ExperienceSection from '@/components/sections/ExperienceSection/Experienc
 import StatsCards from '@/components/sections/StatsCards/StatsCards';
 import StatsCardsSkeleton from '@/components/sections/StatsCards/StatsCardsSkeleton';
 import ProjectsSection from '@/components/sections/ProjectsSection/ProjectsSection';
+import CaseStudiesSection from '@/components/sections/CaseStudiesSection/CaseStudiesSection';
+import GitHubActivity from '@/components/sections/GitHubActivity/GitHubActivity';
+import FeaturedBlogPosts from '@/components/sections/FeaturedBlogPosts/FeaturedBlogPosts';
 import HeroAvatar from '@/components/ui/HeroAvatar/HeroAvatar';
 import Button from '@/components/ui/Button/Button';
 import Link from 'next/link';
@@ -69,7 +72,7 @@ export default async function Page() {
             </div>
           </div>
 
-          <div className="row gy-5 align-items-center justify-content-center mt-2">
+          <div className="row gy-5 align-items-center justify-content-center">
             <div className="col-12 col-lg-5 text-center">
               <HeroAvatar mode={process.env.NEXT_PUBLIC_HERO_PHOTO_MODE || 'professional'} />
             </div>
@@ -222,6 +225,15 @@ export default async function Page() {
       >
         <ProjectsSection />
       </Suspense>
+
+      {/* ── CASE STUDIES SECTION ── */}
+      <CaseStudiesSection />
+
+      {/* ── GITHUB ACTIVITY SECTION ── */}
+      <GitHubActivity />
+
+      {/* ── FEATURED BLOG POSTS SECTION ── */}
+      <FeaturedBlogPosts />
 
       <Footer />
     </>

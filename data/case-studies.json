@@ -1,0 +1,11 @@
+[
+  {
+    "slug": "portfolio-devops-revamp",
+    "title": "Rebuilding My Portfolio with a DevOps Mindset",
+    "excerpt": "How I refactored my personal portfolio from a static site into a data-driven Next.js app with Supabase, automated deployments, and a design system.",
+    "cover": "",
+    "tags": ["Next.js", "Supabase", "DevOps"],
+    "draft": false
+  }
+]
+

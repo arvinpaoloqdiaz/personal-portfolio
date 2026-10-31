@@ -38,15 +38,15 @@
   border-radius: 50%;
   background: var(--bg-canvas);
   border: 3px solid var(--emerald-400);
-  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+  box-shadow: none;
   transition: all 0.25s ease;
   z-index: 2;
 }
 
 .timelineItem:hover .timelineNode {
-  transform: scale(1.2);
+  transform: scale(1.15);
   background: var(--emerald-400);
-  box-shadow: 0 0 18px var(--emerald-400);
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
 }
 
 .timelineCard {
@@ -56,14 +56,14 @@
   padding: 1.5rem 1.75rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: none;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.04);
 }
 
 .timelineCard:hover {
   background: var(--surface-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
-  box-shadow: none;
+  border-color: var(--emerald-500, #10b981);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px -6px rgba(16, 185, 129, 0.18);
 }
 
 .companyName {
@@ -170,6 +170,8 @@
   color: var(--text-secondary);
   line-height: 1.7;
   font-size: 0.95rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 .summaryList li {
@@ -181,5 +183,7 @@
   line-height: 1.7;
   font-size: 0.95rem;
   margin-top: 1rem;
+  text-align: justify;
+  text-justify: inter-word;
 }
 

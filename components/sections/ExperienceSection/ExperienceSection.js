@@ -5,70 +5,39 @@ import { faSchool, faBriefcase } from '@fortawesome/free-solid-svg-icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import Education from '../Education/Education';
 import Work from '../Work/Work';
+import styles from './ExperienceSection.module.css';
 
 export default function ExperienceSection({ educationList, workList }) {
   const [isEducation, setIsEducation] = useState(false);
+
+  const workCount = Array.isArray(workList) ? workList.length : 0;
+  const educationCount = Array.isArray(educationList) ? educationList.length : 0;
 
   return (
     <>
       <div className="row justify-content-center my-4">
         <div className="col-auto">
-          <div
-            style={{
-              background: 'var(--surface-card)',
-              border: '1px solid var(--border-subtle)',
-              borderRadius: 'var(--radius-pill)',
-              padding: '0.35rem',
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: '0.35rem',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
-            }}
-          >
+          <div className={styles.switcherDock}>
             <button
               type="button"
               onClick={() => setIsEducation(false)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.55rem 1.25rem',
-                borderRadius: 'var(--radius-pill)',
-                border: 'none',
-                background: !isEducation ? 'var(--emerald-500)' : 'transparent',
-                color: !isEducation ? '#042417' : 'var(--text-secondary)',
-                fontWeight: !isEducation ? 700 : 500,
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                boxShadow: !isEducation ? '0 4px 15px rgba(16, 185, 129, 0.35)' : 'none',
-              }}
+              className={`${styles.tabBtn} ${!isEducation ? styles.activeTab : ''}`}
+              aria-selected={!isEducation}
             >
               <FontAwesomeIcon icon={faBriefcase} />
               <span>Work Experience</span>
+              {workCount > 0 && <span className={styles.tabBadge}>{workCount}</span>}
             </button>
 
             <button
               type="button"
               onClick={() => setIsEducation(true)}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '0.5rem',
-                padding: '0.55rem 1.25rem',
-                borderRadius: 'var(--radius-pill)',
-                border: 'none',
-                background: isEducation ? 'var(--emerald-500)' : 'transparent',
-                color: isEducation ? '#042417' : 'var(--text-secondary)',
-                fontWeight: isEducation ? 700 : 500,
-                fontSize: '0.95rem',
-                cursor: 'pointer',
-                transition: 'all 0.25s ease',
-                boxShadow: isEducation ? '0 4px 15px rgba(16, 185, 129, 0.35)' : 'none',
-              }}
+              className={`${styles.tabBtn} ${isEducation ? styles.activeTab : ''}`}
+              aria-selected={isEducation}
             >
               <FontAwesomeIcon icon={faSchool} />
               <span>Education</span>
+              {educationCount > 0 && <span className={styles.tabBadge}>{educationCount}</span>}
             </button>
           </div>
         </div>
@@ -85,7 +54,11 @@ export default function ExperienceSection({ educationList, workList }) {
               transition={{ duration: 0.25, ease: 'easeOut' }}
             >
               <div className="experience-container">
-                {isEducation ? <Education educationList={educationList} /> : <Work workList={workList} />}
+                {isEducation ? (
+                  <Education educationList={educationList} />
+                ) : (
+                  <Work workList={workList} />
+                )}
               </div>
             </motion.div>
           </AnimatePresence>
@@ -94,4 +67,3 @@ export default function ExperienceSection({ educationList, workList }) {
     </>
   );
 }
-
