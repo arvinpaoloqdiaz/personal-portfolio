@@ -158,7 +158,7 @@ export default async function Page() {
 
                   <div className={aboutStyles.ctaButtonGroup}>
                     <Button
-                      href="https://raw.githubusercontent.com/arvinpaoloqdiaz/files/resume/Arvin%20Paolo%20Diaz%20-%20Resume.pdf"
+                      href="https://akydaeoxnzjkcfaruaqs.supabase.co/storage/v1/object/public/portfolio-assets/resume/Arvin_Paolo_Diaz_Resume.pdf"
                       variant="gradient"
                       external
                       icon={<FontAwesomeIcon icon={faDownload} />}
