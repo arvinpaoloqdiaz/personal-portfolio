@@ -39,7 +39,7 @@ export default function Footer() {
 
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            © {new Date().getFullYear()} Arvin Paolo Diaz. Built with Next.js & React.
+            © {new Date().getFullYear()} Arvin Paolo Diaz.
           </p>
           <a href="#Home" className={styles.backToTop} aria-label="Back to top">
             <span>Back to top</span>

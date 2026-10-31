@@ -1,11 +1,19 @@
 'use client';
 import { useState, useRef } from 'react';
-import { Container, Row, Col, Form, Button, Alert, Spinner } from 'react-bootstrap';
+import { Container, Row, Col, Form, Spinner } from 'react-bootstrap';
 import Navbar from '@/components/layout/Navbar/Navbar';
 import Footer from '@/components/layout/Footer/Footer';
 import Socials from '@/components/ui/Socials/Socials';
+import styles from './Contact.module.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faPaperPlane, faCheckCircle, faExclamationCircle, faLocationDot } from "@fortawesome/free-solid-svg-icons";
+import { 
+  faEnvelope, 
+  faPhone, 
+  faPaperPlane, 
+  faCheckCircle, 
+  faExclamationCircle, 
+  faLocationDot
+} from "@fortawesome/free-solid-svg-icons";
 import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function Contact() {
@@ -95,246 +103,157 @@ export default function Contact() {
   return (
     <>
       <Navbar />
-      <Container className="mt-5 pt-5 flex-grow-1" style={{ minHeight: '75vh' }}>
-        <Row className="mb-5 pt-4">
-          <Col className="text-center">
-            <span 
-              style={{
-                fontFamily: 'var(--font-mono-stack)',
-                fontSize: '0.85rem',
-                color: 'var(--emerald-400)',
-                background: 'var(--emerald-pill-bg)',
-                border: '1px solid rgba(52, 211, 153, 0.25)',
-                padding: '0.25rem 0.85rem',
-                borderRadius: 'var(--radius-pill)',
-                display: 'inline-block',
-                marginBottom: '0.75rem',
-                textTransform: 'uppercase',
-                letterSpacing: '0.05em',
-              }}
-            >
-              Start A Conversation
-            </span>
-            <h1 
-              style={{
-                fontSize: 'clamp(2.25rem, 4.5vw, 3.25rem)',
-                fontWeight: 800,
-                color: 'var(--text-primary)',
-                letterSpacing: '-0.02em',
-              }}
-              className="mb-2"
-            >
-              Get In Touch
-            </h1>
-            <p className="text-secondary" style={{ maxWidth: '520px', margin: '0 auto', fontSize: '0.95rem' }}>
-              Have a project in mind, want to collaborate, or just want to say hi? Feel free to reach out anytime!
-            </p>
-          </Col>
-        </Row>
+      <Container className={styles.pageWrapper}>
+        {/* Header / Hero */}
+        <div className={styles.heroSection}>
+          <span className={styles.eyebrow}>
+            Start A Conversation
+          </span>
+          <h1 className={styles.heading}>
+            Get In Touch
+          </h1>
+          <p className={styles.subheading}>
+            Have a project in mind, want to collaborate on architecture, or explore full-stack engineering opportunities? Let's talk.
+          </p>
+        </div>
 
-        <Row className="justify-content-center mb-5">
+        <Row className="g-4 justify-content-center">
           {/* Contact Details & Socials Column */}
-          <Col lg={4} className="mb-4 mb-lg-0">
-            <div 
-              className="p-4 p-md-4 h-100 d-flex flex-column justify-content-between"
-              style={{
-                background: 'var(--surface-card)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-lg)',
-                boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-              }}
-            >
+          <Col lg={4}>
+            <div className={styles.infoCard}>
               <div>
-                <h4 className="mb-4" style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
-                  Contact Information
+                <h4 className={styles.cardTitle}>
+                  Contact Channels
                 </h4>
-                <div className="mb-4">
-                  <div className="d-flex align-items-center mb-3">
-                    <div 
-                      className="p-2 rounded-circle me-3 d-flex align-items-center justify-content-center"
-                      style={{
-                        background: 'var(--emerald-pill-bg)',
-                        border: '1px solid rgba(52, 211, 153, 0.25)',
-                        color: 'var(--emerald-400)',
-                        width: '42px',
-                        height: '42px',
-                      }}
-                    >
+
+                <div className={styles.contactList}>
+                  {/* Email */}
+                  <a href="mailto:arvinpaoloq.diaz@gmail.com" className={styles.contactItem}>
+                    <div className={styles.iconCircle}>
                       <FontAwesomeIcon icon={faEnvelope} />
                     </div>
                     <div>
-                      <small style={{ color: 'var(--text-muted)' }} className="d-block">Email</small>
-                      <a 
-                        href="mailto:arvinpaoloq.diaz@gmail.com" 
-                        className="text-decoration-none fw-medium"
-                        style={{ color: 'var(--text-primary)' }}
-                      >
-                        arvinpaoloq.diaz@gmail.com
-                      </a>
+                      <span className={styles.contactLabel}>Direct Email</span>
+                      <span className={styles.contactValue}>arvinpaoloq.diaz@gmail.com</span>
                     </div>
-                  </div>
+                  </a>
 
-                  <div className="d-flex align-items-center">
-                    <div 
-                      className="p-2 rounded-circle me-3 d-flex align-items-center justify-content-center"
-                      style={{
-                        background: 'var(--emerald-pill-bg)',
-                        border: '1px solid rgba(52, 211, 153, 0.25)',
-                        color: 'var(--emerald-400)',
-                        width: '42px',
-                        height: '42px',
-                      }}
-                    >
+                  {/* Phone */}
+                  <a href="tel:+639273222484" className={styles.contactItem}>
+                    <div className={styles.iconCircle}>
                       <FontAwesomeIcon icon={faPhone} />
                     </div>
                     <div>
-                      <small style={{ color: 'var(--text-muted)' }} className="d-block">Phone</small>
-                      <a 
-                        href="tel:+639273222484" 
-                        className="text-decoration-none fw-medium"
-                        style={{ color: 'var(--text-primary)' }}
-                      >
-                        +63 927 322 2484
-                      </a>
+                      <span className={styles.contactLabel}>Phone / WhatsApp</span>
+                      <span className={styles.contactValue}>+63 927 322 2484</span>
                     </div>
-                  </div>
+                  </a>
                 </div>
 
-                <hr style={{ borderColor: 'var(--border-subtle)' }} className="my-4" />
-
-                <div>
-                  <p style={{ color: 'var(--text-secondary)' }} className="mb-3 small">Connect on social platforms:</p>
+                <div className={styles.socialsWrapper}>
+                  <p className={styles.socialsPrompt}>Professional networks & profiles:</p>
                   <Socials isAbout={true} />
                 </div>
               </div>
 
-              <div 
-                className="mt-4 pt-3 d-flex align-items-center gap-2 small"
-                style={{ borderTop: '1px solid var(--border-subtle)', color: 'var(--text-muted)' }}
-              >
+              <div className={styles.locationFooter}>
                 <FontAwesomeIcon icon={faLocationDot} style={{ color: 'var(--emerald-400)' }} />
-                <span>Based in the Philippines • Available for remote opportunities</span>
+                <span>Based in the Philippines • Available for Global Remote</span>
               </div>
             </div>
           </Col>
 
           {/* Contact Form Column */}
           <Col lg={7}>
-            <div 
-              className="p-4 p-md-5"
-              style={{
-                background: 'var(--surface-card)',
-                border: '1px solid var(--border-subtle)',
-                borderRadius: 'var(--radius-lg)',
-                boxShadow: '0 8px 30px rgba(0,0,0,0.3)',
-              }}
-            >
-              <h4 className="mb-4" style={{ color: 'var(--text-primary)', fontWeight: 700 }}>
+            <div className={styles.formCard}>
+              <h4 className={styles.cardTitle}>
                 Send a Message
               </h4>
 
               {status.message && (
-                <Alert 
-                  variant={status.success ? 'success' : 'danger'} 
-                  className="d-flex align-items-center mb-4"
-                  style={{
-                    background: status.success ? 'rgba(16, 185, 129, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-                    borderColor: status.success ? 'var(--emerald-500)' : '#ef4444',
-                    color: status.success ? 'var(--emerald-400)' : '#f87171',
-                  }}
-                >
+                <div className={`${styles.statusAlert} ${status.success ? styles.statusSuccess : styles.statusError}`}>
                   <FontAwesomeIcon 
                     icon={status.success ? faCheckCircle : faExclamationCircle} 
-                    className="me-2 fs-5" 
+                    className="fs-5 flex-shrink-0" 
                   />
                   <div>{status.message}</div>
-                </Alert>
+                </div>
               )}
 
               <Form onSubmit={handleSubmit}>
                 <Row>
                   <Col md={6} className="mb-3">
                     <Form.Group controlId="contactName">
-                      <Form.Label className="small fw-medium" style={{ color: 'var(--text-secondary)' }}>
+                      <label className={styles.formLabel}>
                         Your Name *
-                      </Form.Label>
-                      <Form.Control
+                      </label>
+                      <input
                         type="text"
                         name="name"
                         value={formData.name}
                         onChange={handleChange}
-                        placeholder="John Doe"
                         required
-                        className="py-2"
-                        style={{
-                          background: 'var(--bg-subtle)',
-                          borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
-                        }}
+                        className={styles.customInput}
                       />
                     </Form.Group>
                   </Col>
 
                   <Col md={6} className="mb-3">
                     <Form.Group controlId="contactEmail">
-                      <Form.Label className="small fw-medium" style={{ color: 'var(--text-secondary)' }}>
+                      <label className={styles.formLabel}>
                         Your Email *
-                      </Form.Label>
-                      <Form.Control
+                      </label>
+                      <input
                         type="email"
                         name="email"
                         value={formData.email}
                         onChange={handleChange}
-                        placeholder="john@example.com"
                         required
-                        className="py-2"
-                        style={{
-                          background: 'var(--bg-subtle)',
-                          borderColor: 'var(--border-subtle)',
-                          color: 'var(--text-primary)',
-                        }}
+                        className={styles.customInput}
                       />
                     </Form.Group>
                   </Col>
                 </Row>
 
                 <Form.Group controlId="contactSubject" className="mb-3">
-                  <Form.Label className="small fw-medium" style={{ color: 'var(--text-secondary)' }}>
+                  <label className={styles.formLabel}>
                     Subject *
-                  </Form.Label>
-                  <Form.Control
+                  </label>
+                  <input
                     type="text"
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    placeholder="Project Inquiry / Job Opportunity / Greeting"
                     required
-                    className="py-2"
-                    style={{
-                      background: 'var(--bg-subtle)',
-                      borderColor: 'var(--border-subtle)',
-                      color: 'var(--text-primary)',
-                    }}
+                    className={styles.customInput}
                   />
                 </Form.Group>
 
                 <Form.Group controlId="contactMessage" className="mb-4">
-                  <Form.Label className="small fw-medium" style={{ color: 'var(--text-secondary)' }}>
-                    Message *
-                  </Form.Label>
-                  <Form.Control
-                    as="textarea"
+                  <div className={styles.messageHeader}>
+                    <label className={styles.formLabel} style={{ marginBottom: 0 }}>
+                      Message *
+                    </label>
+                    <span 
+                      className={`${styles.charCounter} ${
+                        formData.message.length >= 500
+                          ? styles.charCounterLimit
+                          : formData.message.length >= 450
+                          ? styles.charCounterWarning
+                          : ''
+                      }`}
+                    >
+                      {formData.message.length} / 500
+                    </span>
+                  </div>
+                  <textarea
                     rows={5}
                     name="message"
+                    maxLength={500}
                     value={formData.message}
                     onChange={handleChange}
-                    placeholder="Write your message here..."
                     required
-                    style={{
-                      background: 'var(--bg-subtle)',
-                      borderColor: 'var(--border-subtle)',
-                      color: 'var(--text-primary)',
-                    }}
+                    className={styles.customTextarea}
                   />
                 </Form.Group>
 
@@ -349,19 +268,10 @@ export default function Contact() {
                   />
                 </div>
 
-                <Button
+                <button
                   type="submit"
-                  size="lg"
                   disabled={status.loading}
-                  className="w-100 py-3 d-flex align-items-center justify-content-center gap-2"
-                  style={{
-                    backgroundColor: 'var(--emerald-500)',
-                    borderColor: 'var(--emerald-500)',
-                    color: '#042417',
-                    fontWeight: 600,
-                    borderRadius: 'var(--radius-pill)',
-                    boxShadow: '0 4px 20px rgba(16, 185, 129, 0.35)',
-                  }}
+                  className={styles.submitBtn}
                 >
                   {status.loading ? (
                     <>
@@ -374,7 +284,7 @@ export default function Contact() {
                       <span>Send Message</span>
                     </>
                   )}
-                </Button>
+                </button>
               </Form>
             </div>
           </Col>
