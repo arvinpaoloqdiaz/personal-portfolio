@@ -29,7 +29,7 @@
 }
 
 .heading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.65rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--text-primary, #0f172a);
   letter-spacing: -0.02em;

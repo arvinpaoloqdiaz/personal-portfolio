@@ -25,7 +25,7 @@ export default function ExperienceSection({ educationList, workList }) {
               aria-selected={!isEducation}
             >
               <FontAwesomeIcon icon={faBriefcase} />
-              <span>Work Experience</span>
+              <span className={styles.tabLabel}>Work Experience</span>
               {workCount > 0 && <span className={styles.tabBadge}>{workCount}</span>}
             </button>
 
@@ -36,7 +36,7 @@ export default function ExperienceSection({ educationList, workList }) {
               aria-selected={isEducation}
             >
               <FontAwesomeIcon icon={faSchool} />
-              <span>Education</span>
+              <span className={styles.tabLabel}>Education</span>
               {educationCount > 0 && <span className={styles.tabBadge}>{educationCount}</span>}
             </button>
           </div>

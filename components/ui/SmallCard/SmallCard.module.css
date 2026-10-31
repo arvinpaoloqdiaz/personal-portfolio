@@ -9,6 +9,7 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 145px;
+  height: 100%;
   background: var(--surface-card, #121a16);
   border: 1px solid var(--border-subtle, rgba(52, 211, 153, 0.14));
   border-radius: var(--radius-lg, 20px);

@@ -5,12 +5,14 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* outline: solid red 1px; */
 }
 
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
   color-scheme: light;
+  overflow-x: hidden;
 }
 
 :root {
@@ -98,12 +100,21 @@ html {
   color: #0f172a !important;
 }
 
+/* Fix Bootstrap row negative margins causing horizontal scroll when not directly wrapped in container */
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 body {
   background-color: var(--bg-canvas) !important;
   color: var(--text-primary) !important;
   font-family: var(--font-body-stack);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 
 h1,

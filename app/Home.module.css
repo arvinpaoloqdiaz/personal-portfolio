@@ -33,7 +33,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.5rem, 5vw, 4.25rem);
+  font-size: clamp(1.85rem, 5vw, 4.25rem);
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 0.5rem;
@@ -167,5 +167,27 @@
   border-color: var(--border-hover);
   background: rgba(255, 255, 255, 0.08);
   transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .heroWrapper {
+    padding-top: 1rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .roleRow {
+    margin-bottom: 1.5rem;
+  }
+
+  .bioLead {
+    font-size: 1rem;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}
+
+.heroNoBreak {
+  white-space: nowrap;
 }
 

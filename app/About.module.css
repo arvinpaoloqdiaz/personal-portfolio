@@ -25,7 +25,7 @@
 }
 
 .sectionHeading {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.65rem, 4vw, 3rem);
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--text-primary);
@@ -212,3 +212,28 @@
   cursor: help;
 }
 
+@media (max-width: 768px) {
+  .aboutSection {
+    padding: 3rem 0;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .bentoCard,
+  .ctaBentoCard {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .bentoCardTitle {
+    font-size: 1.15rem;
+  }
+
+  .bioParagraph {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+}

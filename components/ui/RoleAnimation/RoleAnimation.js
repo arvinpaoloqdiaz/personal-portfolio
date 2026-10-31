@@ -59,7 +59,7 @@ export default function RoleAnimation({ mode = ACTIVE_ANIMATION }) {
           exit={currentVariant.exit}
           transition={currentVariant.transition}
           style={{
-            fontSize: '1.35rem',
+            fontSize: 'clamp(1.05rem, 4vw, 1.35rem)',
             fontWeight: 600,
             color: 'var(--emerald-400)',
             display: 'inline-block',

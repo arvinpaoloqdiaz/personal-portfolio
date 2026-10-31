@@ -64,7 +64,7 @@ export default async function Page() {
               <h1 className={homeStyles.heroTitle}>
                 Building Fast <span className={homeStyles.heroTitleAccent}>Web Apps</span> &{' '}
                 <br className={homeStyles.heroBreak} />
-                Smooth <span className={homeStyles.heroTitleAccent}>Deployments</span>
+                <span className={homeStyles.heroNoBreak}>Smooth <span className={homeStyles.heroTitleAccent}>Deployments</span></span>
               </h1>
               <div className={homeStyles.roleRow}>
                 <RoleAnimation />
@@ -98,7 +98,7 @@ export default async function Page() {
                 </div>
 
                 {/* Stats cards with Suspense skeleton */}
-                <div className="row g-3 mt-1">
+                <div className="row g-3 mt-1 align-items-stretch">
                   <Suspense fallback={<StatsCardsSkeleton />}>
                     <StatsCards />
                   </Suspense>

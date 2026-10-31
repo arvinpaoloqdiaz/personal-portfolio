@@ -279,13 +279,14 @@
 @media (max-width: 640px) {
   .navbarWrapper {
     top: auto;
-    bottom: 1.25rem;
+    bottom: calc(1.25rem + env(safe-area-inset-bottom, 0px));
   }
 
   .navbar {
     padding: 0.35rem 0.5rem;
     gap: 0.35rem;
     background: var(--surface-glass);
+    transform: none !important;
   }
 
   .navItem {
